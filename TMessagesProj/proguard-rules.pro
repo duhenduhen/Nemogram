@@ -156,3 +156,7 @@
 -dontwarn android.support.annotation.*
 -dontwarn androidx.compose.**
 -dontwarn com.google.j2objc.annotations.**
+
+# https://github.com/osmdroid/osmdroid/issues/633
+-dontwarn org.osmdroid.tileprovider.modules.NetworkAvailabliltyCheck
+-dontwarn org.osmdroid.**

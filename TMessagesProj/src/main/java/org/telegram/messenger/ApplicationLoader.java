@@ -80,36 +80,12 @@ public class ApplicationLoader extends Application {
     public static volatile long mainInterfacePausedStageQueueTime;
 
     private static PushListenerController.IPushListenerServiceProvider pushProvider;
-    private static IMapsProvider mapsProvider;
     private static ILocationServiceProvider locationServiceProvider;
 
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         FirebaseFix.check(base);
-    }
-
-    public static ILocationServiceProvider getLocationServiceProvider() {
-        if (locationServiceProvider == null) {
-            locationServiceProvider = applicationLoaderInstance.onCreateLocationServiceProvider();
-            locationServiceProvider.init(applicationContext);
-        }
-        return locationServiceProvider;
-    }
-
-    protected ILocationServiceProvider onCreateLocationServiceProvider() {
-        return new GoogleLocationProvider();
-    }
-
-    public static IMapsProvider getMapsProvider() {
-        if (mapsProvider == null) {
-            mapsProvider = applicationLoaderInstance.onCreateMapsProvider();
-        }
-        return mapsProvider;
-    }
-
-    protected IMapsProvider onCreateMapsProvider() {
-        return new GoogleMapsProvider();
     }
 
     public static PushListenerController.IPushListenerServiceProvider getPushProvider() {
@@ -298,6 +274,8 @@ public class ApplicationLoader extends Application {
         }
 
         super.onCreate();
+        org.osmdroid.config.Configuration.getInstance().load(this, getSharedPreferences("osmdroid", Context.MODE_PRIVATE));
+        org.osmdroid.config.Configuration.getInstance().setUserAgentValue(getPackageName());
 
         ComponentsHelper.fixComponents(this);
 
@@ -610,12 +588,19 @@ public class ApplicationLoader extends Application {
         applicationLoaderInstance.startAppCenterInternal(context);
     }
 
-    public static void checkForUpdates() {
-        applicationLoaderInstance.checkForUpdatesInternal();
-    }
-
     public static void appCenterLog(Throwable e) {
         applicationLoaderInstance.appCenterLogInternal(e);
+    }
+
+    public static ILocationServiceProvider getLocationServiceProvider() {
+        if (locationServiceProvider == null) {
+            locationServiceProvider = applicationLoaderInstance.onCreateLocationServiceProvider();
+        }
+        return locationServiceProvider;
+    }
+
+    protected ILocationServiceProvider onCreateLocationServiceProvider() {
+        return new SystemLocationServiceProvider();
     }
 
     protected void appCenterLogInternal(Throwable e) {
