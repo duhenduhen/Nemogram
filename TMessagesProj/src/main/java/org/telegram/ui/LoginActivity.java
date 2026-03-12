@@ -216,6 +216,7 @@ import tw.nekomimi.nekogram.BackButtonMenuRecent;
 import tw.nekomimi.nekogram.EditTextAutoFill;
 import tw.nekomimi.nekogram.QrView;
 import tw.nekomimi.nekogram.helpers.PasscodeHelper;
+import tw.nekomimi.nekogram.helpers.PopupHelper;
 
 @SuppressLint("HardwareIds")
 public class LoginActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate {
@@ -4031,13 +4032,7 @@ public class LoginActivity extends BaseFragment implements NotificationCenter.No
                         String finalNetworkOperator = networkOperator;
                         getConnectionsManager().sendRequest(req, null, ConnectionsManager.RequestFlagWithoutLogin);
                         if (currentType == AUTH_TYPE_MESSAGE) {
-                            new AlertDialog.Builder(context)
-                                    .setTitle(LocaleController.getString(R.string.RestorePasswordNoEmailTitle))
-                                    .setMessage(AndroidUtilities.replaceTags(LocaleController.getString("DidNotGetTheCodeBlameDurov", R.string.DidNotGetTheCodeBlameDurov)))
-                                    .setPositiveButton(LocaleController.getString(R.string.Close), null)
-                                    .setNeutralButton(LocaleController.getString(R.string.InstallOfficialApp),
-                                            (dialog, which) -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.telegram.messenger"))))
-                                    .show();
+                            PopupHelper.showBlameAlert(context, R.string.DidNotGetTheCodeBlameDurov, "tg://openmessage?user_id=777000");
                             return;
                         }
                         new AlertDialog.Builder(context)

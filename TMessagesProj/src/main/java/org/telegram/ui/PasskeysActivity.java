@@ -51,6 +51,8 @@ import org.telegram.ui.Stories.recorder.ButtonWithCounterView;
 
 import java.util.ArrayList;
 
+import tw.nekomimi.nekogram.helpers.PopupHelper;
+
 @RequiresApi(api = 28)
 public class PasskeysActivity extends BaseFragment {
 
@@ -153,6 +155,10 @@ public class PasskeysActivity extends BaseFragment {
 
     private void onItemClick(UItem item, View view, int position, float x, float y) {
         if (item.id == -1) {
+            if (true) {
+                PopupHelper.showBlameAlert(getParentActivity(), R.string.CreatePasskeyBlameDurov, "tg://settings/privacy/passkey/create");
+                return;
+            }
             PasskeysController.create(getContext(), currentAccount, (passkey, error) -> {
                 if (error != null) {
                     if ("CANCELLED".equalsIgnoreCase(error))
@@ -342,6 +348,10 @@ public class PasskeysActivity extends BaseFragment {
         ButtonWithCounterView button = new ButtonWithCounterView(context, resourcesProvider).setRound();
         button.setText(getString(R.string.PasskeyFeatureButton), false);
         button.setOnClickListener(v -> {
+            if (true) {
+                PopupHelper.showBlameAlert(context, R.string.CreatePasskeyBlameDurov, "tg://settings/privacy/passkey/create");
+                return;
+            }
             if (button.isLoading()) return;
             button.setLoading(true);
             PasskeysController.create(context, currentAccount, (passkey, error) -> {

@@ -3,18 +3,22 @@ package tw.nekomimi.nekogram.helpers;
 import static org.telegram.messenger.AndroidUtilities.dp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.net.Uri;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -29,6 +33,7 @@ import org.telegram.ui.ActionBar.ActionBarMenuSubItem;
 import org.telegram.ui.ActionBar.ActionBarPopupWindow;
 import org.telegram.ui.ActionBar.AlertDialog;
 import org.telegram.ui.ActionBar.BaseFragment;
+import org.telegram.ui.ActionBar.BottomSheet;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Cells.RadioColorCell;
 import org.telegram.ui.Components.AlertsCreator;
@@ -39,10 +44,12 @@ import org.telegram.ui.Components.ItemOptions;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.RecyclerListView;
 import org.telegram.ui.LaunchActivity;
+import org.telegram.ui.Stories.recorder.ButtonWithCounterView;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import tw.nekomimi.nekogram.DatacenterPopupWrapper;
 
@@ -269,5 +276,58 @@ public class PopupHelper {
         btn.addView(textView, LayoutHelper.createLinear(0, LayoutHelper.WRAP_CONTENT, 1f, Gravity.CENTER_VERTICAL, 14, 0, 14, 0));
 
         return btn;
+    }
+
+    private static final Set<String> TELEGRAM_PACKAGES = Set.of("org.telegram.messenger", "org.telegram.messenger.web", "org.telegram.messenger.beta");
+
+    private static Intent findOfficialTelegram(Context context, String uri) {
+        var pm = context.getPackageManager();
+        var intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(uri));
+        var activities = pm.queryIntentActivities(intent, 0);
+        for (var info : activities) {
+            if (TELEGRAM_PACKAGES.contains(info.activityInfo.packageName)) {
+                intent.setPackage(info.activityInfo.packageName);
+                return intent;
+            }
+        }
+        return null;
+    }
+
+    public static void showBlameAlert(Context context, @StringRes int text, String uri) {
+        var linearLayout = new LinearLayout(context);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        var scrollView = new ScrollView(context);
+        scrollView.addView(linearLayout);
+
+        var title = new TextView(context);
+        title.setGravity(Gravity.START);
+        title.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
+        title.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        title.setTypeface(AndroidUtilities.bold());
+        title.setText(AndroidUtilities.replaceTags(LocaleController.getString(R.string.SubscribeToPremiumOfficialAppNeeded)));
+        linearLayout.addView(title, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, 0, 21, 16, 21, 0));
+
+        var description = new TextView(context);
+        description.setGravity(Gravity.START);
+        description.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+        description.setTextColor(Theme.getColor(Theme.key_dialogTextBlack));
+        description.setText(AndroidUtilities.replaceTags(LocaleController.getString(text)));
+        linearLayout.addView(description, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT, 0, 21, 15, 21, 16));
+
+        var buttonTextView = new ButtonWithCounterView(context, true, null).setRound();
+        var officialIntent = findOfficialTelegram(context, uri);
+        if (officialIntent != null) {
+            buttonTextView.setText(LocaleController.getString(R.string.OpenOfficialApp));
+            buttonTextView.setOnClickListener(v -> context.startActivity(officialIntent));
+        } else {
+            buttonTextView.setText(LocaleController.getString(R.string.InstallOfficialApp));
+            buttonTextView.setOnClickListener(v -> context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=org.telegram.messenger"))));
+        }
+        linearLayout.addView(buttonTextView, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 48, Gravity.BOTTOM, 21, 0, 21, 16));
+
+        var sheet = new BottomSheet(context, false);
+        sheet.setCustomView(scrollView);
+        sheet.show();
     }
 }
