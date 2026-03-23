@@ -8,6 +8,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -174,7 +175,7 @@ public final class ApkInstaller {
             }
             var packageName = activity.activityInfo.packageName;
             FileLog.d("Current package installer: " + packageName);
-            hasBrokenPackageInstaller = packageName.startsWith("com.miui");
+            hasBrokenPackageInstaller = packageName.startsWith("com.miui") && activity.activityInfo.launchMode != ActivityInfo.LAUNCH_SINGLE_INSTANCE;
         }
         return hasBrokenPackageInstaller;
     }
