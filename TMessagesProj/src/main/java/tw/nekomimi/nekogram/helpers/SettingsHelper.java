@@ -65,9 +65,6 @@ public class SettingsHelper {
                 case "g":
                     fragment = new NekoGeneralSettingsActivity();
                     break;
-                case "reportid":
-                    SettingsHelper.copyReportId();
-                    return;
                 case "update":
                     LaunchActivity.instance.checkAppUpdate(true, progress);
                     return;
@@ -85,10 +82,5 @@ public class SettingsHelper {
             var rowFinal = row;
             AndroidUtilities.runOnUIThread(() -> fragment.scrollToRow(rowFinal, unknown));
         }
-    }
-
-    public static void copyReportId() {
-        AndroidUtilities.addToClipboard(AnalyticsHelper.userId);
-        BulletinFactory.global().createSimpleBulletin(R.raw.copy, LocaleController.getString(R.string.TextCopied), LocaleController.getString(R.string.CopyReportIdDescription)).show();
     }
 }

@@ -51,7 +51,6 @@ import java.util.concurrent.CountDownLatch;
 
 import tw.nekomimi.nekogram.FirebaseFix;
 import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.AnalyticsHelper;
 import tw.nekomimi.nekogram.helpers.ComponentsHelper;
 
 public class ApplicationLoader extends Application {
@@ -300,7 +299,6 @@ public class ApplicationLoader extends Application {
 
         super.onCreate();
 
-        AnalyticsHelper.start(this);
         ComponentsHelper.fixComponents(this);
 
         if (BuildVars.LOGS_ENABLED) {

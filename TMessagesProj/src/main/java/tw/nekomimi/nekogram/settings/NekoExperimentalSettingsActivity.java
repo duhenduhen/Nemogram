@@ -28,9 +28,7 @@ import java.util.Locale;
 
 import tw.nekomimi.nekogram.Extra;
 import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.AnalyticsHelper;
 import tw.nekomimi.nekogram.helpers.PopupHelper;
-import tw.nekomimi.nekogram.helpers.SettingsHelper;
 import tw.nekomimi.nekogram.helpers.remote.UpdateHelper;
 
 public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
@@ -44,10 +42,6 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private final int showRPCErrorRow = rowId++;
 
     private final int checkUpdateRow = rowId++;
-
-    private final int sendBugReportRow = rowId++;
-    private final int deleteDataRow = rowId++;
-    private final int copyReportIdRow = rowId++;
 
     private final int deleteAccountRow = rowId++;
 
@@ -77,14 +71,6 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             items.add(TextDetailSettingsCellFactory.of(checkUpdateRow, LocaleController.getString(R.string.CheckUpdate), UpdateHelper.formatDateUpdate(SharedConfig.lastUpdateCheckTime)).slug("checkUpdate"));
             items.add(UItem.asShadow(null));
         }
-
-        if (AnalyticsHelper.isSettingsAvailable()) {
-            items.add(UItem.asHeader(LocaleController.getString(R.string.SendAnonymousData)));
-            items.add(UItem.asCheck(sendBugReportRow, LocaleController.getString(R.string.SendBugReport), LocaleController.getString(R.string.SendBugReportDesc)).slug("sendBugReport").setChecked(!AnalyticsHelper.analyticsDisabled && AnalyticsHelper.sendBugReport).setEnabled(!AnalyticsHelper.analyticsDisabled));
-            items.add(TextDetailSettingsCellFactory.of(deleteDataRow, LocaleController.getString(R.string.AnonymousDataDelete), LocaleController.getString(R.string.AnonymousDataDeleteDesc)).slug("deleteData"));
-        }
-        items.add(TextDetailSettingsCellFactory.of(copyReportIdRow, LocaleController.getString(R.string.CopyReportId), LocaleController.getString(R.string.CopyReportIdDescription)).slug("copyReportId"));
-        items.add(UItem.asShadow(!AnalyticsHelper.isSettingsAvailable() ? null : LocaleController.formatString(R.string.SendAnonymousDataDesc, "Sentry", "Functional Software")));
 
         items.add(TextSettingsCellFactory.of(deleteAccountRow, LocaleController.getString(R.string.DeleteAccount), "").slug("deleteAccount").red());
         items.add(UItem.asShadow(null));
@@ -204,42 +190,11 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
             }, resourcesProvider);
-        } else if (id == sendBugReportRow) {
-            if (AnalyticsHelper.analyticsDisabled) {
-                return;
-            }
-            AnalyticsHelper.toggleSendBugReport();
-            if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(AnalyticsHelper.sendBugReport);
-            }
-            var copyItem = listView.findItemByItemId(copyReportIdRow);
-            copyItem.setEnabled(AnalyticsHelper.sendBugReport);
-            notifyItemChanged(copyReportIdRow);
-        } else if (id == deleteDataRow) {
-            if (AnalyticsHelper.analyticsDisabled) {
-                return;
-            }
-            AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity(), resourcesProvider);
-            builder.setTitle(LocaleController.getString(R.string.AnonymousDataDelete));
-            builder.setMessage(LocaleController.getString(R.string.AnonymousDataDeleteDesc));
-            builder.setPositiveButton(LocaleController.getString(R.string.Delete), (dialog, which) -> {
-                AnalyticsHelper.setAnalyticsDisabled();
-                listView.adapter.update(true);
-            });
-            builder.setNegativeButton(LocaleController.getString(R.string.Cancel), null);
-            AlertDialog dialog = builder.create();
-            showDialog(dialog);
-            dialog.redPositive();
         } else if (id == contentRestrictionRow) {
             NekoConfig.toggleIgnoreContentRestriction();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.ignoreContentRestriction);
             }
-        } else if (id == copyReportIdRow) {
-            if (AnalyticsHelper.analyticsDisabled || !AnalyticsHelper.sendBugReport) {
-                return;
-            }
-            SettingsHelper.copyReportId();
         } else if (id == autoInlineBotRow) {
             NekoConfig.toggleAutoInlineBot();
             if (view instanceof TextCheckCell) {
