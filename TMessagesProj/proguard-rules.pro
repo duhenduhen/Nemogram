@@ -155,3 +155,4 @@
 
 -dontwarn android.support.annotation.*
 -dontwarn androidx.compose.**
+-dontwarn com.google.j2objc.annotations.**
