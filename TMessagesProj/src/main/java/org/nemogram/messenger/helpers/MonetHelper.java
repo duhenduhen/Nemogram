@@ -1,5 +1,6 @@
 package org.nemogram.messenger.helpers;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -86,6 +87,25 @@ public class MonetHelper {
         put(2_2_0900, android.R.color.system_neutral2_900);
         put(2_2_1000, android.R.color.system_neutral2_1000);
     }};
+
+    @SuppressLint("NewApi")
+    public static int getSettingsIconBackgroundColor(int original) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Theme.getActiveTheme().isMonet()) {
+            return Theme.getColor(Theme.key_windowBackgroundWhiteBlueHeader);
+        } else {
+            return original;
+        }
+    }
+
+    @SuppressLint("NewApi")
+    public static int getSettingsIconForegroundColor(int original) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && Theme.getActiveTheme().isMonet()) {
+            return Theme.getColor(Theme.key_windowBackgroundWhite);
+        } else {
+            return original;
+        }
+    }
+
     private static final String ACTION_OVERLAY_CHANGED = "android.intent.action.OVERLAY_CHANGED";
     private static final OverlayChangeReceiver overlayChangeReceiver = new OverlayChangeReceiver();
 

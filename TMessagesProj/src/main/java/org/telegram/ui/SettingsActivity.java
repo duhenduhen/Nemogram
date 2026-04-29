@@ -59,6 +59,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.nemogram.messenger.helpers.MonetHelper;
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
@@ -1161,6 +1162,12 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             subtitleView.setText(subtitle);
             valueView.setVisibility(!TextUtils.isEmpty(value) ? View.VISIBLE : View.GONE);
             valueView.setText(value);
+
+            iconView.setColorFilter(new PorterDuffColorFilter(
+                    MonetHelper.getSettingsIconForegroundColor(Color.WHITE),
+                    PorterDuff.Mode.SRC_IN
+            ));
+
         }
 
         @Override
@@ -1248,6 +1255,8 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
                 return of(id, iconColorTop, iconColorBottom, icon, title, subtitle, null);
             }
             public static UItem of(int id, int iconColorTop, int iconColorBottom, int icon, CharSequence title, CharSequence subtitle, CharSequence value) {
+                iconColorTop = MonetHelper.getSettingsIconBackgroundColor(iconColorTop);
+                iconColorBottom = MonetHelper.getSettingsIconBackgroundColor(iconColorBottom);
                 final UItem item = UItem.ofFactory(Factory.class);
                 item.id = id;
                 item.iconResId = icon;
@@ -1259,6 +1268,8 @@ public class SettingsActivity extends BaseFragment implements NotificationCenter
             }
 
             public static UItem ofBot(TLRPC.TL_attachMenuBot attachMenuBot, int iconColorTop, int iconColorBottom, int icon) {
+                iconColorTop = MonetHelper.getSettingsIconBackgroundColor(iconColorTop);
+                iconColorBottom = MonetHelper.getSettingsIconBackgroundColor(iconColorBottom);
                 final UItem item = UItem.ofFactory(Factory.class);
                 item.id = Long.hashCode(attachMenuBot.bot_id);
                 item.object = attachMenuBot;
