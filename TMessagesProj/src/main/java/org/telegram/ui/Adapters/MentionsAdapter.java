@@ -79,7 +79,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import tw.nekomimi.nekogram.helpers.InlineBotHelper;
+import org.nemogram.messenger.helpers.InlineBotHelper;
 
 public class MentionsAdapter extends RecyclerListView.SelectionAdapter implements NotificationCenter.NotificationCenterDelegate {
 

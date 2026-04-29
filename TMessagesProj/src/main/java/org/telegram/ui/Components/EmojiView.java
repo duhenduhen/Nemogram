@@ -157,7 +157,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.NekoConfig;
+import org.nemogram.messenger.NekoConfig;
 
 import me.vkryl.android.animator.BoolAnimator;
 

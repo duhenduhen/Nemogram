@@ -175,10 +175,10 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.forward.ForwardContext;
-import tw.nekomimi.nekogram.forward.ForwardDrawable;
-import tw.nekomimi.nekogram.forward.ForwardItem;
+import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.forward.ForwardContext;
+import org.nemogram.messenger.forward.ForwardDrawable;
+import org.nemogram.messenger.forward.ForwardItem;
 
 @SuppressWarnings("unchecked")
 public class SharedMediaLayout extends FrameLayout implements NotificationCenter.NotificationCenterDelegate, DialogCell.DialogCellDelegate, ForwardContext {

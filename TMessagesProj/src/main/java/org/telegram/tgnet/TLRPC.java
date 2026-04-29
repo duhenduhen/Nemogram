@@ -46,7 +46,7 @@ import org.telegram.ui.Stories.MessageMediaStoryFull_old;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import tw.nekomimi.nekogram.helpers.WebAppHelper;
+import org.nemogram.messenger.helpers.WebAppHelper;
 
 public class TLRPC {
 

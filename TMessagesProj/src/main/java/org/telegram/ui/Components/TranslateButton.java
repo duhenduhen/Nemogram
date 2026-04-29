@@ -56,9 +56,9 @@ import org.telegram.ui.Stories.recorder.HintView2;
 import java.util.ArrayList;
 import java.util.List;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.settings.NekoLanguagesSelectActivity;
-import tw.nekomimi.nekogram.translator.Translator;
+import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.settings.NekoLanguagesSelectActivity;
+import org.nemogram.messenger.translator.Translator;
 
 public class TranslateButton extends FrameLayout implements Theme.Colorable {
 

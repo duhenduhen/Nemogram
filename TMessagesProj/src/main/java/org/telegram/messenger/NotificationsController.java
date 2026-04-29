@@ -97,9 +97,9 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Consumer;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.MessageFilterHelper;
-import tw.nekomimi.nekogram.helpers.PasscodeHelper;
+import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.helpers.MessageFilterHelper;
+import org.nemogram.messenger.helpers.PasscodeHelper;
 
 public class NotificationsController extends BaseController {
 

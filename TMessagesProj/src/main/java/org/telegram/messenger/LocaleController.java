@@ -58,7 +58,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import tw.nekomimi.nekogram.NekoConfig;
+import org.nemogram.messenger.NekoConfig;
 
 public class LocaleController {
 
@@ -1451,14 +1451,14 @@ public class LocaleController {
     private String getStringInternal(String key, String fallback, int fallbackRes, int res) {
         if (key.equals("AppName")) {
             try {
-                return ApplicationLoader.applicationContext.getString(R.string.Nekogram);
+                return ApplicationLoader.applicationContext.getString(R.string.Nemogram);
             } catch (Exception e) {
                 FileLog.e(e);
             }
         }
         if (key.equals("AppNameBeta")) {
             try {
-                return ApplicationLoader.applicationContext.getString(R.string.NekogramBeta);
+                return ApplicationLoader.applicationContext.getString(R.string.NemogramBeta);
             } catch (Exception e) {
                 FileLog.e(e);
             }

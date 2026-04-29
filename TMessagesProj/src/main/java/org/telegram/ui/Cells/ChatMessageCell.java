@@ -233,11 +233,11 @@ import org.telegram.ui.Stories.StoryViewer;
 import org.telegram.ui.Stories.recorder.CaptionContainerView;
 import org.telegram.ui.Stories.recorder.DominantColors;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.accessibility.AccConfig;
-import tw.nekomimi.nekogram.helpers.MessageFilterHelper;
-import tw.nekomimi.nekogram.helpers.MessageHelper;
-import tw.nekomimi.nekogram.helpers.WhisperHelper;
+import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.accessibility.AccConfig;
+import org.nemogram.messenger.helpers.MessageFilterHelper;
+import org.nemogram.messenger.helpers.MessageHelper;
+import org.nemogram.messenger.helpers.WhisperHelper;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -13326,7 +13326,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             } else if (drawInstantViewType == 20) {
                 str = getString(R.string.OpenGift);
             } else if (drawInstantViewType == 21) {
-                str = getString(R.string.UpdateNekogram);
+                str = getString(R.string.UpdateNemogram);
             } else if (drawInstantViewType == 23) {
                 str = getString(R.string.OpenStickerSet);
             } else if (drawInstantViewType == 24) {

@@ -60,7 +60,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 
-import tw.nekomimi.nekogram.helpers.PopupHelper;
+import org.nemogram.messenger.helpers.PopupHelper;
 
 public class ActionIntroActivity extends BaseFragment implements LocationController.LocationFetchCallback {
 

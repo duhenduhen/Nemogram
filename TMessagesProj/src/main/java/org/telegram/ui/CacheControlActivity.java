@@ -122,7 +122,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.helpers.EmojiHelper;
+import org.nemogram.messenger.helpers.EmojiHelper;
 
 public class CacheControlActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate {
 

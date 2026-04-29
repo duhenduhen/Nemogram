@@ -16,7 +16,7 @@ import com.android.billingclient.api.ProductDetails;
 
 import java.util.Objects;
 
-import tw.nekomimi.nekogram.Extra;
+import org.nemogram.messenger.Extra;
 
 public class BuildVars {
 

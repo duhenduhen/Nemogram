@@ -56,8 +56,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import tw.nekomimi.nekogram.helpers.SettingsHelper;
-import tw.nekomimi.nekogram.helpers.UserHelper;
+import org.nemogram.messenger.helpers.SettingsHelper;
+import org.nemogram.messenger.helpers.UserHelper;
 
 public class LinkManager {
 
@@ -134,9 +134,9 @@ public class LinkManager {
             return handleNewBot(second, segments.size() >= 3 ? segments.get(2) : null, uri.getQueryParameter("name"));
         }
 
-        if ("nekosettings".equals(first)) {
+        if ("nemosettings".equals(first)) {
             SettingsHelper.processDeepLink(uri, this::presentFragment,
-                    () -> getBulletinFactory().createErrorBulletin(LocaleController.getString(R.string.UnknownNekoSettingsOption)).show(), progress);
+                    () -> getBulletinFactory().createErrorBulletin(LocaleController.getString(R.string.UnknownNemoSettingsOption)).show(), progress);
             return true;
         }
 

@@ -169,7 +169,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
-import tw.nekomimi.nekogram.helpers.PasscodeHelper;
+import org.nemogram.messenger.helpers.PasscodeHelper;
 import me.vkryl.core.BitwiseUtils;
 
 public class AlertsCreator {

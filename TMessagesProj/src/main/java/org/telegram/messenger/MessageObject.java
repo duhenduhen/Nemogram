@@ -117,11 +117,11 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tw.nekomimi.nekogram.NekoConfig;
-import tw.nekomimi.nekogram.helpers.MessageFilterHelper;
-import tw.nekomimi.nekogram.helpers.MessageHelper;
-import tw.nekomimi.nekogram.syntaxhighlight.SyntaxHighlight;
-import tw.nekomimi.nekogram.translator.Translator;
+import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.helpers.MessageFilterHelper;
+import org.nemogram.messenger.helpers.MessageHelper;
+import org.nemogram.messenger.syntaxhighlight.SyntaxHighlight;
+import org.nemogram.messenger.translator.Translator;
 
 import me.vkryl.core.BitwiseUtils;
 
