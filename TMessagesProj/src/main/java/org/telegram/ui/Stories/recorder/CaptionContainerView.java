@@ -1396,6 +1396,9 @@ public class CaptionContainerView extends FrameLayout {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        if (editText != null) {
+            editText.onDestroy();
+        }
         if (blurBitmap != null) {
             blurBitmap.recycle();
         }

@@ -211,6 +211,7 @@ public class StoryRecorder implements NotificationCenter.NotificationCenterDeleg
 
     public static void destroyInstance() {
         if (instance != null) {
+            instance.removeNotificationObservers();
             instance.close(false);
         }
         instance = null;
