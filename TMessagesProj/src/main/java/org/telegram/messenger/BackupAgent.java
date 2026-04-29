@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class BackupAgent extends BackupAgentHelper {
 
     private static BackupManager backupManager;
+    private static Context storedContext;
 
     @Override
     public void onCreate() {
@@ -27,9 +28,19 @@ public class BackupAgent extends BackupAgentHelper {
     }
 
     public static void requestBackup(Context context) {
+        Context appContext = context.getApplicationContext();
+        
         if (backupManager == null) {
-            backupManager = new BackupManager(context);
+            backupManager = new BackupManager(appContext);
+            storedContext = appContext;
         }
         backupManager.dataChanged();
+    }
+    
+    public static void clearBackupManager() {
+        if (backupManager != null) {
+            backupManager = null;
+            storedContext = null;
+        }
     }
 }

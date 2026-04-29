@@ -6768,6 +6768,8 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N && frameMetricsOverlayView != null) {
             frameMetricsOverlayView.detach();
         }
+        
+        BackupAgent.clearBackupManager();
     }
 
     @Override
