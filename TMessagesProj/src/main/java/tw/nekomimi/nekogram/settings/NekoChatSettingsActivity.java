@@ -48,6 +48,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     private ActionBarMenuItem resetItem;
 
     private final int stickerSizeRow = rowId++;
+    private final int gifSizeRow = rowId++;
     private final int hideTimeOnStickerRow = rowId++;
     private final int showTimeHintRow = rowId++;
     private final int reducedColorsRow = rowId++;
@@ -117,7 +118,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             }
             item.floatValue = 14.0f;
         });
-        AndroidUtilities.updateViewVisibilityAnimated(resetItem, Float.compare(NekoConfig.stickerSize, 14.0f) != 0, 1f, false);
+        AndroidUtilities.updateViewVisibilityAnimated(resetItem, Float.compare(NekoConfig.stickerSize, 14.0f) != 0 || Float.compare(NekoConfig.gifSize, 14.0f) != 0, 1f, false);
 
         return fragmentView;
     }
@@ -145,6 +146,12 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
             }
         }).slug("stickerSize"));
+        items.add(GifSizeCellFactory.of(gifSizeRow, LocaleController.getString(R.string.GifSize), NekoConfig.gifSize, progress -> {
+            NekoConfig.setGifSize(progress);
+            if (progress != 14.0f && resetItem.getVisibility() != View.VISIBLE) {
+                AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
+            }
+        }).slug("gifSize"));
         items.add(UItem.asCheck(hideTimeOnStickerRow, LocaleController.getString(R.string.HideTimeOnSticker)).slug("hideTimeOnSticker").setChecked(NekoConfig.hideTimeOnSticker));
         items.add(UItem.asCheck(showTimeHintRow, LocaleController.getString(R.string.ShowTimeHint), LocaleController.getString(R.string.ShowTimeHintDesc)).slug("showTimeHint").setChecked(NekoConfig.showTimeHint));
         items.add(UItem.asCheck(reducedColorsRow, LocaleController.getString(R.string.ReducedColors)).slug("reducedColors").setChecked(NekoConfig.reducedColors));
@@ -580,6 +587,63 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         public void invalidate() {
             super.invalidate();
             messagesCell.invalidate();
+        }
+    }
+
+    private static class GifSizeCellFactory extends UItem.UItemFactory<GifSizeCell> {
+        static {
+            setup(new GifSizeCellFactory());
+        }
+
+        @Override
+        public GifSizeCell createView(Context context, RecyclerListView listView, int currentAccount, int classGuid, Theme.ResourcesProvider resourcesProvider) {
+            return new GifSizeCell(context, resourcesProvider);
+        }
+
+        @Override
+        public void bindView(View view, UItem item, boolean divider, UniversalAdapter adapter, UniversalRecyclerView listView) {
+            var cell = (GifSizeCell) view;
+            cell.setValue(item.floatValue);
+            cell.setOnDragListener((AltSeekbar.OnDrag) item.object);
+        }
+
+        public static UItem of(int id, String title, float value, AltSeekbar.OnDrag onDrag) {
+            var item = UItem.ofFactory(GifSizeCellFactory.class);
+            item.id = id;
+            item.text = title;
+            item.object = onDrag;
+            item.floatValue = value;
+            return item;
+        }
+
+        @Override
+        public boolean isClickable() {
+            return false;
+        }
+    }
+
+    private static class GifSizeCell extends FrameLayout {
+
+        private final AltSeekbar sizeBar;
+        private AltSeekbar.OnDrag onDrag;
+
+        public GifSizeCell(Context context, Theme.ResourcesProvider resourcesProvider) {
+            super(context);
+            setWillNotDraw(false);
+            sizeBar = new AltSeekbar(context, progress -> {
+                setValue(progress);
+                if (onDrag != null) onDrag.run(progress);
+            }, 14, 20, LocaleController.getString(R.string.GifSize), LocaleController.getString(R.string.StickerSizeLeft), LocaleController.getString(R.string.StickerSizeRight), resourcesProvider);
+            sizeBar.setValue(NekoConfig.gifSize);
+            addView(sizeBar, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
+        }
+
+        public void setOnDragListener(AltSeekbar.OnDrag onDrag) {
+            this.onDrag = onDrag;
+        }
+
+        public void setValue(float value) {
+            sizeBar.setValue(value);
         }
     }
 

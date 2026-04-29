@@ -325,6 +325,7 @@
     <string name="TabsPositionTop">Top</string>
     <string name="TabsPositionBottom">Bottom</string>
     <string name="StrokeOnViews">Glare effects</string>
+    <string name="GifSize">GIF Size</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>

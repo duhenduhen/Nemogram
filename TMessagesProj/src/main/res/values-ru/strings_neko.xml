@@ -322,5 +322,6 @@
     <string name="TabsPositionBottom">Снизу</string>
     <string name="StrokeOnViews">Эффекты бликов</string>
     <!-- Accessibility -->
+    <string name="GifSize">Размер GIF</string>
     <string name="AccessibilitySettings">Настройки доступности</string>
 </resources>

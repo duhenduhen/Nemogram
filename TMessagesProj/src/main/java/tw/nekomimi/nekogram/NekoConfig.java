@@ -76,6 +76,7 @@ public class NekoConfig {
     public static boolean autoTranslate = true;
     public static boolean showRPCError = false;
     public static float stickerSize = 14.0f;
+    public static float gifSize = 14.0f;
     public static String translationProvider = Translator.PROVIDER_GOOGLE;
     public static String translationTarget = "app";
     public static int deepLFormality = DeepLTranslator.FORMALITY_DEFAULT;
@@ -177,6 +178,7 @@ public class NekoConfig {
             showTranslate = preferences.getBoolean("showTranslate", true);
             showRepeat = preferences.getBoolean("showRepeat", true);
             stickerSize = preferences.getFloat("stickerSize", 14.0f);
+            gifSize = preferences.getFloat("gifSize", 14.0f);
             translationProvider = preferences.getString("translationProvider2", Translator.PROVIDER_GOOGLE);
             openArchiveOnPull = preferences.getBoolean("openArchiveOnPull", false);
             hideKeyboardOnChatScroll = preferences.getBoolean("hideKeyboardOnChatScroll", false);
@@ -666,6 +668,13 @@ public class NekoConfig {
         editor.apply();
     }
 
+    public static void setGifSize(float size) {
+        gifSize = size;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putFloat("gifSize", gifSize);
+        editor.apply();
+    }
     public static void setTranslationProvider(String provider) {
         translationProvider = provider;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);

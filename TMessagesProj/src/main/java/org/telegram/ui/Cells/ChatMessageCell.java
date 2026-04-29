@@ -9761,6 +9761,11 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     if (w == 0 || h == 0) {
                         w = h = dp(150);
                     }
+                    if (messageObject.type == MessageObject.TYPE_GIF || MessageObject.isGifDocument(messageObject.getDocument(), messageObject.hasValidGroupId())) {
+                        float modifier = 0.75f + (NekoConfig.gifSize - 14.0f) / 20;
+                        w = (int) (w * modifier);
+                        h = (int) (h * modifier);
+                    }
                     if (messageObject.type == MessageObject.TYPE_VIDEO) {
                         if (w < infoWidth + dp(16 + 24)) {
                             w = infoWidth + dp(16 + 24);
