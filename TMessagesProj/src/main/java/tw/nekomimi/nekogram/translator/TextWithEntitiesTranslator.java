@@ -6,16 +6,11 @@ import org.telegram.ui.Components.TranslateAlert2;
 import java.util.HashMap;
 import java.util.List;
 
-import app.nekogram.translator.BaiduTranslator;
 import app.nekogram.translator.BaseTranslator;
 import app.nekogram.translator.DeepLTranslator;
 import app.nekogram.translator.GoogleAppTranslator;
-import app.nekogram.translator.LingoTranslator;
 import app.nekogram.translator.MicrosoftTranslator;
-import app.nekogram.translator.SogouTranslator;
-import app.nekogram.translator.TranSmartTranslator;
 import app.nekogram.translator.YandexTranslator;
-import app.nekogram.translator.YouDaoTranslator;
 import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.translator.html.HTMLKeeper;
 
@@ -27,16 +22,11 @@ public class TextWithEntitiesTranslator implements Translator.ITranslator {
         return wrappedTranslators.computeIfAbsent(type, type1 -> {
             var translator = switch (type1) {
                 case Translator.PROVIDER_YANDEX -> YandexTranslator.getInstance();
-                case Translator.PROVIDER_LINGO -> LingoTranslator.getInstance();
                 case Translator.PROVIDER_DEEPL -> {
                     DeepLTranslator.setFormality(NekoConfig.deepLFormality);
                     yield DeepLTranslator.getInstance();
                 }
                 case Translator.PROVIDER_MICROSOFT -> MicrosoftTranslator.getInstance();
-                case Translator.PROVIDER_YOUDAO -> YouDaoTranslator.getInstance();
-                case Translator.PROVIDER_BAIDU -> BaiduTranslator.getInstance();
-                case Translator.PROVIDER_SOGOU -> SogouTranslator.getInstance();
-                case Translator.PROVIDER_TENCENT -> TranSmartTranslator.getInstance();
                 default -> GoogleAppTranslator.getInstance();
             };
             return new TextWithEntitiesTranslator(translator);

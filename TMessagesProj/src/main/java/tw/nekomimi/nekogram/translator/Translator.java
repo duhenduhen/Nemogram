@@ -51,11 +51,6 @@ public class Translator {
     public static final String PROVIDER_MICROSOFT = "microsoft";
     public static final String PROVIDER_DEEPL = "deepl";
     public static final String PROVIDER_TELEGRAM = "telegram";
-    public static final String PROVIDER_LINGO = "lingo";
-    public static final String PROVIDER_YOUDAO = "youdao";
-    public static final String PROVIDER_BAIDU = "baidu";
-    public static final String PROVIDER_SOGOU = "sogou";
-    public static final String PROVIDER_TENCENT = "tencent";
 
     public static final String TRANSLATION_SEPARATOR = "\n--------\n";
 
@@ -158,16 +153,6 @@ public class Translator {
         types.add(PROVIDER_DEEPL);
         names.add("Telegram");
         types.add(PROVIDER_TELEGRAM);
-        names.add(LocaleController.getString(R.string.ProviderLingocloud));
-        types.add(PROVIDER_LINGO);
-        names.add(LocaleController.getString(R.string.ProviderYouDaoTranslate));
-        types.add(PROVIDER_YOUDAO);
-        names.add(LocaleController.getString(R.string.ProviderBaiduTranslate));
-        types.add(PROVIDER_BAIDU);
-        names.add(LocaleController.getString(R.string.ProviderSogouTranslate));
-        types.add(PROVIDER_SOGOU);
-        names.add(LocaleController.getString(R.string.ProviderTencentTranslator));
-        types.add(PROVIDER_TENCENT);
         return new Pair<>(names, types);
     }
 
