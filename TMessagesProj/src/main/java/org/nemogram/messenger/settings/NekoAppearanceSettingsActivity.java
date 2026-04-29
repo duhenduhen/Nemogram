@@ -35,6 +35,7 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
     private final int mediaPreviewRow = rowId++;
 
     private final int hideAllTabRow = rowId++;
+    private final int hideFolderUnreadBadgeRow = rowId++;
     private final int tabsTitleTypeRow = rowId++;
     private final int tabsPositionRow = rowId++;
 
@@ -82,6 +83,7 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.Filters)));
         items.add(UItem.asCheck(hideAllTabRow, LocaleController.getString(R.string.HideAllTab)).slug("hideAllTab").setChecked(NekoConfig.hideAllTab));
+        items.add(UItem.asCheck(hideFolderUnreadBadgeRow, LocaleController.getString(R.string.HideFolderUnreadBadge)).slug("hideFolderUnreadBadge").setChecked(NekoConfig.hideFolderUnreadBadge));
         items.add(TextSettingsCellFactory.of(tabsTitleTypeRow, LocaleController.getString(R.string.TabTitleType), switch (NekoConfig.tabsTitleType) {
             case NekoConfig.TITLE_TYPE_TEXT ->
                     LocaleController.getString(R.string.TabTitleTypeText);
@@ -95,7 +97,6 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
         items.add(UItem.asHeader(LocaleController.getString(R.string.LiteOptionsBlur2)));
         items.add(UItem.asCheck(strokeOnViewsRow, LocaleController.getString(R.string.StrokeOnViews)).setChecked(NekoConfig.strokeOnViews).slug("strokeOnViews"));
         items.add(UItem.asShadow(null));
-
     }
 
     @Override
@@ -157,6 +158,12 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
             }
             getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
             getNotificationCenter().postNotificationName(NotificationCenter.mainUserInfoChanged);
+        } else if (id == hideFolderUnreadBadgeRow) {
+            NekoConfig.toggleHideFolderUnreadBadge();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(NekoConfig.hideFolderUnreadBadge);
+            }
+            getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
         } else if (id == tabsTitleTypeRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();

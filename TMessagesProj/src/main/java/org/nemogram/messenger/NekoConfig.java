@@ -142,6 +142,7 @@ public class NekoConfig {
     public static boolean predictiveBackAnimation = false;
     public static boolean hideBottomNavigationBar = false;
     public static boolean bottomFilterTabs = false;
+    public static boolean hideFolderUnreadBadge = false;
     public static boolean strokeOnViews = true;
 
     public static boolean shouldNOTTrustMe = false;
@@ -243,6 +244,7 @@ public class NekoConfig {
             predictiveBackAnimation = preferences.getBoolean("predictiveBackAnimation", false);
             hideBottomNavigationBar = preferences.getBoolean("hideBottomNavigationBar", false);
             bottomFilterTabs = preferences.getBoolean("bottomFilterTabs", false);
+            hideFolderUnreadBadge = preferences.getBoolean("hideFolderUnreadBadge", false);
             strokeOnViews = preferences.getBoolean("strokeOnViews", true);
 
             LensHelper.checkLensSupportAsync();
@@ -737,6 +739,14 @@ public class NekoConfig {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("hideAllTab", hideAllTab);
         editor.apply();
+    }
+
+    public static void toggleHideFolderUnreadBadge() {
+    hideFolderUnreadBadge = !hideFolderUnreadBadge;
+    SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+    SharedPreferences.Editor editor = preferences.edit();
+    editor.putBoolean("hideFolderUnreadBadge", hideFolderUnreadBadge);
+    editor.apply();
     }
 
     public static void setTabsTitleType(int type) {

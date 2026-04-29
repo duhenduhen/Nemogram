@@ -321,7 +321,8 @@
     <string name="TabsPositionTop">Сверху</string>
     <string name="TabsPositionBottom">Снизу</string>
     <string name="StrokeOnViews">Эффекты бликов</string>
-    <!-- Accessibility -->
     <string name="GifSize">Размер GIF</string>
+    <string name="HideFolderUnreadBadge">Скрыть значок "Непрочитано" в папках</string>
+    <!-- Accessibility -->
     <string name="AccessibilitySettings">Настройки доступности</string>
 </resources>

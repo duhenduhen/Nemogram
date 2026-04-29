@@ -390,7 +390,7 @@ public class FilterTabsView extends FrameLayout {
             boolean animateCounterRemove = animateFromTabCount > 0 && currentTab.counter == 0 && animateTabCounter;
             boolean animateCounterReplace = animateFromTabCount > 0 && currentTab.counter > 0 && animateTabCounter;
 
-            if (currentTab.counter > 0 || animateCounterRemove) {
+            if (!NekoConfig.hideFolderUnreadBadge && (currentTab.counter > 0 || animateCounterRemove)) {
                 if (animateCounterRemove) {
                     counterText = String.format("%d", animateFromTabCount);
                 } else {
@@ -720,7 +720,7 @@ public class FilterTabsView extends FrameLayout {
 
             int countWidth;
             String counterText = null;
-            if (currentTab.counter > 0) {
+            if (!NekoConfig.hideFolderUnreadBadge && currentTab.counter > 0) {
                 counterText = String.format("%d", currentTab.counter);
                 int counterWidth = (int) Math.ceil(textCounterPaint.measureText(counterText));
                 countWidth = Math.max(dp(TAB_COUNTER_HEIGHT - 10), counterWidth) + dp(10);

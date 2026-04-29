@@ -326,6 +326,7 @@
     <string name="TabsPositionBottom">Bottom</string>
     <string name="StrokeOnViews">Glare effects</string>
     <string name="GifSize">GIF Size</string>
+    <string name="HideFolderUnreadBadge">Hide unread badge on folders</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>
