@@ -142,7 +142,7 @@
     <string name="MutualContactDescription">Dieser Kontakt ist ein gegenseitiger Kontakt.</string>
     <string name="InviteTextNemo">Hey, ich benutze Nemogram um zu chatten. Mach mit! Lade es hier herunter: %1$s</string>
     <string name="ShareNemogram">Nemogram teilen...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nBasierend auf Telegram %2$s\nEntwickelt von %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nBasierend auf Telegram %2$s\nGeforkt von %4$s\nEntwickelt von %3$s</string>
     <string name="UpdateInstalling">Update wird installiert...</string>
     <string name="UpdateInstallingNotification">Wenn die Aktualisierung abgeschlossen ist, wird eine Benachrichtigung angezeigt.</string>
     <string name="UpdateInstallingRelaunch">Nemogram wird neu gestartet, sobald das Update abgeschlossen ist.</string>

@@ -145,7 +145,7 @@
     <string name="MutualContactDescription">Acest contact este un contact comun.</string>
     <string name="InviteTextNemo">Salut, folosesc Nemogram pentru a vorbi. Alăturați-vă nouă! Descarcă aici: %1$s</string>
     <string name="ShareNemogram">Distribuie Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nBazat pe Telegram %2$s\nProiectat de %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nBazat pe Telegram %2$s\nForked from %4$s\nProiectat de %3$s</string>
     <string name="UpdateInstalling">Se instalează actualizarea...</string>
     <string name="UpdateInstallingNotification">O notificare va fi afișată când actualizarea este finalizată.</string>
     <string name="UpdateInstallingRelaunch">Aplicația se va relansa când actualizarea este finalizată.</string>

@@ -143,7 +143,7 @@
     <string name="MutualContactDescription">此联系人是一个双向联系人。</string>
     <string name="InviteTextNemo">嗨，我在使用 Nemogram 聊天。加入我们吧！从这里下载：%1$s</string>
     <string name="ShareNemogram">分享 Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\n基于 Telegram %2$s\n由 %3$s 设计</string>
+    <string name="NemogramVersion">Nemogram %1$s\n基于 Telegram %2$s\n基于 %4$s 修改\n由 %3$s 设计</string>
     <string name="UpdateInstalling">正在安装更新...</string>
     <string name="UpdateInstallingNotification">更新完成后，将显示一个通知。</string>
     <string name="UpdateInstallingRelaunch">更新完成后，应用将重新启动。</string>

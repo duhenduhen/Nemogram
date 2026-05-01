@@ -144,7 +144,7 @@
     <string name="MutualContactDescription">جهة الاتصال هذه هي جهة اتصال مشتركة.</string>
     <string name="InviteTextNemo">مرحبا، أنا أستخدم نيكوغرام للمحادثة. انضم إليّ! قم بتنزيله هنا: %1$s</string>
     <string name="ShareNemogram">مشاركة نيكوغرام...</string>
-    <string name="NemogramVersion">نيكوغرام %1$s\nمبنية على تيليجرام %2$s\nمصمم من قبل %3$s</string>
+    <string name="NemogramVersion">نيكوغرام %1$s\nمبنية على تيليجرام %2$s\nمشتقة من %4$s\nمصمم من قبل %3$s</string>
     <string name="UpdateInstalling">جار تثبيت التحديث...</string>
     <string name="UpdateInstallingNotification">سيظهر إشعار عند اكتمال التحديث.</string>
     <string name="UpdateInstallingRelaunch">سيتم إعادة تشغيل التطبيق عند اكتمال التحديث.</string>

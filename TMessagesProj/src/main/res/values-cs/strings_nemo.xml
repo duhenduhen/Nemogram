@@ -141,7 +141,7 @@
     <string name="MutualContactDescription">Tento kontakt je vzájemný.</string>
     <string name="InviteTextNemo">TextPozvánkyNemo</string>
     <string name="ShareNemogram">PodílNemoGram...</string>
-    <string name="NemogramVersion">VerzeNemogram</string>
+    <string name="NemogramVersion">Nemogram %1$s\nZaloženo na Telegram %2$s\nForked from %4$s\nNavrženo %3$s</string>
     <string name="UpdateInstalling">InstalaceAktualizace</string>
     <string name="UpdateInstallingNotification">UpozorněníNaInstalaciAktualizace</string>
     <string name="UpdateInstallingRelaunch">AktualizaceInstalaceZnovuSpustit.</string>

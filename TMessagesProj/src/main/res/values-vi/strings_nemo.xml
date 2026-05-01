@@ -142,7 +142,7 @@
     <string name="MutualContactDescription">Liên hệ này là liên hệ lẫn nhau.</string>
     <string name="InviteTextNemo">Này, tôi đang dùng Nemogram để trò chuyện. Tham gia cùng tôi! Tải xuống tại đây: %1$s</string>
     <string name="ShareNemogram">Chia sẻ Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nDựa trên Telegram%2$s\n Được thiết kế bởi %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nDựa trên Telegram %2$s\nForked from %4$s\nĐược thiết kế bởi %3$s</string>
     <string name="UpdateInstalling">Đang cài đặt bản cập nhật...</string>
     <string name="UpdateInstallingNotification">Một thông báo sẽ được hiển thị khi bản cập nhật hoàn tất.</string>
     <string name="UpdateInstallingRelaunch">Ứng dụng sẽ khởi chạy lại khi cập nhật hoàn tất.</string>

@@ -144,7 +144,7 @@
     <string name="MutualContactDescription">この連絡先は相互に交換されています。</string>
     <string name="InviteTextNemo">こんにちは！Nemogramを使ってチャットをしています。参加してください！ダウンロードはこちらから: %1$s</string>
     <string name="ShareNemogram">Nemogramを共有...</string>
-    <string name="NemogramVersion">Nemogram %1$s\n Nemogramのベースになったバージョン: Telegram %2$s\n デザイン: %3$s\n日本語訳: りお (Telegram: @RioLovee)</string>
+    <string name="NemogramVersion">Nemogram %1$s\nNemogramのベースになったバージョン: Telegram %2$s\n%4$s のフォーク\nデザイン: %3$s\n日本語訳: りお (Telegram: @RioLovee)</string>
     <string name="UpdateInstalling">更新をインストールしています…</string>
     <string name="UpdateInstallingNotification">更新が完了すると通知が表示されます。</string>
     <string name="UpdateInstallingRelaunch">更新が完了するとアプリが再起動します。</string>

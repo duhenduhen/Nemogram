@@ -147,7 +147,7 @@
     <string name="MutualContactDescription">Ez a kapcsolat egy közös ismerős.</string>
     <string name="InviteTextNemo">Szia! A Nemogramot használom a csevegéshez. Csatlakozz hozzám! Letölthető itt: %1$s</string>
     <string name="ShareNemogram">Nemogram megosztása...</string>
-    <string name="NemogramVersion">Nemogram %1$s\na Telegram-on alapul %2$s\nTervezte %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\na Telegram-on alapul %2$s\nForked from %4$s\nTervezte %3$s</string>
     <string name="UpdateInstalling">Frissítés telepítése...</string>
     <string name="UpdateInstallingNotification">A frissítés befejezésekor értesítés jelenik meg.</string>
     <string name="UpdateInstallingRelaunch">Az alkalmazás újraindul, a frissítés befejeződésekor.</string>

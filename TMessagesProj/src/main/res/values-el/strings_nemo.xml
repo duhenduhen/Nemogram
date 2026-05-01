@@ -142,7 +142,7 @@
     <string name="MutualContactDescription">Αυτή είναι μια παρόμοια επαφή.</string>
     <string name="InviteTextNemo">Γεια σας, χρησιμοποιώ το Nemogram για συνομιλία. Ελάτε μαζί μου! Κατεβάστε το εδώ: %1$s</string>
     <string name="ShareNemogram">Κοινοποίηση Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nΒασισμένο στο Telegram %2$s\nΣχεδιάστηκε από %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nΒασισμένο στο Telegram %2$s\nForked from %4$s\nΣχεδιάστηκε από %3$s</string>
     <string name="UpdateInstalling">Εγκατάσταση ενημέρωσης...</string>
     <string name="UpdateInstallingNotification">Θα εμφανιστεί μια ειδοποίηση όταν ολοκληρωθεί η ενημέρωση.</string>
     <string name="UpdateInstallingRelaunch">Η εφαρμογή θα επανεκκινηθεί μόλις ολοκληρωθεί η ενημέρωση.</string>

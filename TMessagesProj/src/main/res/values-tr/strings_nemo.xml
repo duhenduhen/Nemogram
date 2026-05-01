@@ -141,7 +141,7 @@
     <string name="MutualContactDescription">Bu kişi de sizi kişilerine kaydetti.</string>
     <string name="InviteTextNemo">Hey, sohbet etmek için Nemogram kullanıyorum. Bana katıl! Buradan indirilebilirsin: %1$s</string>
     <string name="ShareNemogram">Nemogram\'ı paylaş...</string>
-    <string name="NemogramVersion">Telegram %2$s tabanlı\nNemogram %1$s\n%3$s tarafından tasarlandı</string>
+    <string name="NemogramVersion">Telegram %2$s tabanlı\nNemogram %1$s\n%4$s üzerinden çatallandı\n%3$s tarafından tasarlandı</string>
     <string name="UpdateInstalling">Güncelleme yükleniyor...</string>
     <string name="UpdateInstallingNotification">Güncelleme tamamlandığında bir bildirim gösterilecek.</string>
     <string name="UpdateInstallingRelaunch">Güncelleme tamamlandığında uygulama kendini yeniden başlatacak.</string>

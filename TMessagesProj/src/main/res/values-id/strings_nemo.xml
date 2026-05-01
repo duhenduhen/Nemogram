@@ -145,7 +145,7 @@
     <string name="MutualContactDescription">Anda saling menyimpan nomor dengan kontak ini.</string>
     <string name="InviteTextNemo">Hai, saya menggunakan Nemogram untuk mengobrol. Ayo ikut! Unduh di sini: %1$s</string>
     <string name="ShareNemogram">Bagikan Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nBerdasarkan Telegram %2$s\nDibuat oleh %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nBerdasarkan Telegram %2$s\nForked from %4$s\nDibuat oleh %3$s</string>
     <string name="UpdateInstalling">Memasang Pembaruan...</string>
     <string name="UpdateInstallingNotification">Notifikasi pemberitahuan akan ditampilkan ketika pembaruan selesai.</string>
     <string name="UpdateInstallingRelaunch">Aplikasi akan memulai ulang ketika pembaruan selesai.</string>

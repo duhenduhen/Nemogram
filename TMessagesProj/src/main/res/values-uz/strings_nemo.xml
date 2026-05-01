@@ -141,7 +141,7 @@
     <string name="MutualContactDescription">Ushbu kantakt o\'zaro kantakt.</string>
     <string name="InviteTextNemo">Salom, Men chat uchun Nemogramdan foydalanayapman. Menga qo\'shil! Bu yerdan yuklab ol: %1$s</string>
     <string name="ShareNemogram">Nemogramni yuborish...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nTelegram %2$s asosida\nDizayner %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nTelegram %2$s asosida\n%4$s fork\nDizayner %3$s</string>
     <string name="UpdateInstalling">Yangilanish o\'rnatilmoqda...</string>
     <string name="UpdateInstallingNotification">Yangilanish o\'rnatilib bo\'lgach xabar paydo bo\'ladi.</string>
     <string name="UpdateInstallingRelaunch">Yangilanishlar amalga kirishi uchun qayta ishga tushiriladi.</string>

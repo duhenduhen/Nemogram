@@ -145,7 +145,7 @@
     <string name="MutualContactDescription">การติดต่อครั้งนี้เป็นการติดต่อร่วมกัน</string>
     <string name="InviteTextNemo">เฮ้ ฉันใช้ Nemogram เพื่อแชท เข้าร่วมกับฉันสิ! ดาวน์โหลดได้ที่นี่: %1$s</string>
     <string name="ShareNemogram">แชร์ Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nนั้นอิงจาก Telegram %2$s\nออกแบบโดย %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nนั้นอิงจาก Telegram %2$s\nForked from %4$s\nออกแบบโดย %3$s</string>
     <string name="UpdateInstalling">กำลังติดตั้งการอัพเดต...</string>
     <string name="UpdateInstallingNotification">จะมีการแจ้งเตือนเมื่อการอัปเดตเสร็จสิ้น</string>
     <string name="UpdateInstallingRelaunch">แอปจะเปิดใหม่อีกครั้งเมื่อการอัปเดตเสร็จสิ้น</string>

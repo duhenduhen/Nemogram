@@ -6713,10 +6713,13 @@ public class AndroidUtilities {
 
     public static String getBuildVersionInfo() {
         try {
-            PackageInfo pInfo = ApplicationLoader.applicationContext.getPackageManager().getPackageInfo(ApplicationLoader.applicationContext.getPackageName(), 0);
+            PackageInfo pInfo = ApplicationLoader.applicationContext.getPackageManager()
+                    .getPackageInfo(ApplicationLoader.applicationContext.getPackageName(), 0);
             int code = pInfo.versionCode / 10;
             String abi = BuildConfig.BUILD_TYPE + " " + Build.SUPPORTED_ABIS[0];
-            return formatString(R.string.NemogramVersion, String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi), String.format(Locale.US, "v%s (%d)", BuildVars.BUILD_VERSION_STRING, BuildConfig.BUILD_VERSION), "@Duang");
+            String nemoVersion = String.format(Locale.US, "v%s (%d) %s", pInfo.versionName, code, abi);
+            String tgVersion = String.format(Locale.US, "v%s (%d)", BuildVars.BUILD_VERSION_STRING, BuildConfig.BUILD_VERSION);
+            return formatString(R.string.NemogramVersion, nemoVersion, tgVersion, "@Duang", "Nekogram");
         } catch (Exception e) {
             FileLog.e(e);
         }

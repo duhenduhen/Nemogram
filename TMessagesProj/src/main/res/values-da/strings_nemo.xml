@@ -134,7 +134,7 @@
     <string name="MutualContactDescription">Denne kontakt er en gensidig kontakt.</string>
     <string name="InviteTextNemo">Hej, jeg bruger Nemogram til at chatte med. Tilmeld dig mig! Download det her: %1$s</string>
     <string name="ShareNemogram">Del Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nBaseret på Telegram %2$s\nDesignet af %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nBaseret på Telegram %2$s\nForked from %4$s\nDesignet af %3$s</string>
     <string name="UpdateInstalling">Installerer opdatering...</string>
     <string name="UpdateInstallingNotification">En meddelelse vil blive vist, når opdateringen er færdig.</string>
     <string name="UpdateInstallingRelaunch">Nemogram vil genstarte, når opdateringen er færdig.</string>

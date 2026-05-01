@@ -142,7 +142,7 @@
     <string name="MutualContactDescription">Овај контакт је заједнички контакт.</string>
     <string name="InviteTextNemo">Хеј, користим Nemogram за ћаскање. Придружите ми се! Преузмите га овде: %1$s</string>
     <string name="ShareNemogram">Дели Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nЗаснован на Telegram %2$s\nДизајнирао %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nЗаснован на Telegram %2$s\nФорк %4$s\nДизајнирао %3$s</string>
     <string name="UpdateInstalling">Инсталирање ажурирања...</string>
     <string name="UpdateInstallingNotification">Обавештење ће се приказати када се ажурирање заврши.</string>
     <string name="UpdateInstallingRelaunch">Апликација ће се рестартовати када се ажурирање заврши.</string>

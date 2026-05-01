@@ -145,7 +145,7 @@
     <string name="MutualContactDescription">این مخاطب یک مخاطب دو طرفه است.</string>
     <string name="InviteTextNemo">سلام، من از Nemogram برای چت استفاده می کنم. به من ملحق شو! Nemogram را از اینجا دانلود کن: %1$s</string>
     <string name="ShareNemogram">اشتراکگذاری نکوگرام...</string>
-    <string name="NemogramVersion">نکوگرام %1$s\nبر اساس تلگرام %2$s\nطراحی شده %3$s</string>
+    <string name="NemogramVersion">نکوگرام %1$s\nبر اساس تلگرام %2$s\nانشعاب از %4$s\nطراحی شده %3$s</string>
     <string name="UpdateInstalling">در حال نصب بروز رسانی...</string>
     <string name="UpdateInstallingNotification">هنگامی که به روز رسانی کامل شد یک اعلان نشان داده می شود.</string>
     <string name="UpdateInstallingRelaunch">پس از تکمیل به‌روزرسانی، برنامه دوباره راه‌اندازی می‌شود.</string>

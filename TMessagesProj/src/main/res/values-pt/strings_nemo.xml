@@ -145,7 +145,7 @@
     <string name="MutualContactDescription">Este contato é um contato mútuo.</string>
     <string name="InviteTextNemo">Estou a usar o Nemogram para conversar. Junta-te a mim! Faz o Download aqui: %1$s</string>
     <string name="ShareNemogram">Compartilhar Nemogram...</string>
-    <string name="NemogramVersion">Nemogram %1$s\nBaseado no Telegram %2$s\nProjetado por %3$s</string>
+    <string name="NemogramVersion">Nemogram %1$s\nCom base no Telegram %2$s\nForked from %4$s\nProjetado por %3$s</string>
     <string name="UpdateInstalling">Instalando atualização...</string>
     <string name="UpdateInstallingNotification">Uma notificação será exibida quando a atualização for concluída.</string>
     <string name="UpdateInstallingRelaunch">O app irá reiniciar quando a atualização for concluída.</string>
