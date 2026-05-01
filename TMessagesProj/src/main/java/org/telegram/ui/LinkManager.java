@@ -196,6 +196,11 @@ public class LinkManager {
             return true;
         }
 
+        if ("fish".equals(first)) {
+            presentFragment(new FishActivity());
+            return true;
+        }
+
         if ("user".equalsIgnoreCase(first) || "chat".equalsIgnoreCase(first)) {
             var id = Utilities.parseLong(uri.getQueryParameter("id"));
             if (id > 0) {
