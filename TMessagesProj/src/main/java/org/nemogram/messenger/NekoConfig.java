@@ -144,6 +144,7 @@ public class NekoConfig {
     public static boolean bottomFilterTabs = false;
     public static boolean hideFolderUnreadBadge = false;
     public static boolean strokeOnViews = true;
+    public static boolean disableGooeyAvatarAnimation = false;
 
     public static boolean shouldNOTTrustMe = false;
 
@@ -246,6 +247,7 @@ public class NekoConfig {
             bottomFilterTabs = preferences.getBoolean("bottomFilterTabs", false);
             hideFolderUnreadBadge = preferences.getBoolean("hideFolderUnreadBadge", false);
             strokeOnViews = preferences.getBoolean("strokeOnViews", true);
+            disableGooeyAvatarAnimation = preferences.getBoolean("disableGooeyAvatarAnimation", false);
 
             LensHelper.checkLensSupportAsync();
             preferences.registerOnSharedPreferenceChangeListener(listener);
@@ -742,11 +744,11 @@ public class NekoConfig {
     }
 
     public static void toggleHideFolderUnreadBadge() {
-    hideFolderUnreadBadge = !hideFolderUnreadBadge;
-    SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
-    SharedPreferences.Editor editor = preferences.edit();
-    editor.putBoolean("hideFolderUnreadBadge", hideFolderUnreadBadge);
-    editor.apply();
+        hideFolderUnreadBadge = !hideFolderUnreadBadge;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("hideFolderUnreadBadge", hideFolderUnreadBadge);
+        editor.apply();
     }
 
     public static void setTabsTitleType(int type) {
@@ -786,6 +788,14 @@ public class NekoConfig {
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("disableGreetingSticker", disableGreetingSticker);
+        editor.apply();
+    }
+
+    public static void toggleDisableGooeyAvatarAnimation() {
+        disableGooeyAvatarAnimation = !disableGooeyAvatarAnimation;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("disableGooeyAvatarAnimation", disableGooeyAvatarAnimation);
         editor.apply();
     }
 

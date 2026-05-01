@@ -323,6 +323,7 @@
     <string name="StrokeOnViews">Эффекты бликов</string>
     <string name="GifSize">Размер GIF</string>
     <string name="HideFolderUnreadBadge">Скрыть значок "Непрочитано" в папках</string>
+    <string name="DisableGooeyAvatarAnimation">Отключить жидкую анимацию аватарки</string>
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Настройки доступности</string>
 </resources>

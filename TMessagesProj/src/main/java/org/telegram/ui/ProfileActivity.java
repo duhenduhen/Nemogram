@@ -5999,7 +5999,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
     private void updateGooey() {
         float v = Math.min(pullUpProgress, 0.25f) / 0.25f;
-        if (isTopic) {
+        if (isTopic || NekoConfig.disableGooeyAvatarAnimation) {
             avatarGooey.setAlpha(1f - v);
             avatarGooey.setBlurIntensity(0f);
             avatarGooey.setGooeyEnabled(false);

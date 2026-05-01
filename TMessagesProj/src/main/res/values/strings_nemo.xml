@@ -327,6 +327,7 @@
     <string name="StrokeOnViews">Glare effects</string>
     <string name="GifSize">GIF Size</string>
     <string name="HideFolderUnreadBadge">Hide unread badge on folders</string>
+    <string name="DisableGooeyAvatarAnimation">Disable gooey avatar animation</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>
