@@ -149,9 +149,9 @@ public abstract class BaseNekoSettingsActivity extends BaseFragment {
                         .setScrimViewBackground(listView.getClipBackground(view))
                         .add(R.drawable.msg_copy, LocaleController.getString(R.string.CopyLink), () -> {
                             if ("checkUpdate".equals(slug)) {
-                                AndroidUtilities.addToClipboard(String.format(Locale.getDefault(), "https://%s/nekosettings/%s", getMessagesController().linkPrefix, "update"));
+                                AndroidUtilities.addToClipboard(String.format(Locale.getDefault(), "https://%s/nemosettings/%s", getMessagesController().linkPrefix, "update"));
                             } else {
-                                AndroidUtilities.addToClipboard(String.format(Locale.getDefault(), "https://%s/nekosettings/%s?r=%s", getMessagesController().linkPrefix, key, slug));
+                                AndroidUtilities.addToClipboard(String.format(Locale.getDefault(), "https://%s/nemosettings/%s?r=%s", getMessagesController().linkPrefix, key, slug));
                             }
                             BulletinFactory.of(this).createCopyLinkBulletin().show();
                         })
