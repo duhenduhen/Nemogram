@@ -30,6 +30,11 @@ subprojects {
                     targetSdkVersion 36
                 }
 
+                buildTypes {
+                    nonMinifiedDebug { initWith debug }
+                    nonMinifiedRelease { initWith release }
+                }
+
                 buildFeatures.buildConfig = true
             }
 

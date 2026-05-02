@@ -56,6 +56,18 @@ android {
             proguardFiles '../TMessagesProj/proguard-rules.pro'
             ndk.debugSymbolLevel 'FULL'
         }
+
+        nonMinifiedDebug {
+            initWith debug
+            minifyEnabled false
+            shrinkResources false
+        }
+
+        nonMinifiedRelease {
+            initWith release
+            minifyEnabled false
+            shrinkResources false
+        }
     }
 
     defaultConfig.versionCode = Integer.parseInt(APP_VERSION_CODE)
