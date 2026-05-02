@@ -33984,10 +33984,6 @@ public class ChatActivity extends BaseFragment implements
             case OPTION_REPEAT: {
                 return processRepeatMessage(true);
             }
-            case OPTION_DETAILS: {
-                WebAppHelper.openTLViewer(this, selectedObject.messageOwner);
-                return true;
-            }
         }
         return false;
     }

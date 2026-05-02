@@ -21,7 +21,6 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 import app.nekogram.translator.DeepLTranslator;
-import org.nemogram.messenger.helpers.CloudSettingsHelper;
 import org.nemogram.messenger.helpers.LensHelper;
 import org.nemogram.messenger.translator.Translator;
 import org.nemogram.messenger.translator.TranslatorApps;
@@ -150,9 +149,6 @@ public class NekoConfig {
 
     public static int userMcc = 0;
 
-    private static final SharedPreferences.OnSharedPreferenceChangeListener listener = (preferences, key) -> {
-        CloudSettingsHelper.getInstance().doAutoSync();
-    };
     private static boolean configLoaded;
 
     static {
@@ -250,7 +246,6 @@ public class NekoConfig {
             disableGooeyAvatarAnimation = preferences.getBoolean("disableGooeyAvatarAnimation", false);
 
             LensHelper.checkLensSupportAsync();
-            preferences.registerOnSharedPreferenceChangeListener(listener);
 
             configLoaded = true;
         }
@@ -277,7 +272,6 @@ public class NekoConfig {
         //noinspection unchecked
         Map<String, ?> map = gson.fromJson(config, Map.class);
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
-        preferences.unregisterOnSharedPreferenceChangeListener(listener);
         var editor = preferences.edit();
         editor.clear();
         map.forEach((BiConsumer<String, Object>) (s, o) -> {

@@ -2,29 +2,19 @@ package org.nemogram.messenger.helpers;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Base64;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.telegram.messenger.ApplicationLoader;
-import org.telegram.messenger.FileLog;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.R;
 import org.telegram.tgnet.SerializedData;
-import org.telegram.tgnet.TLObject;
-import org.telegram.tgnet.TLRPC;
-import org.telegram.ui.ActionBar.BaseFragment;
-import org.telegram.ui.LaunchActivity;
-import org.telegram.ui.bots.BotWebViewAttachedSheet;
-import org.telegram.ui.bots.BotWebViewSheet;
 import org.telegram.ui.bots.WebViewRequestProps;
 import org.telegram.ui.web.BotWebViewContainer;
 
 import java.util.function.Consumer;
 
-import org.nemogram.messenger.Extra;
 import org.nemogram.messenger.NekoConfig;
 
 public class WebAppHelper {
@@ -45,63 +35,11 @@ public class WebAppHelper {
         }
     }
 
-    public static void openTLViewer(BaseFragment fragment, TLObject object) {
-        var serialized = "";
-        try {
-            var data = new CleanSerializedData(object.getObjectSize());
-            object.serializeToStream(data);
-            serialized = Base64.encodeToString(data.toByteArray(), Base64.NO_PADDING | Base64.NO_WRAP | Base64.URL_SAFE);
-            data.cleanup();
-        } catch (Exception e) {
-            FileLog.e(e);
-        }
-        if (TextUtils.isEmpty(serialized)) {
-            return;
-        }
-        var url = TLV_URL + "#m=" + serialized + "&l=" + TLRPC.LAYER;
-        openInternalWebApp(fragment, url, INTERNAL_BOT_TLV, true);
-    }
-
     // serialized message without attach path
     public static class CleanSerializedData extends SerializedData {
         public CleanSerializedData(int size) {
             super(size);
         }
-    }
-
-    private static void openInternalWebApp(BaseFragment fragment, String url, int type, boolean searchUser) {
-        var botInfo = Extra.getHelperBot();
-        var bot = fragment.getMessagesController().getUser(botInfo.getId());
-        if (bot == null) {
-            if (searchUser) {
-                fragment.getUserHelper().resolveUser(botInfo.getUsername(), botInfo.getId(), user -> openInternalWebApp(fragment, url, type, false));
-            }
-            return;
-        }
-        var props = WebViewRequestProps.of(
-                fragment.getCurrentAccount(),
-                bot.id,
-                bot.id,
-                null,
-                url,
-                BotWebViewAttachedSheet.TYPE_WEB_VIEW_BUTTON,
-                0, 0, false, null, false, null, null, 0, false, false);
-        props.internalType = type;
-        var context = fragment.getParentActivity();
-        if (context == null) {
-            return;
-        }
-        if (context instanceof LaunchActivity activity) {
-            if (activity.getBottomSheetTabs() != null && activity.getBottomSheetTabs().tryReopenTab(props) != null) {
-                return;
-            }
-        }
-        var webViewSheet = new BotWebViewSheet(context, fragment.getResourceProvider());
-        webViewSheet.setDefaultFullsize(false);
-        webViewSheet.setNeedsContext(false);
-        webViewSheet.setParentActivity(context);
-        webViewSheet.requestWebView(null, props);
-        webViewSheet.show();
     }
 
     private static JsonObject warpInEvent(String event, JsonObject data) {

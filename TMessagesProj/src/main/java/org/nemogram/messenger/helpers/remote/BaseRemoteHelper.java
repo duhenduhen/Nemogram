@@ -25,9 +25,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.nemogram.messenger.Extra;
 import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.helpers.InlineBotHelper;
 
 public abstract class BaseRemoteHelper {
     protected static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoremoteconfig", Activity.MODE_PRIVATE);
@@ -47,10 +45,6 @@ public abstract class BaseRemoteHelper {
 
     protected FileLoader getFileLoader() {
         return FileLoader.getInstance(UserConfig.selectedAccount);
-    }
-
-    protected InlineBotHelper getInlineBotHelper() {
-        return InlineBotHelper.getInstance(UserConfig.selectedAccount);
     }
 
     abstract protected void onError(String text, Delegate delegate);
@@ -76,12 +70,11 @@ public abstract class BaseRemoteHelper {
         var tag = getRequestMethod();
         var json = preferences.getString(tag, "");
         if (TextUtils.isEmpty(json)) {
-            load();
             return null;
         }
         var updateTime = preferences.getLong(tag + "_update_time", 0);
         if (Math.abs(System.currentTimeMillis() - updateTime) > 24 * 60 * 60 * 1000) {
-            load();
+            return null;
         }
         return json;
     }
@@ -112,34 +105,6 @@ public abstract class BaseRemoteHelper {
                     .putString(tag, result)
                     .apply();
         }
-    }
-
-    public void load() {
-        load(null);
-    }
-
-    private boolean loading;
-
-    public void load(Delegate delegate) {
-        var botInfo = Extra.getHelperBot();
-        if (botInfo == null) {
-            return;
-        }
-        if (!UserConfig.getInstance(UserConfig.selectedAccount).isClientActivated()) {
-            return;
-        }
-        if (loading) return;
-        loading = true;
-        getInlineBotHelper().query(botInfo,
-                getRequestMethod() + getRequestParams() + getRequestExtra(),
-                (results, error) -> {
-                    loading = false;
-                    if (error == null) {
-                        onLoadSuccess(results, delegate);
-                    } else {
-                        onError(error, delegate);
-                    }
-                });
     }
 
     public interface Delegate {

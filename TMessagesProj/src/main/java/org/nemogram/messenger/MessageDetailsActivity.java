@@ -89,8 +89,6 @@ public class MessageDetailsActivity extends BaseNekoSettingsActivity implements 
     private final int languageRow = rowId++;
     private final int linkOrEmojiOnlyRow = rowId++;
 
-    private final int exportRow = rowId++;
-
     public MessageDetailsActivity(MessageObject messageObject) {
         this.messageObject = messageObject;
 
@@ -174,15 +172,6 @@ public class MessageDetailsActivity extends BaseNekoSettingsActivity implements 
         NotificationCenter.getGlobalInstance().addObserver(this, NotificationCenter.emojiLoaded);
 
         return true;
-    }
-
-    @Override
-    public Integer getSelectorColor(int position) {
-        var item = listView.adapter.getItem(position);
-        if (item.id == exportRow) {
-            return Theme.multAlpha(getThemedColor(Theme.key_switchTrackChecked), .1f);
-        }
-        return super.getSelectorColor(position);
     }
 
     private void showNoForwards() {
@@ -353,9 +342,6 @@ public class MessageDetailsActivity extends BaseNekoSettingsActivity implements 
         }
         items.add(UItem.asShadow(null));
 
-
-        items.add(TextSettingsCellFactory.of(exportRow, LocaleController.getString(R.string.ViewAsJson)).accent());
-        items.add(UItem.asShadow(null));
     }
 
     @Override
@@ -475,16 +461,13 @@ public class MessageDetailsActivity extends BaseNekoSettingsActivity implements 
             }
 
             showDialog(dialog);
-        } else if (id == exportRow) {
-            WebAppHelper.openTLViewer(this,
-                    messageObject.currentEvent != null ? messageObject.currentEvent : messageObject.messageOwner);
         }
     }
 
     @Override
     protected boolean onItemLongClick(UItem item, View view, int position, float x, float y) {
         var id = item.id;
-        if (item.viewType != UniversalAdapter.VIEW_TYPE_SHADOW && id != exportRow) {
+        if (item.viewType != UniversalAdapter.VIEW_TYPE_SHADOW) {
             if (!noforwards || !(id == messageRow || id == captionRow || id == filePathRow)) {
                 var text = ((TextDetailSettingsCell) view).getValueTextView().getText();
                 AndroidUtilities.addToClipboard(text);

@@ -2366,12 +2366,6 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
     }
 
     private boolean processSelectedOptionLongClick(int option) {
-        switch (option) {
-            case OPTION_DETAILS: {
-                WebAppHelper.openTLViewer(this, selectedObject.currentEvent);
-                return true;
-            }
-        }
         return false;
     }
 

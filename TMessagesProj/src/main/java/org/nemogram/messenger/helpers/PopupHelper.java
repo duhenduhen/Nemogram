@@ -119,21 +119,6 @@ public class PopupHelper {
             subItem.setSubtext(UserHelper.formatDCString(dc));
             subItem.setOnClickListener(v -> popupLayout.getSwipeBack().openForeground(swipeBackIndex));
         }
-        if (userId != 0) {
-            ActionBarMenuSubItem subItem = ActionBarMenuItem.addItem(popupLayout, R.drawable.msg_calendar, LocaleController.getString(R.string.RegistrationDate), false, fragment.getResourceProvider());
-            var regDate = RegDateHelper.getRegDate(userId);
-            subItem.setSubtext(regDate != null ? RegDateHelper.formatRegDate(regDate, null) : LocaleController.getString(R.string.Loading));
-            if (regDate == null) {
-                RegDateHelper.getRegDate(userId, (date, error) -> subItem.setSubtext(RegDateHelper.formatRegDate(date, error), true));
-            }
-        }
-        if (did != 0) {
-            ActionBarMenuSubItem subItem = ActionBarMenuItem.addItem(popupLayout, R.drawable.msg_stories_caption, LocaleController.getString(R.string.ViewAsJson), false, fragment.getResourceProvider());
-            subItem.setOnClickListener(v -> {
-                popupWindow.dismiss();
-                WebAppHelper.openTLViewer(fragment, getPeerAndFull(fragment, did));
-            });
-        }
         popupLayout.setParentWindow(popupWindow);
     }
 

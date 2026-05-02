@@ -43,7 +43,6 @@ import java.io.File;
 import java.util.Locale;
 
 import org.nemogram.messenger.helpers.ApkInstaller;
-import org.nemogram.messenger.helpers.remote.UpdateHelper;
 
 public class BlockingUpdateView extends FrameLayout implements NotificationCenter.NotificationCenterDelegate {
 
@@ -307,17 +306,6 @@ public class BlockingUpdateView extends FrameLayout implements NotificationCente
         NotificationCenter.getInstance(accountNum).addObserver(this, NotificationCenter.fileLoaded);
         NotificationCenter.getInstance(accountNum).addObserver(this, NotificationCenter.fileLoadFailed);
         NotificationCenter.getInstance(accountNum).addObserver(this, NotificationCenter.fileLoadProgressChanged);
-        if (check) {
-            UpdateHelper.getInstance().checkNewVersionAvailable((response, error) -> AndroidUtilities.runOnUIThread(() -> {
-                if (response != null) {
-                    if (!response.can_not_skip) {
-                        setVisibility(GONE);
-                        SharedConfig.pendingAppUpdate = null;
-                        SharedConfig.saveConfig();
-                    }
-                }
-            }));
-        }
     }
 
     Drawable gradientDrawableTop = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, new int[] {Theme.getColor(Theme.key_windowBackgroundWhite), Color.TRANSPARENT });

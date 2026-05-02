@@ -30,12 +30,6 @@ subprojects {
                     targetSdkVersion 36
                 }
 
-                buildTypes {
-                    play {
-                        initWith release
-                    }
-                }
-
                 buildFeatures.buildConfig = true
             }
 

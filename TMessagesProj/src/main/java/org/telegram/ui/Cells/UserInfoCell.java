@@ -56,8 +56,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-import org.nemogram.messenger.helpers.RegDateHelper;
-
 public class UserInfoCell extends View implements NotificationCenter.NotificationCenterDelegate {
 
     private final int currentAccount;
@@ -236,8 +234,6 @@ public class UserInfoCell extends View implements NotificationCenter.Notificatio
         width = Math.max(width, rowsWidth);
 
         width = Math.min(width + dp(32), maxWidth);
-
-        RegDateHelper.setRegDate(dialogId, settings);
     }
 
     @Override

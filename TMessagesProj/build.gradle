@@ -77,7 +77,7 @@ dependencies {
 
 lsparanoid {
     seed = 7436
-    variantFilter = { variant -> variant.buildType == "release" || variant.buildType == "play" }
+    variantFilter = { variant -> variant.buildType == "release" }
 }
 
 android {
@@ -105,9 +105,6 @@ android {
             buildConfigField("int","API_ID", "${localProperties.get("apiId")}")
             buildConfigField("String","API_HASH", "\"${localProperties.get("apiHash")}\"")
             buildConfigField("String","TWPIC_BOT_USERNAME", "\"${localProperties.get("twpicBotUsername")}\"")
-            buildConfigField("String","SENTRY_DSN", "\"${localProperties.get("sentryDsn")}\"")
-            buildConfigField("long","HELPER_BOT_ID", "${localProperties.get("helperBotId")}")
-            buildConfigField("String","HELPER_BOT_USERNAME", "\"${localProperties.get("helperBotUsername")}\"")
         }
 
         release {
@@ -120,9 +117,6 @@ android {
             buildConfigField("int","API_ID", "${localProperties.get("apiId")}")
             buildConfigField("String","API_HASH", "\"${localProperties.get("apiHash")}\"")
             buildConfigField("String","TWPIC_BOT_USERNAME", "\"${localProperties.get("twpicBotUsername")}\"")
-            buildConfigField("String","SENTRY_DSN", "\"${localProperties.get("sentryDsn")}\"")
-            buildConfigField("long","HELPER_BOT_ID", "${localProperties.get("helperBotId")}")
-            buildConfigField("String","HELPER_BOT_USERNAME", "\"${localProperties.get("helperBotUsername")}\"")
         }
     }
     namespace 'org.telegram.messenger'

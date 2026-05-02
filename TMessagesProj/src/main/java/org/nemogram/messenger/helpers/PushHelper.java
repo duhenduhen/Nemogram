@@ -4,14 +4,10 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.FileLog;
-import org.telegram.messenger.NotificationCenter;
-import org.telegram.messenger.SharedConfig;
 import org.telegram.messenger.UserConfig;
 
 import org.nemogram.messenger.helpers.remote.ConfigHelper;
-import org.nemogram.messenger.helpers.remote.UpdateHelper;
 
 public class PushHelper {
 
@@ -25,12 +21,6 @@ public class PushHelper {
             var message = GSON.fromJson(data, RemoteMessage.class);
             var action = message.action;
             switch (action) {
-                case "check_app_update":
-                    checkAppUpdate();
-                    break;
-                case "load_remote_config":
-                    ConfigHelper.getInstance().load();
-                    break;
                 case "set_remote_config":
                     ConfigHelper.getInstance().onLoadSuccess(message.data);
                     break;
@@ -40,19 +30,7 @@ public class PushHelper {
         }
     }
 
-    private static void checkAppUpdate() {
-        UpdateHelper.getInstance().checkNewVersionAvailable((res, error) -> {
-            SharedConfig.lastUpdateCheckTime = System.currentTimeMillis();
-            SharedConfig.saveConfig();
-            AndroidUtilities.runOnUIThread(() -> {
-                SharedConfig.setNewAppVersionAvailable(res);
-                NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.appUpdateAvailable);
-            });
-        });
-    }
-
     public static class RemoteMessage {
-
         @SerializedName("action")
         @Expose
         public String action;
@@ -60,6 +38,5 @@ public class PushHelper {
         @SerializedName("data")
         @Expose
         public String data;
-
     }
 }
