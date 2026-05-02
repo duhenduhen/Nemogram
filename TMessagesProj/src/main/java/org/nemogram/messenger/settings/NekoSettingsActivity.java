@@ -53,6 +53,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
     private final int generalRow = rowId++;
     private final int appearanceRow = rowId++;
     private final int chatRow = rowId++;
+    private final int keywordFilterRow = rowId++;
     private final int passcodeRow = rowId++;
     private final int experimentRow = rowId++;
     private final int accessibilityRow = rowId++;
@@ -147,6 +148,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
         items.add(UItem.asButton(generalRow, R.drawable.msg_media, LocaleController.getString(R.string.General)).slug("general"));
         items.add(UItem.asButton(appearanceRow, R.drawable.msg_theme, LocaleController.getString(R.string.ChangeChannelNameColor2)).slug("appearance"));
         items.add(UItem.asButton(chatRow, R.drawable.msg_discussion, LocaleController.getString(R.string.Chat)).slug("chat"));
+        items.add(UItem.asButton(keywordFilterRow, R.drawable.msg_block2, LocaleController.getString(R.string.KeywordFilter)).slug("keywordFilter"));
         if (!PasscodeHelper.isSettingsHidden()) {
             items.add(UItem.asButton(passcodeRow, R.drawable.msg_secret, LocaleController.getString(R.string.PasscodeNemo)).slug("passcode"));
         }
@@ -176,6 +178,8 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
         var id = item.id;
         if (id == chatRow) {
             presentFragment(new NekoChatSettingsActivity());
+        } else if (id == keywordFilterRow) {
+        presentFragment(new NemoKeywordFilterActivity());
         } else if (id == generalRow) {
             presentFragment(new NekoGeneralSettingsActivity());
         } else if (id == appearanceRow) {
@@ -228,6 +232,8 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
             return new NekoChatSettingsActivity();
         } else if (icon == R.drawable.msg_fave) {
             return new NekoExperimentalSettingsActivity();
+        } else if (icon == R.drawable.msg_block2) {
+            return new NemoKeywordFilterActivity();
         }
         return new NekoSettingsActivity();
     }
@@ -239,6 +245,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
                 R.drawable.msg_theme,
                 R.drawable.msg_discussion,
                 R.drawable.msg_fave,
+                R.drawable.msg_block2,
         };
         for (var i = 0; i < icons.length; i++) {
             var icon = icons[i];

@@ -323,6 +323,20 @@
     <string name="GifSize">Размер GIF</string>
     <string name="HideFolderUnreadBadge">Скрыть значок "Непрочитано" в папках</string>
     <string name="DisableGooeyAvatarAnimation">Отключить жидкую анимацию аватарки</string>
+    <string name="KeywordFilter">Фильтр ключевых слов</string>
+    <string name="KeywordFilterAbout">Сообщения, содержащие эти ключевые слова, будут скрыты.</string>
+    <string name="AddKeyword">Добавить ключевое слово</string>
+    <string name="DeleteKeyword">Удалить ключевое слово</string>
+    <string name="DeleteKeywordConfirm">Удалить \"%s\" из списка заблокированных ключевых слов?</string>
+    <string name="KeywordFilterHint">Введите ключевое слово...</string>
+    <string name="FilterKeywordsInChats">Фильтровать в чатах</string>
+    <string name="FilterKeywordsInChannels">Фильтровать в каналах</string>
+    <string name="FilterKeywordsInChatsAbout">Скрывать сообщения с заблокированными ключевыми словами в чатах.</string>
+    <string name="BlockedKeywords">Заблокированные ключевые слова</string>
+    <string name="FilterKeywordsChatsHeader">Чаты</string>
+    <string name="FilterKeywordsChannelsHeader">Каналы</string>
+    <string name="FilterKeywordsInChannelsAbout">Скрывать сообщения с заблокированными ключевыми словами в каналах.</string>
+    <string name="MessageHidden">Сообщение скрыто</string>
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Настройки доступности</string>
 </resources>

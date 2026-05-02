@@ -1220,6 +1220,15 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava
             message.updateTranslation();
         }
         CharSequence msgText = message != null ? message.messageText : null;
+        if (msgText != null && message != null && !message.isOutOwner()) {
+            String msgRaw = message.messageOwner != null ? message.messageOwner.message : null;
+            boolean blocked = chat != null && ChatObject.isChannel(chat) && !chat.megagroup
+                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(msgRaw))
+                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(msgRaw));
+            if (blocked) {
+                msgText = LocaleController.getString(R.string.MessageHidden);
+            }
+        }
         if (msgText instanceof Spannable) {
             Spannable sp = new SpannableStringBuilder(msgText);
             for (Object span : sp.getSpans(0, sp.length(), URLSpanNoUnderlineBold.class))

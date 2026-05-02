@@ -8513,8 +8513,8 @@ public class ChatActivity extends BaseFragment implements
         bottomOverlayText.setTextColor(getThemedColor(Theme.key_chat_secretChatStatusText));
         bottomOverlayText.setPadding(dp(24), 0, dp(24), 0);
         bottomOverlay.addView(bottomOverlayText, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, Gravity.CENTER));
-        
-        
+
+
         bottomChannelButtonsLayout = new ChatActivityChannelButtonsLayout(context, resourceProvider, blurredBackgroundColorProvider, glassBackgroundDrawableFactory) {
             @Override
             public void setVisibility(int visibility) {
@@ -14667,7 +14667,7 @@ public class ChatActivity extends BaseFragment implements
         public String text;
         public ArrayList<TLRPC.MessageEntity> entities;
         public int offset, length;
-        
+
         public TLRPC.TodoItem task;
         public TLRPC.PollAnswer answer;
 
@@ -21090,7 +21090,9 @@ public class ChatActivity extends BaseFragment implements
                 }
 
                 TLRPC.MessageAction action = obj.messageOwner.action;
-                if (obj.type < 0 || loadIndex == 1 && action instanceof TLRPC.TL_messageActionChatMigrateTo) {
+                if (!obj.isOutOwner() && (currentChat != null && ChatObject.isChannel(currentChat) && !currentChat.megagroup
+                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(obj.messageOwner != null ? obj.messageOwner.message : null))
+                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(obj.messageOwner != null ? obj.messageOwner.message : null)))) {
                     continue;
                 }
 
@@ -25228,6 +25230,11 @@ public class ChatActivity extends BaseFragment implements
         for (int a = 0, N = arr.size(); a < N; a++) {
             FileLog.d("processNewMessages " + a + " our of " + N);
             MessageObject messageObject = arr.get(a);
+            if (!messageObject.isOutOwner() && (currentChat != null && ChatObject.isChannel(currentChat) && !currentChat.megagroup
+                ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(messageObject.messageOwner != null ? messageObject.messageOwner.message : null))
+                : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(messageObject.messageOwner != null ? messageObject.messageOwner.message : null)))) {
+                continue;
+            }
             if (!isAd) {
                 isAd = messageObject.isSponsored();
             }
@@ -25435,6 +25442,11 @@ public class ChatActivity extends BaseFragment implements
                 if (obj.type < 0 || messagesDict[0].indexOfKey(messageId) >= 0) {
                     continue;
                 }
+                if (!obj.isOutOwner() && (currentChat != null && ChatObject.isChannel(currentChat) && !currentChat.megagroup
+                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(obj.messageOwner != null ? obj.messageOwner.message : null))
+                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(obj.messageOwner != null ? obj.messageOwner.message : null)))) {
+                    continue;
+                }
                 if (currentChat != null && currentChat.creator && (!ChatObject.isChannel(currentChat) || currentChat.megagroup) && (action instanceof TLRPC.TL_messageActionChatCreate || action instanceof TLRPC.TL_messageActionChatEditPhoto && messages.size() < 2)) {
                     continue;
                 }
@@ -25565,6 +25577,11 @@ public class ChatActivity extends BaseFragment implements
                     avatarContainer.setTime(action.encryptedAction.ttl_seconds, true);
                 }
                 if (obj.type < 0 || messagesDict[0].indexOfKey(messageId) >= 0) {
+                    continue;
+                }
+                if (!obj.isOutOwner() && (currentChat != null && ChatObject.isChannel(currentChat) && !currentChat.megagroup
+                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(obj.messageOwner != null ? obj.messageOwner.message : null))
+                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(obj.messageOwner != null ? obj.messageOwner.message : null)))) {
                     continue;
                 }
                 if (currentChat != null && currentChat.creator && (!ChatObject.isChannel(currentChat) || currentChat.megagroup) && (action instanceof TLRPC.TL_messageActionChatCreate || action instanceof TLRPC.TL_messageActionChatEditPhoto && messages.size() < 2)) {
@@ -26411,6 +26428,29 @@ public class ChatActivity extends BaseFragment implements
                 repliesMessagesDict.put(messageObject.getId(), messageObject);
             }
             if (old == null || remove && !ignoreDateCheckBeforeRemove && old.messageOwner.date != messageObject.messageOwner.date || messageObject.scheduled && chatMode != MODE_SCHEDULED) {
+                continue;
+            }
+            if (!messageObject.isOutOwner() && (currentChat != null && ChatObject.isChannel(currentChat) && !currentChat.megagroup
+                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(messageObject.messageOwner != null ? messageObject.messageOwner.message : null))
+                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(messageObject.messageOwner != null ? messageObject.messageOwner.message : null)))) {
+                if (old != null) {
+                    int index = messages.indexOf(old);
+                    if (index >= 0) {
+                        messages.remove(index);
+                        messagesDict[loadIndex].remove(old.getId());
+                        ArrayList<MessageObject> dayArr = messagesByDays.get(old.dateKey);
+                        if (dayArr != null) {
+                            dayArr.remove(old);
+                            if (dayArr.isEmpty()) {
+                                messagesByDays.remove(old.dateKey);
+                                messagesByDaysSorted.remove(old.dateKeyInt);
+                            }
+                        }
+                        if (chatAdapter != null) {
+                            chatAdapter.notifyDataSetChanged(true);
+                        }
+                    }
+                }
                 continue;
             }
             if (remove) {

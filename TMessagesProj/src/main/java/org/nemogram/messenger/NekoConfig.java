@@ -87,6 +87,8 @@ public class NekoConfig {
     public static int doubleTapOutAction = DOUBLE_TAP_ACTION_REACTION;
     public static int downloadSpeedBoost = BOOST_NONE;
     public static Set<String> restrictedLanguages;
+    public static Set<String> blockedKeywordsChats;
+    public static Set<String> blockedKeywordsChannels;
     public static String externalTranslationProvider;
     public static int transcribeProvider = TRANSCRIBE_PREMIUM;
     public static String cfAccountID = "";
@@ -144,6 +146,8 @@ public class NekoConfig {
     public static boolean hideFolderUnreadBadge = false;
     public static boolean strokeOnViews = true;
     public static boolean disableGooeyAvatarAnimation = false;
+    public static boolean filterKeywordsInChats = false;
+    public static boolean filterKeywordsInChannels = false;
 
     public static boolean shouldNOTTrustMe = false;
 
@@ -213,6 +217,10 @@ public class NekoConfig {
             doubleTapInAction = preferences.getInt("doubleTapAction", DOUBLE_TAP_ACTION_REACTION);
             doubleTapOutAction = preferences.getInt("doubleTapOutAction", doubleTapInAction);
             restrictedLanguages = preferences.getStringSet("restrictedLanguages", null);
+            blockedKeywordsChats = preferences.getStringSet("blockedKeywordsChats", new HashSet<>());
+            blockedKeywordsChannels = preferences.getStringSet("blockedKeywordsChannels", new HashSet<>());
+            filterKeywordsInChats = preferences.getBoolean("filterKeywordsInChats", false);
+            filterKeywordsInChannels = preferences.getBoolean("filterKeywordsInChannels", false);
             disableMarkdownByDefault = preferences.getBoolean("disableMarkdownByDefault", false);
             showRPCError = preferences.getBoolean("showRPCError", false);
             hideTimeOnSticker = preferences.getBoolean("hideTimeOnSticker", false);
@@ -353,6 +361,7 @@ public class NekoConfig {
         editor.putStringSet("restrictedLanguages", languages);
         editor.apply();
     }
+
 
     public static void setDoubleTapInAction(int action) {
         doubleTapInAction = action;
@@ -943,6 +952,48 @@ public class NekoConfig {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("maxRecentStickers", maxRecentStickers);
         editor.apply();
+    }
+
+    public static void saveBlockedKeywordsChats(Set<String> keywords) {
+        blockedKeywordsChats = new HashSet<>(keywords);
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putStringSet("blockedKeywordsChats", blockedKeywordsChats).apply();
+    }
+
+    public static void saveBlockedKeywordsChannels(Set<String> keywords) {
+        blockedKeywordsChannels = new HashSet<>(keywords);
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putStringSet("blockedKeywordsChannels", blockedKeywordsChannels).apply();
+    }
+
+    public static boolean isKeywordBlockedInChats(String text) {
+        if (blockedKeywordsChats == null || blockedKeywordsChats.isEmpty() || text == null) return false;
+        var lower = text.toLowerCase();
+        for (var keyword : blockedKeywordsChats) {
+            if (lower.contains(keyword.toLowerCase())) return true;
+        }
+        return false;
+    }
+
+    public static boolean isKeywordBlockedInChannels(String text) {
+        if (blockedKeywordsChannels == null || blockedKeywordsChannels.isEmpty() || text == null) return false;
+        var lower = text.toLowerCase();
+        for (var keyword : blockedKeywordsChannels) {
+            if (lower.contains(keyword.toLowerCase())) return true;
+        }
+        return false;
+    }
+
+    public static void toggleFilterKeywordsInChats() {
+        filterKeywordsInChats = !filterKeywordsInChats;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean("filterKeywordsInChats", filterKeywordsInChats).apply();
+    }
+
+    public static void toggleFilterKeywordsInChannels() {
+        filterKeywordsInChannels = !filterKeywordsInChannels;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean("filterKeywordsInChannels", filterKeywordsInChannels).apply();
     }
 
     public static int getNotificationColor() {

@@ -18,6 +18,7 @@ import org.nemogram.messenger.settings.NekoEmojiSettingsActivity;
 import org.nemogram.messenger.settings.NekoExperimentalSettingsActivity;
 import org.nemogram.messenger.settings.NekoGeneralSettingsActivity;
 import org.nemogram.messenger.settings.NekoPasscodeSettingsActivity;
+import org.nemogram.messenger.settings.NemoKeywordFilterActivity;
 
 public class SettingsHelper {
 
@@ -56,6 +57,10 @@ public class SettingsHelper {
                 case "general":
                 case "g":
                     fragment = new NekoGeneralSettingsActivity();
+                    break;
+                case "keywordfilter":
+                case "kf":
+                    fragment = new NemoKeywordFilterActivity();
                     break;
                 case "update":
                     LaunchActivity.instance.checkAppUpdate(true, progress);

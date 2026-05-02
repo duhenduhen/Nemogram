@@ -327,6 +327,20 @@
     <string name="GifSize">GIF Size</string>
     <string name="HideFolderUnreadBadge">Hide unread badge on folders</string>
     <string name="DisableGooeyAvatarAnimation">Disable gooey avatar animation</string>
+    <string name="KeywordFilter">Keyword Filter</string>
+    <string name="KeywordFilterAbout">Messages containing these keywords will be hidden.</string>
+    <string name="AddKeyword">Add keyword</string>
+    <string name="DeleteKeyword">Delete keyword</string>
+    <string name="DeleteKeywordConfirm">Remove \"%s\" from blocked keywords?</string>
+    <string name="KeywordFilterHint">Enter keyword...</string>
+    <string name="FilterKeywordsInChats">Filter in chats</string>
+    <string name="FilterKeywordsInChannels">Filter in channels</string>
+    <string name="FilterKeywordsInChatsAbout">Hide messages with blocked keywords in chats.</string>
+    <string name="BlockedKeywords">Blocked keywords</string>
+    <string name="FilterKeywordsChatsHeader">Chats</string>
+    <string name="FilterKeywordsChannelsHeader">Channels</string>
+    <string name="FilterKeywordsInChannelsAbout">Hide messages with blocked keywords in channels.</string>
+    <string name="MessageHidden">Message hidden</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>
