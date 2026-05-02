@@ -33,7 +33,6 @@
     <string name="DeleteDownloadedFile">Delete Downloaded File</string>
     <string name="TestBackendOn">This account will connect to the test backend.</string>
     <string name="TestBackendOff">This account will connect to the production backend.</string>
-    <string name="Nya">Meow!</string>
     <string name="StickerSize">Sticker size</string>
     <string name="StickerSizeLeft">Small</string>
     <string name="StickerSizeRight">Big</string>

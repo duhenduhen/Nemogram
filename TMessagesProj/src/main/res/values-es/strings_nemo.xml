@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Eliminar archivo descargado</string>
     <string name="TestBackendOn">Esta cuenta se conectará con el backend de prueba.</string>
     <string name="TestBackendOff">Esta cuenta se conectará con el backend de producción.</string>
-    <string name="Nya">¡Miau!</string>
     <string name="StickerSize">Tamaño de stickers</string>
     <string name="StickerSizeLeft">Pequeño</string>
     <string name="StickerSizeRight">Grande</string>

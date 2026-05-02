@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">ダウンロードしたファイルを削除</string>
     <string name="TestBackendOn">このアカウントはテストバックエンドに接続します。</string>
     <string name="TestBackendOff">このアカウントは本番バックエンドに接続します。</string>
-    <string name="Nya">にゃ!</string>
     <string name="StickerSize">ステッカーのサイズ</string>
     <string name="StickerSizeLeft">小</string>
     <string name="StickerSizeRight">大</string>

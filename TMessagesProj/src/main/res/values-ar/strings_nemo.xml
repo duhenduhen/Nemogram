@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">حذف الملف الذي تم تنزيله</string>
     <string name="TestBackendOn">سيتصل هذا الحساب بالخادم التجريبي.</string>
     <string name="TestBackendOff">سيتصل هذا الحساب بالخوادم العادية.</string>
-    <string name="Nya">مياو3:!</string>
     <string name="StickerSize">حجم الملصقات</string>
     <string name="StickerSizeLeft">ملصق صغير</string>
     <string name="StickerSizeRight">ملصق كبير</string>

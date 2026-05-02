@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Supprimer des fichiers téléchargés</string>
     <string name="TestBackendOn">Ce compte se connectera au serveur de test.</string>
     <string name="TestBackendOff">Ce compte sera déconnecter du serveur de test.</string>
-    <string name="Nya">Miaou !</string>
     <string name="StickerSize">Taille des autocollants</string>
     <string name="StickerSizeLeft">Petit</string>
     <string name="StickerSizeRight">Grand</string>

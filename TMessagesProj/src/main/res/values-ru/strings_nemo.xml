@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Удалить скачанный файл</string>
     <string name="TestBackendOn">Этот аккаунт будет подключаться к тестовому серверу.</string>
     <string name="TestBackendOff">Этот аккаунт будет подключаться к основному серверу.</string>
-    <string name="Nya">Мяу!</string>
     <string name="StickerSize">Размер стикеров</string>
     <string name="StickerSizeLeft">Маленький</string>
     <string name="StickerSizeRight">Большой</string>

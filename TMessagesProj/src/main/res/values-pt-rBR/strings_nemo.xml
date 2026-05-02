@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Excluir Arquivo Baixado</string>
     <string name="TestBackendOn">Esta conta se conectará ao servidor de testes do Telegram.</string>
     <string name="TestBackendOff">Esta conta se conectará ao back-end de produção.</string>
-    <string name="Nya">Miau!</string>
     <string name="StickerSize">Tamanho dos stickers</string>
     <string name="StickerSizeLeft">Pequeno</string>
     <string name="StickerSizeRight">Grande</string>

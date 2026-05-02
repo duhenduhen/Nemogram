@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">刪除快取文件</string>
     <string name="TestBackendOn">此賬戶將連線至測試後端伺服器。</string>
     <string name="TestBackendOff">此賬戶將連線至生產後端伺服器。</string>
-    <string name="Nya">喵！</string>
     <string name="StickerSize">貼圖大小</string>
     <string name="StickerSizeLeft">小</string>
     <string name="StickerSizeRight">大</string>

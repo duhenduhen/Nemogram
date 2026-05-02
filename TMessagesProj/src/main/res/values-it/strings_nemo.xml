@@ -33,7 +33,6 @@
     <string name="TestBackendOn">Questo account si connetterà al server di test.</string>
     <string name="TestBackendOff">Questo account si connetterà al server principale.</string>
     <string name="ViewHistory">Visualizza la cronologia</string>
-    <string name="Nya">Miao!</string>
     <string name="StickerSize">Dimensione dell\'adesivo</string>
     <string name="StickerSizeLeft">Piccolo</string>
     <string name="StickerSizeRight">Grande</string>

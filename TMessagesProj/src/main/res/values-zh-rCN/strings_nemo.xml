@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">删除缓存的文件</string>
     <string name="TestBackendOn">此账户将连接至测试后端服务器。</string>
     <string name="TestBackendOff">此账户将连接至生产后端服务器。</string>
-    <string name="Nya">喵！</string>
     <string name="StickerSize">贴纸大小</string>
     <string name="StickerSizeLeft">小</string>
     <string name="StickerSizeRight">大</string>

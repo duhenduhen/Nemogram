@@ -29,7 +29,6 @@
     <string name="DeleteDownloadedFile">Yüklenmiş dosyayı sil</string>
     <string name="TestBackendOn">Bu hesap test arka ucuna bağlanacak.</string>
     <string name="TestBackendOff">Bu hesap ürün arka ucuna bağlanacak.</string>
-    <string name="Nya">Miyav!</string>
     <string name="StickerSize">Çıkartma boyutu</string>
     <string name="StickerSizeLeft">Küçük</string>
     <string name="StickerSizeRight">Büyük</string>

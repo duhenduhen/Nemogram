@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Избриши преузету датотеку</string>
     <string name="TestBackendOn">Овај налог ће се повезати са тестним сервером.</string>
     <string name="TestBackendOff">Овај налог ће се повезати са основним сервером.</string>
-    <string name="Nya">Мјау!</string>
     <string name="StickerSize">Величина налепница</string>
     <string name="StickerSizeLeft">Мала</string>
     <string name="StickerSizeRight">Велика</string>

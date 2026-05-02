@@ -28,7 +28,6 @@
     <string name="TestBackendOn">Цей обліковий запис буде підключено до тестового сервера.</string>
     <string name="TestBackendOff">Цей обліковий запис буде підключено до робочого сервера.</string>
     <string name="ViewHistory">Подивитись історію</string>
-    <string name="Nya">Мяу!</string>
     <string name="StickerSize">Розмір наліпки</string>
     <string name="StickerSizeLeft">Malá</string>
     <string name="StickerSizeRight">Velká</string>

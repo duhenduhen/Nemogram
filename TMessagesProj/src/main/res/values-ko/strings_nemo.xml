@@ -28,7 +28,6 @@
     <string name="TestBackendOn">이 계정은 테스트 백엔드에 연결됩니다.</string>
     <string name="TestBackendOff">이 계정은 프로덕션 백엔드에 연결됩니다.</string>
     <string name="ViewHistory">이전 기록 보기</string>
-    <string name="Nya">야옹!</string>
     <string name="StickerSize">스티커 크기</string>
     <string name="StickerSizeLeft">작게</string>
     <string name="StickerSizeRight">크게</string>

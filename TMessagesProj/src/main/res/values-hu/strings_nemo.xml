@@ -33,7 +33,6 @@
     <string name="TestBackendOn">Ez a fiók csatlakozni fog a teszt háttérrendszerhez.</string>
     <string name="TestBackendOff">Ez a fiók csatlakozni fog az éles háttérrendszerhez.</string>
     <string name="ViewHistory">Előzmények megtekintése</string>
-    <string name="Nya">Miau!</string>
     <string name="StickerSize">Matrica mérete</string>
     <string name="StickerSizeLeft">Kicsi</string>
     <string name="StickerSizeRight">Nagy</string>

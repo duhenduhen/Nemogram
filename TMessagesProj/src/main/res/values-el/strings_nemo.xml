@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Διαγρ. ληφθ. αρχείου</string>
     <string name="TestBackendOn">Αυτός ο λογαριασμός θα συνδεθεί με το δοκιμαστικό backend.</string>
     <string name="TestBackendOff">Αυτός ο λογαριασμός θα συνδεθεί με το παραγωγικό backend.</string>
-    <string name="Nya">Μιάου!</string>
     <string name="StickerSize">Μέγεθος αυτοκόλλητου</string>
     <string name="StickerSizeLeft">Μικρό</string>
     <string name="StickerSizeRight">Μεγάλο</string>

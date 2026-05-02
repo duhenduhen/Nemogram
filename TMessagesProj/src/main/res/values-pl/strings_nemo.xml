@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Usuń pobrany plik</string>
     <string name="TestBackendOn">To konto połączy się z backendem testowym.</string>
     <string name="TestBackendOff">To konto połączy się z backendem produkcyjnym.</string>
-    <string name="Nya">Miau!</string>
     <string name="StickerSize">Rozmiar naklejek</string>
     <string name="StickerSizeLeft">Mały</string>
     <string name="StickerSizeRight">Duży</string>

@@ -26,7 +26,6 @@
     <string name="TestBackendOn">यह अकाउंट टेस्ट बैकएंड से कनेक्ट करेगा।</string>
     <string name="TestBackendOff">यह खाता प्रोडक्शन बैकएंड से कनेक्ट करेगा।</string>
     <string name="ViewHistory">इतिहास देखें</string>
-    <string name="Nya">म्याऊँ!</string>
     <string name="StickerSize">चैट में स्टीकर का साइज</string>
     <string name="StickerSizeLeft">छोटा</string>
     <string name="StickerSizeRight">बड़ा</string>

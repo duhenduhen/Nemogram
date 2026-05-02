@@ -26,7 +26,6 @@
     <string name="TestBackendOn">Detta konto kommer ansluta till testbackend.</string>
     <string name="TestBackendOff">Detta konto kommer att ansluta till produktionsbackend.</string>
     <string name="ViewHistory">Visa historik</string>
-    <string name="Nya">Mjau!</string>
     <string name="StickerSize">Storlek på klistermärken</string>
     <string name="StickerSizeDialogMessage">Åh så söt! En svart katt!</string>
     <string name="StickerSizeDialogMessageReplyTo">Mjau</string>

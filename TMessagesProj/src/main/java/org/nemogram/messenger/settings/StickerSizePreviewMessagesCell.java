@@ -121,11 +121,6 @@ public class StickerSizePreviewMessagesCell extends LinearLayout {
                 }
 
                 @Override
-                public void didPressImage(ChatMessageCell cell, float x, float y, boolean fullPreview) {
-                    NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.showBulletin, Bulletin.TYPE_ERROR, LocaleController.getString(R.string.Nya));
-                }
-
-                @Override
                 public void didPressTime(ChatMessageCell cell) {
                     showTimeHint(cell);
                 }

@@ -191,11 +191,6 @@ public class LinkManager {
             return true;
         }
 
-        if ("meow".equals(first) || "nya".equals(first)) {
-            getBulletinFactory().createErrorBulletin(LocaleController.getString(R.string.Nya)).show();
-            return true;
-        }
-
         if ("fish".equals(first)) {
             presentFragment(new FishActivity());
             return true;

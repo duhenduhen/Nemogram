@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Выдаліць спампаваны файл</string>
     <string name="TestBackendOn">Гэты ўліковы запіс падключыцца да тэставага серверу.</string>
     <string name="TestBackendOff">Гэты ўліковы запіс падключыцца да вытворчага серверу.</string>
-    <string name="Nya">Мяў!</string>
     <string name="StickerSize">Памер стыкераў</string>
     <string name="StickerSizeLeft">Маленькі</string>
     <string name="StickerSizeRight">Вялікі</string>

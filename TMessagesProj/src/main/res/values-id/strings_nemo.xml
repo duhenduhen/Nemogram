@@ -32,7 +32,6 @@
     <string name="TestBackendOn">Akun ini akan terhubung ke pengujian backend.</string>
     <string name="TestBackendOff">Akun ini akan terhubung ke produksi backend.</string>
     <string name="ViewHistory">Lihat riwayat</string>
-    <string name="Nya">Meow!</string>
     <string name="StickerSize">Ukuran stiker</string>
     <string name="StickerSizeLeft">Kecil</string>
     <string name="StickerSizeRight">Besar</string>

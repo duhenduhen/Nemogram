@@ -30,7 +30,6 @@
     <string name="DeleteDownloadedFile">Heruntergeladene Dateien löschen</string>
     <string name="TestBackendOn">Dieses Konto wird mit dem Test-Backend verbunden.</string>
     <string name="TestBackendOff">Dieses Konto wird mit dem Release-Backend verbunden.</string>
-    <string name="Nya">Miau!</string>
     <string name="StickerSize">Stickergröße</string>
     <string name="StickerSizeLeft">Klein</string>
     <string name="StickerSizeRight">Groß</string>
