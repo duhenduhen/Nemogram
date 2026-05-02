@@ -140,21 +140,25 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
 
     @Override
     protected void fillItems(ArrayList<UItem> items, UniversalAdapter adapter) {
+        items.add(UItem.asHeader(LocaleController.getString(R.string.AccDescrStickers)));
         items.add(StickerSizeCellFactory.of(stickerSizeRow, LocaleController.getString(R.string.StickerSize), NekoConfig.stickerSize, progress -> {
             NekoConfig.setStickerSize(progress);
             if (progress != 14.0f && resetItem.getVisibility() != View.VISIBLE) {
                 AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
             }
         }).slug("stickerSize"));
+        items.add(UItem.asCheck(hideTimeOnStickerRow, LocaleController.getString(R.string.HideTimeOnSticker)).slug("hideTimeOnSticker").setChecked(NekoConfig.hideTimeOnSticker));
+        items.add(UItem.asCheck(showTimeHintRow, LocaleController.getString(R.string.ShowTimeHint), LocaleController.getString(R.string.ShowTimeHintDesc)).slug("showTimeHint").setChecked(NekoConfig.showTimeHint));
+        items.add(UItem.asCheck(reducedColorsRow, LocaleController.getString(R.string.ReducedColors)).slug("reducedColors").setChecked(NekoConfig.reducedColors));
+        items.add(UItem.asShadow(null));
+
+        items.add(UItem.asHeader(LocaleController.getString(R.string.AttachGif)));
         items.add(GifSizeCellFactory.of(gifSizeRow, LocaleController.getString(R.string.GifSize), NekoConfig.gifSize, progress -> {
             NekoConfig.setGifSize(progress);
             if (progress != 14.0f && resetItem.getVisibility() != View.VISIBLE) {
                 AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
             }
         }).slug("gifSize"));
-        items.add(UItem.asCheck(hideTimeOnStickerRow, LocaleController.getString(R.string.HideTimeOnSticker)).slug("hideTimeOnSticker").setChecked(NekoConfig.hideTimeOnSticker));
-        items.add(UItem.asCheck(showTimeHintRow, LocaleController.getString(R.string.ShowTimeHint), LocaleController.getString(R.string.ShowTimeHintDesc)).slug("showTimeHint").setChecked(NekoConfig.showTimeHint));
-        items.add(UItem.asCheck(reducedColorsRow, LocaleController.getString(R.string.ReducedColors)).slug("reducedColors").setChecked(NekoConfig.reducedColors));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.Chat)));
