@@ -29,6 +29,7 @@ import java.util.Locale;
 import org.nemogram.messenger.Extra;
 import org.nemogram.messenger.NekoConfig;
 import org.nemogram.messenger.helpers.PopupHelper;
+import org.nemogram.messenger.helpers.remote.UpdateHelper;
 
 public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
 
@@ -39,6 +40,9 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
     private final int mapDriftingFixRow = rowId++;
     private final int contentRestrictionRow = rowId++;
     private final int showRPCErrorRow = rowId++;
+
+    private final int checkUpdateRow = rowId++;
+    private final int autoCheckUpdatesRow = rowId++;
 
     private final int deleteAccountRow = rowId++;
 
@@ -63,6 +67,12 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
         }
         items.add(UItem.asCheck(showRPCErrorRow, LocaleController.getString(R.string.ShowRPCError), LocaleController.formatString(R.string.ShowRPCErrorException, "FILE_REFERENCE_EXPIRED")).slug("showRPCError").setChecked(NekoConfig.showRPCError));
         items.add(UItem.asShadow(null));
+
+        if (getParentActivity() instanceof LaunchActivity) {
+            items.add(TextDetailSettingsCellFactory.of(checkUpdateRow, LocaleController.getString(R.string.CheckUpdate), UpdateHelper.formatDateUpdate(SharedConfig.lastUpdateCheckTime)).slug("checkUpdate"));
+            items.add(UItem.asCheck(autoCheckUpdatesRow, LocaleController.getString(R.string.AutoCheckUpdates)).slug("autoCheckUpdates").setChecked(NekoConfig.autoCheckUpdates));
+            items.add(UItem.asShadow(null));
+        }
 
         items.add(TextSettingsCellFactory.of(deleteAccountRow, LocaleController.getString(R.string.DeleteAccount), "").slug("deleteAccount").red());
         items.add(UItem.asShadow(null));
@@ -202,6 +212,23 @@ public class NekoExperimentalSettingsActivity extends BaseNekoSettingsActivity {
             NekoConfig.toggleKeepFormatting();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NekoConfig.keepFormatting);
+            }
+        } else if (id == checkUpdateRow) {
+            if (getParentActivity() instanceof LaunchActivity launchActivity) {
+                launchActivity.checkAppUpdate(true, new Browser.Progress() {
+                    @Override
+                    public void end() {
+                        item.subtext = UpdateHelper.formatDateUpdate(SharedConfig.lastUpdateCheckTime);
+                        listView.adapter.notifyItemChanged(position);
+                    }
+                });
+                item.subtext = LocaleController.getString(R.string.CheckingUpdate);
+                listView.adapter.notifyItemChanged(position);
+            }
+        } else if (id == autoCheckUpdatesRow) {
+            NekoConfig.toggleAutoCheckUpdates();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(NekoConfig.autoCheckUpdates);
             }
         }
     }

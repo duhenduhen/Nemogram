@@ -91,6 +91,7 @@ import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.AssistActionBuilder;
 
+import org.nemogram.messenger.helpers.remote.UpdateHelper;
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.AccountInstance;
 import org.telegram.messenger.AndroidUtilities;
@@ -5915,9 +5916,33 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
         if (!force && Math.abs(System.currentTimeMillis() - SharedConfig.lastUpdateCheckTime) < MessagesController.getInstance(0).updateCheckDelay * 1000) {
             return;
         }
-        if (progress != null) {
-            progress.end();
-        }
+        final int accountNum = currentAccount;
+        UpdateHelper.getInstance().checkNewVersionAvailable((res, error) -> {
+            SharedConfig.lastUpdateCheckTime = System.currentTimeMillis();
+            SharedConfig.saveConfig();
+            AndroidUtilities.runOnUIThread(() -> {
+                if (res != null) {
+                    SharedConfig.setNewAppVersionAvailable(res);
+                    if (res.can_not_skip) {
+                        showUpdateActivity(accountNum, res, false);
+                    } else {
+                        ApplicationLoader.applicationLoaderInstance.showUpdateAppPopup(LaunchActivity.this, res, accountNum);
+                    }
+                } else {
+                    if (force) {
+                        BaseFragment fragment = getLastFragment();
+                        if (fragment != null) {
+                            BulletinFactory.of(fragment).createSimpleBulletin(R.raw.chats_infotip, LocaleController.getString(R.string.YourVersionIsLatest)).show();
+                        }
+                    }
+                    SharedConfig.setNewAppVersionAvailable(null);
+                }
+                NotificationCenter.getGlobalInstance().postNotificationName(NotificationCenter.appUpdateAvailable);
+                if (progress != null) {
+                    progress.end();
+                }
+            });
+        });
     }
 
     public Dialog showAlertDialog(AlertDialog.Builder builder) {
@@ -6820,7 +6845,9 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
         } else if (SharedConfig.pendingAppUpdate != null && SharedConfig.pendingAppUpdate.can_not_skip) {
             showUpdateActivity(UserConfig.selectedAccount, SharedConfig.pendingAppUpdate, true);
         }
-        checkAppUpdate(false, null);
+        if (NekoConfig.autoCheckUpdates) {
+            checkAppUpdate(false, null);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             ApplicationLoader.canDrawOverlays = Settings.canDrawOverlays(this);

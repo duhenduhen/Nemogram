@@ -7,23 +7,21 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.ToNumberPolicy;
 
+import org.nemogram.messenger.helpers.LensHelper;
+import org.nemogram.messenger.translator.Translator;
+import org.nemogram.messenger.translator.TranslatorApps;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
-import org.telegram.messenger.BuildConfig;
 import org.telegram.messenger.FileLog;
 import org.telegram.ui.ActionBar.Theme;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
 import app.nekogram.translator.DeepLTranslator;
-import org.nemogram.messenger.helpers.LensHelper;
-import org.nemogram.messenger.translator.Translator;
-import org.nemogram.messenger.translator.TranslatorApps;
 
 public class NekoConfig {
     //TODO: refactor
@@ -148,12 +146,14 @@ public class NekoConfig {
     public static boolean disableGooeyAvatarAnimation = false;
     public static boolean filterKeywordsInChats = false;
     public static boolean filterKeywordsInChannels = false;
+    public static boolean autoCheckUpdates = true;
 
     public static boolean shouldNOTTrustMe = false;
 
     public static int userMcc = 0;
 
     private static boolean configLoaded;
+    private static Gson gson;
 
     static {
         loadConfig(false);
@@ -252,14 +252,13 @@ public class NekoConfig {
             hideFolderUnreadBadge = preferences.getBoolean("hideFolderUnreadBadge", false);
             strokeOnViews = preferences.getBoolean("strokeOnViews", true);
             disableGooeyAvatarAnimation = preferences.getBoolean("disableGooeyAvatarAnimation", false);
+            autoCheckUpdates = preferences.getBoolean("autoCheckUpdates", true);
 
             LensHelper.checkLensSupportAsync();
 
             configLoaded = true;
         }
     }
-
-    private static Gson gson;
 
     public static String exportConfigs() {
         if (gson == null) {
@@ -682,6 +681,7 @@ public class NekoConfig {
         editor.putFloat("gifSize", gifSize);
         editor.apply();
     }
+
     public static void setTranslationProvider(String provider) {
         translationProvider = provider;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
@@ -967,7 +967,8 @@ public class NekoConfig {
     }
 
     public static boolean isKeywordBlockedInChats(String text) {
-        if (blockedKeywordsChats == null || blockedKeywordsChats.isEmpty() || text == null) return false;
+        if (blockedKeywordsChats == null || blockedKeywordsChats.isEmpty() || text == null)
+            return false;
         var lower = text.toLowerCase();
         for (var keyword : blockedKeywordsChats) {
             if (lower.contains(keyword.toLowerCase())) return true;
@@ -976,7 +977,8 @@ public class NekoConfig {
     }
 
     public static boolean isKeywordBlockedInChannels(String text) {
-        if (blockedKeywordsChannels == null || blockedKeywordsChannels.isEmpty() || text == null) return false;
+        if (blockedKeywordsChannels == null || blockedKeywordsChannels.isEmpty() || text == null)
+            return false;
         var lower = text.toLowerCase();
         for (var keyword : blockedKeywordsChannels) {
             if (lower.contains(keyword.toLowerCase())) return true;
@@ -994,6 +996,12 @@ public class NekoConfig {
         filterKeywordsInChannels = !filterKeywordsInChannels;
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
         preferences.edit().putBoolean("filterKeywordsInChannels", filterKeywordsInChannels).apply();
+    }
+
+    public static void toggleAutoCheckUpdates() {
+        autoCheckUpdates = !autoCheckUpdates;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean("autoCheckUpdates", autoCheckUpdates).apply();
     }
 
     public static int getNotificationColor() {
