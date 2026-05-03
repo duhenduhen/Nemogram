@@ -44,3 +44,12 @@ subprojects {
         }
     }
 }
+
+ext {
+    def base = Integer.parseInt(TG_APP_VERSION_CODE)
+    def count = 0
+    try {
+        count = "git rev-list --count 6a75a929122d62000a27eff3851dfc8cb973e02a..HEAD".execute([], rootDir).text.trim().toInteger()
+    } catch (ignored) {}
+    appVersionCode = base + count
+}

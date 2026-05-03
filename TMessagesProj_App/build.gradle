@@ -70,7 +70,7 @@ android {
         }
     }
 
-    defaultConfig.versionCode = Integer.parseInt(APP_VERSION_CODE)
+    defaultConfig.versionCode = rootProject.ext.appVersionCode
 
     defaultConfig {
         versionName APP_VERSION_NAME
