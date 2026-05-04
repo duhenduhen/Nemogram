@@ -1399,6 +1399,9 @@ public class CaptionContainerView extends FrameLayout {
         if (editText != null) {
             editText.onDestroy();
         }
+        if (mentionContainer != null) {
+            mentionContainer.getAdapter().onDestroy();
+        }
         if (blurBitmap != null) {
             blurBitmap.recycle();
         }
