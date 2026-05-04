@@ -6748,6 +6748,11 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
         clearFragments();
         super.onDestroy();
         onFinish();
+
+        if (instance == this) {
+            instance = null;
+        }
+
         FloatingDebugController.onDestroy();
         if (flagSecureReason != null) {
             flagSecureReason.detach();
