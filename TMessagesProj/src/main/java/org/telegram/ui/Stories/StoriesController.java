@@ -62,7 +62,6 @@ import org.telegram.ui.Components.Premium.LimitReachedBottomSheet;
 import org.telegram.ui.Components.Premium.PremiumFeatureBottomSheet;
 import org.telegram.ui.Components.Reactions.ReactionImageHolder;
 import org.telegram.ui.Components.Reactions.ReactionsLayoutInBubble;
-import org.telegram.ui.FilterCreateActivity;
 import org.telegram.ui.LaunchActivity;
 import org.telegram.ui.PremiumPreviewFragment;
 import org.telegram.ui.StatisticActivity;
@@ -90,7 +89,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class StoriesController {
 
@@ -284,7 +283,7 @@ public class StoriesController {
     }
 
     public boolean hasStories() {
-        if (NekoConfig.hideStories) {
+        if (NemoConfig.hideStories) {
             return false;
         }
         return (dialogListStories != null && dialogListStories.size() > 0) || hasSelfStories();

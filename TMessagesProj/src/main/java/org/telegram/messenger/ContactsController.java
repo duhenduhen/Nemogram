@@ -51,8 +51,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.helpers.PasscodeHelper;
+import org.nemogram.messenger.NemoConfig;
 
 public class ContactsController extends BaseController {
 
@@ -3057,7 +3056,7 @@ public class ContactsController extends BaseController {
             lastName = lastName.trim();
         }
         StringBuilder result = new StringBuilder((firstName != null ? firstName.length() : 0) + (lastName != null ? lastName.length() : 0) + 1);
-        if (NekoConfig.nameOrder == 1) {
+        if (NemoConfig.nameOrder == 1) {
             if (firstName != null && firstName.length() > 0) {
                 if (maxLength > 0 && firstName.length() > maxLength + 2) {
                     return firstName.substring(0, maxLength) + "…";

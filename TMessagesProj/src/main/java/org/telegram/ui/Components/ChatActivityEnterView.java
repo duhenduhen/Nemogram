@@ -24,9 +24,6 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.ClipData;
-import android.content.ClipDescription;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -65,7 +62,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
-import android.util.Log;
 import android.util.Property;
 import android.util.TypedValue;
 import android.view.ActionMode;
@@ -87,7 +83,6 @@ import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputConnection;
 import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -101,13 +96,10 @@ import androidx.collection.LongSparseArray;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.math.MathUtils;
-import androidx.core.os.BuildCompat;
 import androidx.core.view.ContentInfoCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.view.inputmethod.EditorInfoCompat;
-import androidx.core.view.inputmethod.InputConnectionCompat;
-import androidx.core.view.inputmethod.InputContentInfoCompat;
 import androidx.customview.widget.ExploreByTouchHelper;
 import androidx.dynamicanimation.animation.DynamicAnimation;
 import androidx.dynamicanimation.animation.SpringAnimation;
@@ -216,7 +208,7 @@ import java.util.Locale;
 
 import me.vkryl.android.animator.BoolAnimator;
 import me.vkryl.android.animator.FactorAnimator;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class ChatActivityEnterView extends FrameLayout implements
     NotificationCenter.NotificationCenterDelegate,
@@ -2898,9 +2890,9 @@ public class ChatActivityEnterView extends FrameLayout implements
                                     });
                                     return true;
                                 }
-                                delegate.needStartRecordVideo(NekoConfig.confirmAVMessage ? 3 : 1, true, 0, 0, voiceOnce ? 0x7FFFFFFF : 0, effectId, 0);
+                                delegate.needStartRecordVideo(NemoConfig.confirmAVMessage ? 3 : 1, true, 0, 0, voiceOnce ? 0x7FFFFFFF : 0, effectId, 0);
                                 sendButton.setEffect(effectId = 0);
-                            } else if (NekoConfig.confirmAVMessage) {
+                            } else if (NemoConfig.confirmAVMessage) {
                                 MediaController.getInstance().stopRecording(2, true, 0, voiceOnce, 0);
                             } else {
                                 if (recordingAudioVideo && isInScheduleMode()) {
@@ -2930,7 +2922,7 @@ public class ChatActivityEnterView extends FrameLayout implements
                                 MediaController.getInstance().stopRecording(isInScheduleMode() ? 3 : 1, true, 0, voiceOnce, 0);
                                 delegate.needStartRecordAudio(0);
                             }
-                            if (!NekoConfig.confirmAVMessage) {
+                            if (!NemoConfig.confirmAVMessage) {
                                 recordingAudioVideo = false;
                                 messageTransitionIsRunning = false;
                                 AndroidUtilities.runOnUIThread(moveToSendStateRunnable = () -> {
@@ -3025,7 +3017,7 @@ public class ChatActivityEnterView extends FrameLayout implements
                                     return true;
                                 }
                                 CameraController.getInstance().cancelOnInitRunnable(onFinishInitCameraRunnable);
-                                delegate.needStartRecordVideo(NekoConfig.confirmAVMessage ? 3 : 1, true, 0, 0, voiceOnce ? 0x7FFFFFFF : 0, effectId, 0);
+                                delegate.needStartRecordVideo(NemoConfig.confirmAVMessage ? 3 : 1, true, 0, 0, voiceOnce ? 0x7FFFFFFF : 0, effectId, 0);
                                 sendButton.setEffect(effectId = 0);
                             } else if (!sendVoiceEnabled) {
                                 delegate.needShowMediaBanHint();
@@ -3044,13 +3036,13 @@ public class ChatActivityEnterView extends FrameLayout implements
                                     });
                                     return true;
                                 }
-                                if (!NekoConfig.confirmAVMessage && recordingAudioVideo && isInScheduleMode()) {
+                                if (!NemoConfig.confirmAVMessage && recordingAudioVideo && isInScheduleMode()) {
                                     AlertsCreator.createScheduleDatePickerDialog(parentActivity, parentFragment.getDialogId(), (notify, scheduleDate, scheduleRepeatPeriod) -> MediaController.getInstance().stopRecording(1, notify, scheduleDate, false, 0), () -> MediaController.getInstance().stopRecording(0, false, 0, false, 0), resourcesProvider);
                                 }
                                 delegate.needStartRecordAudio(0);
-                                MediaController.getInstance().stopRecording(NekoConfig.confirmAVMessage ? 2 : isInScheduleMode() ? 3 : 1, true, 0, voiceOnce, 0);
+                                MediaController.getInstance().stopRecording(NemoConfig.confirmAVMessage ? 2 : isInScheduleMode() ? 3 : 1, true, 0, voiceOnce, 0);
                             }
-                            if (!NekoConfig.confirmAVMessage) {
+                            if (!NemoConfig.confirmAVMessage) {
                                 recordingAudioVideo = false;
                                 messageTransitionIsRunning = false;
                                 AndroidUtilities.runOnUIThread(moveToSendStateRunnable = () -> {

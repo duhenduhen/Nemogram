@@ -39,10 +39,9 @@ import org.telegram.messenger.StatsController;
 import org.telegram.messenger.UserConfig;
 import org.telegram.messenger.Utilities;
 import org.telegram.ui.Components.VideoPlayer;
-import org.telegram.ui.LoginActivity;
 
 import org.nemogram.messenger.ErrorDatabase;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -406,7 +405,7 @@ public class ConnectionsManager extends BaseController {
                         if (BuildVars.LOGS_ENABLED && error.code != -2000) {
                             FileLog.e(object + " got error " + error.code + " " + error.text);
                         }
-                        if (NekoConfig.showRPCError) {
+                        if (NemoConfig.showRPCError) {
                             ErrorDatabase.showErrorToast(object, errorText);
                         }
                     }
@@ -1088,7 +1087,7 @@ public class ConnectionsManager extends BaseController {
                 }
             }
             if (hasIpv6) {
-                if (NekoConfig.preferIPv6 || forceTryIpV6) {
+                if (NemoConfig.preferIPv6 || forceTryIpV6) {
                     return USE_IPV6_ONLY;
                 }
                 if (hasStrangeIpv4) {

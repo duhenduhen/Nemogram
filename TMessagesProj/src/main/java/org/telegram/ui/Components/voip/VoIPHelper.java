@@ -67,7 +67,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class VoIPHelper {
 
@@ -108,7 +108,7 @@ public class VoIPHelper {
 			return;
 		}
 
-		if (NekoConfig.askBeforeCall && !confirmed && activity instanceof LaunchActivity) {
+		if (NemoConfig.askBeforeCall && !confirmed && activity instanceof LaunchActivity) {
 			final BaseFragment lastFragment = ((LaunchActivity) activity).getActionBarLayout().getLastFragment();
 			if (lastFragment != null) {
 				AlertsCreator.createCallDialogAlert(lastFragment, lastFragment.getMessagesController().getUser(user.id), videoCall);

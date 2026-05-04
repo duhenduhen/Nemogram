@@ -37,13 +37,13 @@ import org.telegram.ui.Components.UniversalRecyclerView;
 
 import java.util.ArrayList;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.EntitiesHelper;
 import org.nemogram.messenger.helpers.PopupHelper;
 import org.nemogram.messenger.helpers.VoiceEnhancementsHelper;
 import org.nemogram.messenger.helpers.WhisperHelper;
 
-public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
+public class NemoChatSettingsActivity extends BaseNemoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
 
     private ActionBarMenuItem resetItem;
 
@@ -104,36 +104,36 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             var item = listView.findItemByItemId(stickerSizeRow);
             var stickerCell = (StickerSizeCell) listView.findViewByItemId(stickerSizeRow);
             if (stickerCell != null) {
-                ValueAnimator animator = ValueAnimator.ofFloat(NekoConfig.stickerSize, 14.0f);
+                ValueAnimator animator = ValueAnimator.ofFloat(NemoConfig.stickerSize, 14.0f);
                 animator.setDuration(150);
                 animator.setInterpolator(CubicBezierInterpolator.EASE_OUT_QUINT);
                 animator.addUpdateListener(valueAnimator -> {
                     var floatValue = (float) valueAnimator.getAnimatedValue();
-                    NekoConfig.setStickerSize(floatValue);
+                    NemoConfig.setStickerSize(floatValue);
                     stickerCell.setValue(floatValue);
                 });
                 animator.start();
             } else {
-                NekoConfig.setStickerSize(14.0f);
+                NemoConfig.setStickerSize(14.0f);
             }
             item.floatValue = 14.0f;
         });
-        AndroidUtilities.updateViewVisibilityAnimated(resetItem, Float.compare(NekoConfig.stickerSize, 14.0f) != 0 || Float.compare(NekoConfig.gifSize, 14.0f) != 0, 1f, false);
+        AndroidUtilities.updateViewVisibilityAnimated(resetItem, Float.compare(NemoConfig.stickerSize, 14.0f) != 0 || Float.compare(NemoConfig.gifSize, 14.0f) != 0, 1f, false);
 
         return fragmentView;
     }
 
     public String getDoubleTapActionText(int action) {
         return switch (action) {
-            case NekoConfig.DOUBLE_TAP_ACTION_REACTION ->
+            case NemoConfig.DOUBLE_TAP_ACTION_REACTION ->
                     LocaleController.getString(R.string.Reactions);
-            case NekoConfig.DOUBLE_TAP_ACTION_TRANSLATE ->
+            case NemoConfig.DOUBLE_TAP_ACTION_TRANSLATE ->
                     LocaleController.getString(R.string.TranslateMessage);
-            case NekoConfig.DOUBLE_TAP_ACTION_REPLY -> LocaleController.getString(R.string.Reply);
-            case NekoConfig.DOUBLE_TAP_ACTION_SAVE ->
+            case NemoConfig.DOUBLE_TAP_ACTION_REPLY -> LocaleController.getString(R.string.Reply);
+            case NemoConfig.DOUBLE_TAP_ACTION_SAVE ->
                     LocaleController.getString(R.string.AddToSavedMessages);
-            case NekoConfig.DOUBLE_TAP_ACTION_REPEAT -> LocaleController.getString(R.string.Repeat);
-            case NekoConfig.DOUBLE_TAP_ACTION_EDIT -> LocaleController.getString(R.string.Edit);
+            case NemoConfig.DOUBLE_TAP_ACTION_REPEAT -> LocaleController.getString(R.string.Repeat);
+            case NemoConfig.DOUBLE_TAP_ACTION_EDIT -> LocaleController.getString(R.string.Edit);
             default -> LocaleController.getString(R.string.Disable);
         };
     }
@@ -141,20 +141,20 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     @Override
     protected void fillItems(ArrayList<UItem> items, UniversalAdapter adapter) {
         items.add(UItem.asHeader(LocaleController.getString(R.string.AccDescrStickers)));
-        items.add(StickerSizeCellFactory.of(stickerSizeRow, LocaleController.getString(R.string.StickerSize), NekoConfig.stickerSize, progress -> {
-            NekoConfig.setStickerSize(progress);
+        items.add(StickerSizeCellFactory.of(stickerSizeRow, LocaleController.getString(R.string.StickerSize), NemoConfig.stickerSize, progress -> {
+            NemoConfig.setStickerSize(progress);
             if (progress != 14.0f && resetItem.getVisibility() != View.VISIBLE) {
                 AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
             }
         }).slug("stickerSize"));
-        items.add(UItem.asCheck(hideTimeOnStickerRow, LocaleController.getString(R.string.HideTimeOnSticker)).slug("hideTimeOnSticker").setChecked(NekoConfig.hideTimeOnSticker));
-        items.add(UItem.asCheck(showTimeHintRow, LocaleController.getString(R.string.ShowTimeHint), LocaleController.getString(R.string.ShowTimeHintDesc)).slug("showTimeHint").setChecked(NekoConfig.showTimeHint));
-        items.add(UItem.asCheck(reducedColorsRow, LocaleController.getString(R.string.ReducedColors)).slug("reducedColors").setChecked(NekoConfig.reducedColors));
+        items.add(UItem.asCheck(hideTimeOnStickerRow, LocaleController.getString(R.string.HideTimeOnSticker)).slug("hideTimeOnSticker").setChecked(NemoConfig.hideTimeOnSticker));
+        items.add(UItem.asCheck(showTimeHintRow, LocaleController.getString(R.string.ShowTimeHint), LocaleController.getString(R.string.ShowTimeHintDesc)).slug("showTimeHint").setChecked(NemoConfig.showTimeHint));
+        items.add(UItem.asCheck(reducedColorsRow, LocaleController.getString(R.string.ReducedColors)).slug("reducedColors").setChecked(NemoConfig.reducedColors));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.AttachGif)));
-        items.add(GifSizeCellFactory.of(gifSizeRow, LocaleController.getString(R.string.GifSize), NekoConfig.gifSize, progress -> {
-            NekoConfig.setGifSize(progress);
+        items.add(GifSizeCellFactory.of(gifSizeRow, LocaleController.getString(R.string.GifSize), NemoConfig.gifSize, progress -> {
+            NemoConfig.setGifSize(progress);
             if (progress != 14.0f && resetItem.getVisibility() != View.VISIBLE) {
                 AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
             }
@@ -162,24 +162,24 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.Chat)));
-        items.add(UItem.asCheck(ignoreBlockedRow, LocaleController.getString(R.string.IgnoreBlocked), LocaleController.getString(R.string.IgnoreBlockedAbout)).slug("ignoreBlocked").setChecked(NekoConfig.ignoreBlocked));
-        items.add(UItem.asCheck(quickForwardRow, LocaleController.getString(R.string.QuickForward)).slug("quickForward").setChecked(NekoConfig.quickForward));
-        items.add(UItem.asCheck(hideKeyboardOnChatScrollRow, LocaleController.getString(R.string.HideKeyboardOnChatScroll)).slug("hideKeyboardOnChatScroll").setChecked(NekoConfig.hideKeyboardOnChatScroll));
-        items.add(UItem.asCheck(tryToOpenAllLinksInIVRow, LocaleController.getString(R.string.OpenAllLinksInInstantView)).slug("tryToOpenAllLinksInIV").setChecked(NekoConfig.tryToOpenAllLinksInIV));
-        items.add(UItem.asCheck(disableJumpToNextRow, LocaleController.getString(R.string.DisableJumpToNextChannel)).slug("disableJumpToNext").setChecked(NekoConfig.disableJumpToNextChannel));
-        items.add(UItem.asCheck(disableGreetingStickerRow, LocaleController.getString(R.string.DisableGreetingSticker)).slug("disableGreetingSticker").setChecked(NekoConfig.disableGreetingSticker));
-        items.add(UItem.asCheck(hideChannelBottomButtonsRow, LocaleController.getString(R.string.HideChannelBottomButtons)).slug("hideChannelBottomButtons").setChecked(NekoConfig.hideChannelBottomButtons));
-        items.add(TextSettingsCellFactory.of(doubleTapActionRow, LocaleController.getString(R.string.DoubleTapAction), NekoConfig.doubleTapInAction == NekoConfig.doubleTapOutAction ?
-                getDoubleTapActionText(NekoConfig.doubleTapInAction) :
-                getDoubleTapActionText(NekoConfig.doubleTapInAction) + ", " + getDoubleTapActionText(NekoConfig.doubleTapOutAction)).slug("doubleTapAction"));
-        items.add(TextSettingsCellFactory.of(maxRecentStickersRow, LocaleController.getString(R.string.MaxRecentStickers), String.valueOf(NekoConfig.maxRecentStickers)).slug("maxRecentStickers"));
+        items.add(UItem.asCheck(ignoreBlockedRow, LocaleController.getString(R.string.IgnoreBlocked), LocaleController.getString(R.string.IgnoreBlockedAbout)).slug("ignoreBlocked").setChecked(NemoConfig.ignoreBlocked));
+        items.add(UItem.asCheck(quickForwardRow, LocaleController.getString(R.string.QuickForward)).slug("quickForward").setChecked(NemoConfig.quickForward));
+        items.add(UItem.asCheck(hideKeyboardOnChatScrollRow, LocaleController.getString(R.string.HideKeyboardOnChatScroll)).slug("hideKeyboardOnChatScroll").setChecked(NemoConfig.hideKeyboardOnChatScroll));
+        items.add(UItem.asCheck(tryToOpenAllLinksInIVRow, LocaleController.getString(R.string.OpenAllLinksInInstantView)).slug("tryToOpenAllLinksInIV").setChecked(NemoConfig.tryToOpenAllLinksInIV));
+        items.add(UItem.asCheck(disableJumpToNextRow, LocaleController.getString(R.string.DisableJumpToNextChannel)).slug("disableJumpToNext").setChecked(NemoConfig.disableJumpToNextChannel));
+        items.add(UItem.asCheck(disableGreetingStickerRow, LocaleController.getString(R.string.DisableGreetingSticker)).slug("disableGreetingSticker").setChecked(NemoConfig.disableGreetingSticker));
+        items.add(UItem.asCheck(hideChannelBottomButtonsRow, LocaleController.getString(R.string.HideChannelBottomButtons)).slug("hideChannelBottomButtons").setChecked(NemoConfig.hideChannelBottomButtons));
+        items.add(TextSettingsCellFactory.of(doubleTapActionRow, LocaleController.getString(R.string.DoubleTapAction), NemoConfig.doubleTapInAction == NemoConfig.doubleTapOutAction ?
+                getDoubleTapActionText(NemoConfig.doubleTapInAction) :
+                getDoubleTapActionText(NemoConfig.doubleTapInAction) + ", " + getDoubleTapActionText(NemoConfig.doubleTapOutAction)).slug("doubleTapAction"));
+        items.add(TextSettingsCellFactory.of(maxRecentStickersRow, LocaleController.getString(R.string.MaxRecentStickers), String.valueOf(NemoConfig.maxRecentStickers)).slug("maxRecentStickers"));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.PremiumPreviewVoiceToText)));
-        items.add(TextSettingsCellFactory.of(transcribeProviderRow, LocaleController.getString(R.string.TranscribeProviderShort), switch (NekoConfig.transcribeProvider) {
-            case NekoConfig.TRANSCRIBE_AUTO ->
+        items.add(TextSettingsCellFactory.of(transcribeProviderRow, LocaleController.getString(R.string.TranscribeProviderShort), switch (NemoConfig.transcribeProvider) {
+            case NemoConfig.TRANSCRIBE_AUTO ->
                     LocaleController.getString(R.string.TranscribeProviderAuto);
-            case NekoConfig.TRANSCRIBE_WORKERSAI ->
+            case NemoConfig.TRANSCRIBE_WORKERSAI ->
                     LocaleController.getString(R.string.TranscribeProviderWorkersAI);
             default -> LocaleController.getString(R.string.TelegramPremium);
         }).slug("transcribeProvider"));
@@ -187,39 +187,39 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
         items.add(UItem.asShadow(LocaleController.formatString(R.string.TranscribeProviderDesc, LocaleController.getString(R.string.TranscribeProviderWorkersAI))));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.Markdown)));
-        items.add(UItem.asCheck(markdownEnableRow, LocaleController.getString(R.string.MarkdownEnableByDefault)).slug("markdownEnable").setChecked(!NekoConfig.disableMarkdownByDefault));
-        items.add(TextSettingsCellFactory.of(markdownParserRow, LocaleController.getString(R.string.MarkdownParser), NekoConfig.newMarkdownParser ? "Nekogram" : "Telegram").slug("markdownParser"));
-        if (NekoConfig.newMarkdownParser) {
-            items.add(UItem.asCheck(markdownParseLinksRow, LocaleController.getString(R.string.MarkdownParseLinks)).slug("markdownParseLinks").setChecked(NekoConfig.markdownParseLinks));
+        items.add(UItem.asCheck(markdownEnableRow, LocaleController.getString(R.string.MarkdownEnableByDefault)).slug("markdownEnable").setChecked(!NemoConfig.disableMarkdownByDefault));
+        items.add(TextSettingsCellFactory.of(markdownParserRow, LocaleController.getString(R.string.MarkdownParser), NemoConfig.newMarkdownParser ? "Nekogram" : "Telegram").slug("markdownParser"));
+        if (NemoConfig.newMarkdownParser) {
+            items.add(UItem.asCheck(markdownParseLinksRow, LocaleController.getString(R.string.MarkdownParseLinks)).slug("markdownParseLinks").setChecked(NemoConfig.markdownParseLinks));
         }
-        items.add(UItem.asShadow(markdown2Row, TextUtils.expandTemplate(EntitiesHelper.parseMarkdown(NekoConfig.newMarkdownParser && NekoConfig.markdownParseLinks ? LocaleController.getString(R.string.MarkdownAbout) : LocaleController.getString(R.string.MarkdownAbout2)), "**", "__", "~~", "`", "||", "[", "](", ")")));
+        items.add(UItem.asShadow(markdown2Row, TextUtils.expandTemplate(EntitiesHelper.parseMarkdown(NemoConfig.newMarkdownParser && NemoConfig.markdownParseLinks ? LocaleController.getString(R.string.MarkdownAbout) : LocaleController.getString(R.string.MarkdownAbout2)), "**", "__", "~~", "`", "||", "[", "](", ")")));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.SharedMediaTab2)));
         if (VoiceEnhancementsHelper.isAvailable()) {
-            items.add(UItem.asCheck(voiceEnhancementsRow, LocaleController.getString(R.string.VoiceEnhancements), LocaleController.getString(R.string.VoiceEnhancementsAbout)).slug("voiceEnhancements").setChecked(NekoConfig.voiceEnhancements));
+            items.add(UItem.asCheck(voiceEnhancementsRow, LocaleController.getString(R.string.VoiceEnhancements), LocaleController.getString(R.string.VoiceEnhancementsAbout)).slug("voiceEnhancements").setChecked(NemoConfig.voiceEnhancements));
         }
-        items.add(UItem.asCheck(rearVideoMessagesRow, LocaleController.getString(R.string.RearVideoMessages)).slug("rearVideoMessages").setChecked(NekoConfig.rearVideoMessages));
-        items.add(UItem.asCheck(confirmAVRow, LocaleController.getString(R.string.ConfirmAVMessage)).slug("confirmAV").setChecked(NekoConfig.confirmAVMessage));
-        items.add(UItem.asCheck(disableProximityEventsRow, LocaleController.getString(R.string.DisableProximityEvents)).slug("disableProximityEvents").setChecked(NekoConfig.disableProximityEvents));
-        items.add(UItem.asCheck(disableVoiceMessageAutoPlayRow, LocaleController.getString(R.string.DisableVoiceMessagesAutoPlay)).slug("disableVoiceMessageAutoPlay").setChecked(NekoConfig.disableVoiceMessageAutoPlay));
-        items.add(UItem.asCheck(unmuteVideosWithVolumeButtonsRow, LocaleController.getString(R.string.UnmuteVideosWithVolumeButtons)).slug("unmuteVideosWithVolumeButtons").setChecked(NekoConfig.unmuteVideosWithVolumeButtons));
-        items.add(UItem.asCheck(autoPauseVideoRow, LocaleController.getString(R.string.AutoPauseVideo), LocaleController.getString(R.string.AutoPauseVideoAbout)).slug("autoPauseVideo").setChecked(NekoConfig.autoPauseVideo));
-        items.add(UItem.asCheck(preferOriginalQualityRow, LocaleController.getString(R.string.PreferOriginalQuality), LocaleController.getString(R.string.PreferOriginalQualityDesc)).slug("preferOriginalQuality").setChecked(NekoConfig.preferOriginalQuality));
+        items.add(UItem.asCheck(rearVideoMessagesRow, LocaleController.getString(R.string.RearVideoMessages)).slug("rearVideoMessages").setChecked(NemoConfig.rearVideoMessages));
+        items.add(UItem.asCheck(confirmAVRow, LocaleController.getString(R.string.ConfirmAVMessage)).slug("confirmAV").setChecked(NemoConfig.confirmAVMessage));
+        items.add(UItem.asCheck(disableProximityEventsRow, LocaleController.getString(R.string.DisableProximityEvents)).slug("disableProximityEvents").setChecked(NemoConfig.disableProximityEvents));
+        items.add(UItem.asCheck(disableVoiceMessageAutoPlayRow, LocaleController.getString(R.string.DisableVoiceMessagesAutoPlay)).slug("disableVoiceMessageAutoPlay").setChecked(NemoConfig.disableVoiceMessageAutoPlay));
+        items.add(UItem.asCheck(unmuteVideosWithVolumeButtonsRow, LocaleController.getString(R.string.UnmuteVideosWithVolumeButtons)).slug("unmuteVideosWithVolumeButtons").setChecked(NemoConfig.unmuteVideosWithVolumeButtons));
+        items.add(UItem.asCheck(autoPauseVideoRow, LocaleController.getString(R.string.AutoPauseVideo), LocaleController.getString(R.string.AutoPauseVideoAbout)).slug("autoPauseVideo").setChecked(NemoConfig.autoPauseVideo));
+        items.add(UItem.asCheck(preferOriginalQualityRow, LocaleController.getString(R.string.PreferOriginalQuality), LocaleController.getString(R.string.PreferOriginalQualityDesc)).slug("preferOriginalQuality").setChecked(NemoConfig.preferOriginalQuality));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.MessageMenu)));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 1, LocaleController.getString(R.string.DeleteDownloadedFile)).slug("showDeleteDownloadedFile").setChecked(NekoConfig.showDeleteDownloadedFile));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 2, LocaleController.getString(R.string.NoQuoteForward)).slug("showNoQuoteForward").setChecked(NekoConfig.showNoQuoteForward));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 3, LocaleController.getString(R.string.AddToSavedMessages)).slug("showAddToSavedMessages").setChecked(NekoConfig.showAddToSavedMessages));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 4, LocaleController.getString(R.string.Repeat)).slug("showRepeat").setChecked(NekoConfig.showRepeat));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 5, LocaleController.getString(R.string.Prpr)).slug("showPrPr").setChecked(NekoConfig.showPrPr));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 6, LocaleController.getString(R.string.TranslateMessage)).slug("showTranslate").setChecked(NekoConfig.showTranslate));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 7, LocaleController.getString(R.string.ReportChat)).slug("showReport").setChecked(NekoConfig.showReport));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 8, LocaleController.getString(R.string.MessageDetails)).slug("showMessageDetails").setChecked(NekoConfig.showMessageDetails));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 9, LocaleController.getString(R.string.CopyPhoto)).slug("showCopyPhoto").setChecked(NekoConfig.showCopyPhoto));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 10, LocaleController.getString(R.string.SetReminder)).slug("showSetReminder").setChecked(NekoConfig.showSetReminder));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 11, LocaleController.getString(R.string.QrCode)).slug("showQrCode").setChecked(NekoConfig.showQrCode));
-        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 12, LocaleController.getString(R.string.OpenInExternalApp)).slug("showOpenIn").setChecked(NekoConfig.showOpenIn));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 1, LocaleController.getString(R.string.DeleteDownloadedFile)).slug("showDeleteDownloadedFile").setChecked(NemoConfig.showDeleteDownloadedFile));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 2, LocaleController.getString(R.string.NoQuoteForward)).slug("showNoQuoteForward").setChecked(NemoConfig.showNoQuoteForward));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 3, LocaleController.getString(R.string.AddToSavedMessages)).slug("showAddToSavedMessages").setChecked(NemoConfig.showAddToSavedMessages));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 4, LocaleController.getString(R.string.Repeat)).slug("showRepeat").setChecked(NemoConfig.showRepeat));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 5, LocaleController.getString(R.string.Prpr)).slug("showPrPr").setChecked(NemoConfig.showPrPr));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 6, LocaleController.getString(R.string.TranslateMessage)).slug("showTranslate").setChecked(NemoConfig.showTranslate));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 7, LocaleController.getString(R.string.ReportChat)).slug("showReport").setChecked(NemoConfig.showReport));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 8, LocaleController.getString(R.string.MessageDetails)).slug("showMessageDetails").setChecked(NemoConfig.showMessageDetails));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 9, LocaleController.getString(R.string.CopyPhoto)).slug("showCopyPhoto").setChecked(NemoConfig.showCopyPhoto));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 10, LocaleController.getString(R.string.SetReminder)).slug("showSetReminder").setChecked(NemoConfig.showSetReminder));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 11, LocaleController.getString(R.string.QrCode)).slug("showQrCode").setChecked(NemoConfig.showQrCode));
+        items.add(TextCheckbox2CellFactory.of(messageMenuRow + 12, LocaleController.getString(R.string.OpenInExternalApp)).slug("showOpenIn").setChecked(NemoConfig.showOpenIn));
         items.add(UItem.asShadow(null));
     }
 
@@ -227,78 +227,78 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
     protected void onItemClick(UItem item, View view, int position, float x, float y) {
         var id = item.id;
         if (id == ignoreBlockedRow) {
-            NekoConfig.toggleIgnoreBlocked();
+            NemoConfig.toggleIgnoreBlocked();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.ignoreBlocked);
+                ((TextCheckCell) view).setChecked(NemoConfig.ignoreBlocked);
             }
         } else if (id == hideKeyboardOnChatScrollRow) {
-            NekoConfig.toggleHideKeyboardOnChatScroll();
+            NemoConfig.toggleHideKeyboardOnChatScroll();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideKeyboardOnChatScroll);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideKeyboardOnChatScroll);
             }
         } else if (id == rearVideoMessagesRow) {
-            NekoConfig.toggleRearVideoMessages();
+            NemoConfig.toggleRearVideoMessages();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.rearVideoMessages);
+                ((TextCheckCell) view).setChecked(NemoConfig.rearVideoMessages);
             }
         } else if (id == confirmAVRow) {
-            NekoConfig.toggleConfirmAVMessage();
+            NemoConfig.toggleConfirmAVMessage();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.confirmAVMessage);
+                ((TextCheckCell) view).setChecked(NemoConfig.confirmAVMessage);
             }
         } else if (id == disableProximityEventsRow) {
-            NekoConfig.toggleDisableProximityEvents();
+            NemoConfig.toggleDisableProximityEvents();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableProximityEvents);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableProximityEvents);
             }
             showRestartBulletin();
         } else if (id == tryToOpenAllLinksInIVRow) {
-            NekoConfig.toggleTryToOpenAllLinksInIV();
+            NemoConfig.toggleTryToOpenAllLinksInIV();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.tryToOpenAllLinksInIV);
+                ((TextCheckCell) view).setChecked(NemoConfig.tryToOpenAllLinksInIV);
             }
         } else if (id == autoPauseVideoRow) {
-            NekoConfig.toggleAutoPauseVideo();
+            NemoConfig.toggleAutoPauseVideo();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.autoPauseVideo);
+                ((TextCheckCell) view).setChecked(NemoConfig.autoPauseVideo);
             }
         } else if (id == disableJumpToNextRow) {
-            NekoConfig.toggleDisableJumpToNextChannel();
+            NemoConfig.toggleDisableJumpToNextChannel();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableJumpToNextChannel);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableJumpToNextChannel);
             }
         } else if (id == disableGreetingStickerRow) {
-            NekoConfig.toggleDisableGreetingSticker();
+            NemoConfig.toggleDisableGreetingSticker();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableGreetingSticker);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableGreetingSticker);
             }
         } else if (id == disableVoiceMessageAutoPlayRow) {
-            NekoConfig.toggleDisableVoiceMessageAutoPlay();
+            NemoConfig.toggleDisableVoiceMessageAutoPlay();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableVoiceMessageAutoPlay);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableVoiceMessageAutoPlay);
             }
         } else if (id == unmuteVideosWithVolumeButtonsRow) {
-            NekoConfig.toggleUnmuteVideosWithVolumeButtons();
+            NemoConfig.toggleUnmuteVideosWithVolumeButtons();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.unmuteVideosWithVolumeButtons);
+                ((TextCheckCell) view).setChecked(NemoConfig.unmuteVideosWithVolumeButtons);
             }
         } else if (id == doubleTapActionRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
             arrayList.add(LocaleController.getString(R.string.Disable));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_NONE);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_NONE);
             arrayList.add(LocaleController.getString(R.string.Reactions));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_REACTION);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_REACTION);
             arrayList.add(LocaleController.getString(R.string.TranslateMessage));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_TRANSLATE);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_TRANSLATE);
             arrayList.add(LocaleController.getString(R.string.Reply));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_REPLY);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_REPLY);
             arrayList.add(LocaleController.getString(R.string.AddToSavedMessages));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_SAVE);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_SAVE);
             arrayList.add(LocaleController.getString(R.string.Repeat));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_REPEAT);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_REPEAT);
             arrayList.add(LocaleController.getString(R.string.Edit));
-            types.add(NekoConfig.DOUBLE_TAP_ACTION_EDIT);
+            types.add(NemoConfig.DOUBLE_TAP_ACTION_EDIT);
 
             var context = getParentActivity();
             var builder = new AlertDialog.Builder(context, resourcesProvider);
@@ -328,25 +328,25 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     var cell = new RadioColorCell(context, resourcesProvider);
                     cell.setPadding(AndroidUtilities.dp(4), 0, AndroidUtilities.dp(4), 0);
                     cell.setTag(a);
-                    cell.setTextAndValue(arrayList.get(a), a == types.indexOf(out ? NekoConfig.doubleTapOutAction : NekoConfig.doubleTapInAction));
+                    cell.setTextAndValue(arrayList.get(a), a == types.indexOf(out ? NemoConfig.doubleTapOutAction : NemoConfig.doubleTapInAction));
                     cell.setBackground(Theme.createRadSelectorDrawable(Theme.getColor(Theme.key_listSelector, resourcesProvider), out ? AndroidUtilities.dp(6) : 0, out ? 0 : AndroidUtilities.dp(6), out ? 0 : AndroidUtilities.dp(6), out ? AndroidUtilities.dp(6) : 0));
                     layout.addView(cell);
                     cell.setOnClickListener(v -> {
                         var which = (Integer) v.getTag();
-                        var old = out ? NekoConfig.doubleTapOutAction : NekoConfig.doubleTapInAction;
+                        var old = out ? NemoConfig.doubleTapOutAction : NemoConfig.doubleTapInAction;
                         if (types.get(which) == old) {
                             return;
                         }
                         if (out) {
-                            NekoConfig.setDoubleTapOutAction(types.get(which));
+                            NemoConfig.setDoubleTapOutAction(types.get(which));
                         } else {
-                            NekoConfig.setDoubleTapInAction(types.get(which));
+                            NemoConfig.setDoubleTapInAction(types.get(which));
                         }
                         ((RadioColorCell) layout.getChildAt(types.indexOf(old))).setChecked(false, true);
                         cell.setChecked(true, true);
-                        item.textValue = NekoConfig.doubleTapInAction == NekoConfig.doubleTapOutAction ?
-                                getDoubleTapActionText(NekoConfig.doubleTapInAction) :
-                                getDoubleTapActionText(NekoConfig.doubleTapInAction) + ", " + getDoubleTapActionText(NekoConfig.doubleTapOutAction);
+                        item.textValue = NemoConfig.doubleTapInAction == NemoConfig.doubleTapOutAction ?
+                                getDoubleTapActionText(NemoConfig.doubleTapInAction) :
+                                getDoubleTapActionText(NemoConfig.doubleTapInAction) + ", " + getDoubleTapActionText(NemoConfig.doubleTapOutAction);
                         listView.adapter.notifyItemChanged(position, PARTIAL);
                     });
                 }
@@ -356,54 +356,54 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             builder.setNegativeButton(LocaleController.getString(R.string.OK), null);
             builder.show();
         } else if (id == markdownEnableRow) {
-            NekoConfig.toggleDisableMarkdownByDefault();
+            NemoConfig.toggleDisableMarkdownByDefault();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(!NekoConfig.disableMarkdownByDefault);
+                ((TextCheckCell) view).setChecked(!NemoConfig.disableMarkdownByDefault);
             }
         } else if (id > messageMenuRow) {
             TextCheckbox2Cell cell = ((TextCheckbox2Cell) view);
             int menuPosition = id - messageMenuRow - 1;
             if (menuPosition == 0) {
-                NekoConfig.toggleShowDeleteDownloadedFile();
-                cell.setChecked(NekoConfig.showDeleteDownloadedFile);
+                NemoConfig.toggleShowDeleteDownloadedFile();
+                cell.setChecked(NemoConfig.showDeleteDownloadedFile);
             } else if (menuPosition == 1) {
-                NekoConfig.toggleShowNoQuoteForward();
-                cell.setChecked(NekoConfig.showNoQuoteForward);
+                NemoConfig.toggleShowNoQuoteForward();
+                cell.setChecked(NemoConfig.showNoQuoteForward);
             } else if (menuPosition == 2) {
-                NekoConfig.toggleShowAddToSavedMessages();
-                cell.setChecked(NekoConfig.showAddToSavedMessages);
+                NemoConfig.toggleShowAddToSavedMessages();
+                cell.setChecked(NemoConfig.showAddToSavedMessages);
             } else if (menuPosition == 3) {
-                NekoConfig.toggleShowRepeat();
-                cell.setChecked(NekoConfig.showRepeat);
+                NemoConfig.toggleShowRepeat();
+                cell.setChecked(NemoConfig.showRepeat);
             } else if (menuPosition == 4) {
-                NekoConfig.toggleShowPrPr();
-                cell.setChecked(NekoConfig.showPrPr);
+                NemoConfig.toggleShowPrPr();
+                cell.setChecked(NemoConfig.showPrPr);
             } else if (menuPosition == 5) {
-                NekoConfig.toggleShowTranslate();
-                cell.setChecked(NekoConfig.showTranslate);
+                NemoConfig.toggleShowTranslate();
+                cell.setChecked(NemoConfig.showTranslate);
             } else if (menuPosition == 6) {
-                NekoConfig.toggleShowReport();
-                cell.setChecked(NekoConfig.showReport);
+                NemoConfig.toggleShowReport();
+                cell.setChecked(NemoConfig.showReport);
             } else if (menuPosition == 7) {
-                NekoConfig.toggleShowMessageDetails();
-                cell.setChecked(NekoConfig.showMessageDetails);
+                NemoConfig.toggleShowMessageDetails();
+                cell.setChecked(NemoConfig.showMessageDetails);
             } else if (menuPosition == 8) {
-                NekoConfig.toggleShowCopyPhoto();
-                cell.setChecked(NekoConfig.showCopyPhoto);
+                NemoConfig.toggleShowCopyPhoto();
+                cell.setChecked(NemoConfig.showCopyPhoto);
             } else if (menuPosition == 9) {
-                NekoConfig.toggleShowSetReminder();
-                cell.setChecked(NekoConfig.showSetReminder);
+                NemoConfig.toggleShowSetReminder();
+                cell.setChecked(NemoConfig.showSetReminder);
             } else if (menuPosition == 10) {
-                NekoConfig.toggleShowQrCode();
-                cell.setChecked(NekoConfig.showQrCode);
+                NemoConfig.toggleShowQrCode();
+                cell.setChecked(NemoConfig.showQrCode);
             } else if (menuPosition == 11) {
-                NekoConfig.toggleShowOpenIn();
-                cell.setChecked(NekoConfig.showOpenIn);
+                NemoConfig.toggleShowOpenIn();
+                cell.setChecked(NemoConfig.showOpenIn);
             }
         } else if (id == voiceEnhancementsRow) {
-            NekoConfig.toggleVoiceEnhancements();
+            NemoConfig.toggleVoiceEnhancements();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.voiceEnhancements);
+                ((TextCheckCell) view).setChecked(NemoConfig.voiceEnhancements);
             }
         } else if (id == maxRecentStickersRow) {
             int[] counts = {20, 30, 40, 50, 80, 100, 120, 150, 180, 200};
@@ -413,15 +413,15 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                     types.add(String.valueOf(count));
                 }
             }
-            PopupHelper.show(types, LocaleController.getString(R.string.MaxRecentStickers), types.indexOf(String.valueOf(NekoConfig.maxRecentStickers)), getParentActivity(), view, i -> {
-                NekoConfig.setMaxRecentStickers(Integer.parseInt(types.get(i)));
-                item.textValue = String.valueOf(NekoConfig.maxRecentStickers);
+            PopupHelper.show(types, LocaleController.getString(R.string.MaxRecentStickers), types.indexOf(String.valueOf(NemoConfig.maxRecentStickers)), getParentActivity(), view, i -> {
+                NemoConfig.setMaxRecentStickers(Integer.parseInt(types.get(i)));
+                item.textValue = String.valueOf(NemoConfig.maxRecentStickers);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
             }, resourcesProvider);
         } else if (id == hideTimeOnStickerRow) {
-            NekoConfig.toggleHideTimeOnSticker();
+            NemoConfig.toggleHideTimeOnSticker();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideTimeOnSticker);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideTimeOnSticker);
             }
             var stickerCell = listView.findViewByItemId(stickerSizeRow);
             if (stickerCell != null) stickerCell.invalidate();
@@ -429,12 +429,12 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add("Nekogram");
             arrayList.add("Telegram");
-            boolean oldParser = NekoConfig.newMarkdownParser;
-            PopupHelper.show(arrayList, LocaleController.getString(R.string.MarkdownParser), NekoConfig.newMarkdownParser ? 0 : 1, getParentActivity(), view, i -> {
-                NekoConfig.setNewMarkdownParser(i == 0);
+            boolean oldParser = NemoConfig.newMarkdownParser;
+            PopupHelper.show(arrayList, LocaleController.getString(R.string.MarkdownParser), NemoConfig.newMarkdownParser ? 0 : 1, getParentActivity(), view, i -> {
+                NemoConfig.setNewMarkdownParser(i == 0);
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
-                if (oldParser != NekoConfig.newMarkdownParser) {
+                if (oldParser != NemoConfig.newMarkdownParser) {
                     if (oldParser) {
                         notifyItemRemoved(markdownParseLinksRow);
                         updateRows();
@@ -446,53 +446,53 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 }
             }, resourcesProvider);
         } else if (id == markdownParseLinksRow) {
-            NekoConfig.toggleMarkdownParseLinks();
+            NemoConfig.toggleMarkdownParseLinks();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.markdownParseLinks);
+                ((TextCheckCell) view).setChecked(NemoConfig.markdownParseLinks);
             }
             notifyItemChanged(markdown2Row);
         } else if (id == quickForwardRow) {
-            NekoConfig.toggleQuickForward();
+            NemoConfig.toggleQuickForward();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.quickForward);
+                ((TextCheckCell) view).setChecked(NemoConfig.quickForward);
             }
         } else if (id == reducedColorsRow) {
-            NekoConfig.toggleReducedColors();
+            NemoConfig.toggleReducedColors();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.reducedColors);
+                ((TextCheckCell) view).setChecked(NemoConfig.reducedColors);
             }
             var stickerCell = listView.findViewByItemId(stickerSizeRow);
             stickerCell.invalidate();
         } else if (id == showTimeHintRow) {
-            NekoConfig.toggleShowTimeHint();
+            NemoConfig.toggleShowTimeHint();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.showTimeHint);
+                ((TextCheckCell) view).setChecked(NemoConfig.showTimeHint);
             }
         } else if (id == transcribeProviderRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
             arrayList.add(LocaleController.getString(R.string.TranscribeProviderAuto));
-            types.add(NekoConfig.TRANSCRIBE_AUTO);
+            types.add(NemoConfig.TRANSCRIBE_AUTO);
             arrayList.add(LocaleController.getString(R.string.TelegramPremium));
-            types.add(NekoConfig.TRANSCRIBE_PREMIUM);
+            types.add(NemoConfig.TRANSCRIBE_PREMIUM);
             arrayList.add(LocaleController.getString(R.string.TranscribeProviderWorkersAI));
-            types.add(NekoConfig.TRANSCRIBE_WORKERSAI);
-            PopupHelper.show(arrayList, LocaleController.getString(R.string.TranscribeProviderShort), types.indexOf(NekoConfig.transcribeProvider), getParentActivity(), view, i -> {
-                NekoConfig.setTranscribeProvider(types.get(i));
+            types.add(NemoConfig.TRANSCRIBE_WORKERSAI);
+            PopupHelper.show(arrayList, LocaleController.getString(R.string.TranscribeProviderShort), types.indexOf(NemoConfig.transcribeProvider), getParentActivity(), view, i -> {
+                NemoConfig.setTranscribeProvider(types.get(i));
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
             }, resourcesProvider);
         } else if (id == cfCredentialsRow) {
             WhisperHelper.showCfCredentialsDialog(this);
         } else if (id == preferOriginalQualityRow) {
-            NekoConfig.togglePreferOriginalQuality();
+            NemoConfig.togglePreferOriginalQuality();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.preferOriginalQuality);
+                ((TextCheckCell) view).setChecked(NemoConfig.preferOriginalQuality);
             }
         } else if (id == hideChannelBottomButtonsRow) {
-            NekoConfig.toggleHideChannelBottomButtons();
+            NemoConfig.toggleHideChannelBottomButtons();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideChannelBottomButtons);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideChannelBottomButtons);
             }
         }
     }
@@ -566,7 +566,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 setValue(progress);
                 if (onDrag != null) onDrag.run(progress);
             }, 2, 20, LocaleController.getString(R.string.StickerSize), LocaleController.getString(R.string.StickerSizeLeft), LocaleController.getString(R.string.StickerSizeRight), resourcesProvider);
-            sizeBar.setValue(NekoConfig.stickerSize);
+            sizeBar.setValue(NemoConfig.stickerSize);
             addView(sizeBar, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
             messagesCell = new StickerSizePreviewMessagesCell(context, resourcesProvider);
@@ -638,7 +638,7 @@ public class NekoChatSettingsActivity extends BaseNekoSettingsActivity implement
                 setValue(progress);
                 if (onDrag != null) onDrag.run(progress);
             }, 14, 20, LocaleController.getString(R.string.GifSize), LocaleController.getString(R.string.StickerSizeLeft), LocaleController.getString(R.string.StickerSizeRight), resourcesProvider);
-            sizeBar.setValue(NekoConfig.gifSize);
+            sizeBar.setValue(NemoConfig.gifSize);
             addView(sizeBar, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
         }
 

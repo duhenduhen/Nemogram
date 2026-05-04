@@ -247,9 +247,8 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import org.nemogram.messenger.Extra;
 import org.nemogram.messenger.forward.ForwardContext;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.MonetHelper;
 
 public class LaunchActivity extends BasePermissionsActivity implements INavigationLayout.INavigationLayoutDelegate, NotificationCenter.NotificationCenterDelegate, DialogsActivity.DialogsActivityDelegate, IPipActivity {
@@ -718,7 +717,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
 
 
         //RestrictedLanguagesSelectActivity.checkRestrictedLanguages(false);
-        if (Build.VERSION.SDK_INT >= 34 && NekoConfig.predictiveBackAnimation) {
+        if (Build.VERSION.SDK_INT >= 34 && NemoConfig.predictiveBackAnimation) {
             if (onBackAnimationCallback == null) {
                 onBackAnimationCallback =  new OnBackAnimationCallback() {
                     private boolean started = false;
@@ -6845,7 +6844,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
         } else if (SharedConfig.pendingAppUpdate != null && SharedConfig.pendingAppUpdate.can_not_skip) {
             showUpdateActivity(UserConfig.selectedAccount, SharedConfig.pendingAppUpdate, true);
         }
-        if (NekoConfig.autoCheckUpdates) {
+        if (NemoConfig.autoCheckUpdates) {
             checkAppUpdate(false, null);
         }
 
@@ -8210,7 +8209,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
                         showVoiceChatTooltip(mute ? UndoView.ACTION_VOIP_SOUND_MUTED : UndoView.ACTION_VOIP_SOUND_UNMUTED);
                     }
                 }
-            } else if (NekoConfig.unmuteVideosWithVolumeButtons && !mainFragmentsStack.isEmpty() && (!PhotoViewer.hasInstance() || !PhotoViewer.getInstance().isVisible()) && event.getRepeatCount() == 0) {
+            } else if (NemoConfig.unmuteVideosWithVolumeButtons && !mainFragmentsStack.isEmpty() && (!PhotoViewer.hasInstance() || !PhotoViewer.getInstance().isVisible()) && event.getRepeatCount() == 0) {
                 BaseFragment fragment = mainFragmentsStack.get(mainFragmentsStack.size() - 1);
                 if (fragment instanceof ChatActivity && !BaseFragment.hasSheets(fragment)) {
                     if (((ChatActivity) fragment).maybePlayVisibleVideo()) {

@@ -25,7 +25,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public abstract class BaseRemoteHelper {
     protected static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoremoteconfig", Activity.MODE_PRIVATE);
@@ -61,7 +61,7 @@ public abstract class BaseRemoteHelper {
                 " " +
                 LocaleController.getSystemLocaleStringIso639() +
                 " " +
-                NekoConfig.userMcc +
+                NemoConfig.userMcc +
                 " " +
                 SharedConfig.pushString;
     }

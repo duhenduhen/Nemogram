@@ -20,7 +20,7 @@ import org.telegram.ui.ActionBar.Theme;
 
 import java.util.ArrayList;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 @SuppressLint("InlinedApi")
 public class TranslatorApps {
@@ -54,7 +54,7 @@ public class TranslatorApps {
 
     private static void loadTranslatorApps() {
         translatorApps.clear();
-        var provider = NekoConfig.externalTranslationProvider;
+        var provider = NemoConfig.externalTranslationProvider;
         var pm = ApplicationLoader.applicationContext.getPackageManager();
         try {
             var info = pm.getPackageInfo(XIAOAI_TRANSLATOR, 0);
@@ -97,7 +97,7 @@ public class TranslatorApps {
 
     public static void setTranslatorApp(TranslatorApp app) {
         translatorApp = app;
-        NekoConfig.setExternalTranslationProvider(app.packageName);
+        NemoConfig.setExternalTranslationProvider(app.packageName);
     }
 
     public static void showExternalTranslateDialog(Context context, String query, String from, View anchorView, Theme.ResourcesProvider resourcesProvider) {

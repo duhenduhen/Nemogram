@@ -24,7 +24,6 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Outline;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
@@ -102,7 +101,6 @@ import org.telegram.ui.Cells.SendLocationCell;
 import org.telegram.ui.Cells.ShadowSectionCell;
 import org.telegram.ui.Cells.SharingLiveLocationCell;
 import org.telegram.ui.ChatActivity;
-import org.telegram.ui.Components.blur3.ViewGroupPartRenderer;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -111,8 +109,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.location.NekoLocationSource;
+import org.nemogram.messenger.NemoConfig;
+import org.nemogram.messenger.location.NemoLocationSource;
 
 public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLayout implements NotificationCenter.NotificationCenterDelegate {
 
@@ -1622,8 +1620,8 @@ public class ChatAttachAlertLocationLayout extends ChatAttachAlert.AttachAlertLa
             for (int i = providers.size() - 1; i >= 0; i--) {
                 l = lm.getLastKnownLocation(providers.get(i));
                 if (l != null) {
-                    if (NekoConfig.mapDriftingFix) {
-                        NekoLocationSource.transform(l);
+                    if (NemoConfig.mapDriftingFix) {
+                        NemoLocationSource.transform(l);
                     }
                     break;
                 }

@@ -54,7 +54,7 @@ import org.telegram.ui.Components.ReplyMessageLine;
 import org.telegram.ui.Components.chat.ViewPositionWatcher;
 import org.telegram.ui.Components.spoilers.SpoilerEffect;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class TextMessageEnterTransition implements MessageEnterTransitionContainer.Transition {
     float fromRadius;
@@ -649,7 +649,7 @@ public class TextMessageEnterTransition implements MessageEnterTransitionContain
                 replySelectorRect
             );
 
-            messageView.replyLine.drawBackground(canvas, replySelectorRect, alphaProgress, messageView.isReplyQuote, messageView.getMessageObject().shouldDrawWithoutBackground() || NekoConfig.reducedColors);
+            messageView.replyLine.drawBackground(canvas, replySelectorRect, alphaProgress, messageView.isReplyQuote, messageView.getMessageObject().shouldDrawWithoutBackground() || NemoConfig.reducedColors);
             messageView.replyLine.drawLine(canvas, replySelectorRect, alphaProgress);
 
             float replyImageSz = 0;

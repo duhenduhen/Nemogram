@@ -15,7 +15,7 @@ import org.telegram.ui.ActionBar.Theme;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class ForwardItem {
     public static final int ID_FORWARD = -100;
@@ -106,11 +106,11 @@ public class ForwardItem {
 
     public static int getLastForwardOption(boolean hasCaption) {
         var lastOption = ForwardItem.lastForwardOption;
-        if (NekoConfig.showNoQuoteForward && lastOption == ID_FORWARD_NOQUOTE) {
+        if (NemoConfig.showNoQuoteForward && lastOption == ID_FORWARD_NOQUOTE) {
             return ID_FORWARD;
         }
         if (!hasCaption && lastOption == ID_FORWARD_NOCAPTION) {
-            return NekoConfig.showNoQuoteForward ? ID_FORWARD : ID_FORWARD_NOQUOTE;
+            return NemoConfig.showNoQuoteForward ? ID_FORWARD : ID_FORWARD_NOQUOTE;
         }
         return lastOption;
     }

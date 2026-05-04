@@ -15,9 +15,9 @@ import org.telegram.ui.Components.UniversalAdapter;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
-public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
+public class NemoKeywordFilterActivity extends BaseNemoSettingsActivity {
 
     private final int filterInChatsRow = rowId++;
     private final int addChatKeywordRow = rowId++;
@@ -38,8 +38,8 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
     private void reloadKeywords() {
         chatKeywords.clear();
         chatKeywordRows.clear();
-        if (NekoConfig.blockedKeywordsChats != null) {
-            chatKeywords.addAll(NekoConfig.blockedKeywordsChats);
+        if (NemoConfig.blockedKeywordsChats != null) {
+            chatKeywords.addAll(NemoConfig.blockedKeywordsChats);
         }
         for (int i = 0; i < chatKeywords.size(); i++) {
             chatKeywordRows.add(rowId++);
@@ -47,8 +47,8 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
 
         channelKeywords.clear();
         channelKeywordRows.clear();
-        if (NekoConfig.blockedKeywordsChannels != null) {
-            channelKeywords.addAll(NekoConfig.blockedKeywordsChannels);
+        if (NemoConfig.blockedKeywordsChannels != null) {
+            channelKeywords.addAll(NemoConfig.blockedKeywordsChannels);
         }
         for (int i = 0; i < channelKeywords.size(); i++) {
             channelKeywordRows.add(rowId++);
@@ -62,7 +62,7 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
     @Override
     protected void fillItems(ArrayList<UItem> items, UniversalAdapter adapter) {
         items.add(UItem.asHeader(LocaleController.getString(R.string.FilterKeywordsChatsHeader)));
-        items.add(UItem.asCheck(filterInChatsRow, LocaleController.getString(R.string.FilterKeywordsInChats)).slug("filterInChats").setChecked(NekoConfig.filterKeywordsInChats));
+        items.add(UItem.asCheck(filterInChatsRow, LocaleController.getString(R.string.FilterKeywordsInChats)).slug("filterInChats").setChecked(NemoConfig.filterKeywordsInChats));
         items.add(TextSettingsCellFactory.of(addChatKeywordRow, LocaleController.getString(R.string.AddKeyword)).slug("addChatKeyword").accent());
         if (!chatKeywords.isEmpty()) {
             for (int i = 0; i < chatKeywords.size(); i++) {
@@ -73,7 +73,7 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
 
         // Channels section
         items.add(UItem.asHeader(LocaleController.getString(R.string.FilterKeywordsChannelsHeader)));
-        items.add(UItem.asCheck(filterInChannelsRow, LocaleController.getString(R.string.FilterKeywordsInChannels)).slug("filterInChannels").setChecked(NekoConfig.filterKeywordsInChannels));
+        items.add(UItem.asCheck(filterInChannelsRow, LocaleController.getString(R.string.FilterKeywordsInChannels)).slug("filterInChannels").setChecked(NemoConfig.filterKeywordsInChannels));
         items.add(TextSettingsCellFactory.of(addChannelKeywordRow, LocaleController.getString(R.string.AddKeyword)).slug("addChannelKeyword").accent());
         if (!channelKeywords.isEmpty()) {
             for (int i = 0; i < channelKeywords.size(); i++) {
@@ -87,14 +87,14 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
     protected void onItemClick(UItem item, View view, int position, float x, float y) {
         int id = item.id;
             if (id == filterInChatsRow) {
-            NekoConfig.toggleFilterKeywordsInChats();
+            NemoConfig.toggleFilterKeywordsInChats();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.filterKeywordsInChats);
+                ((TextCheckCell) view).setChecked(NemoConfig.filterKeywordsInChats);
             }
         } else if (id == filterInChannelsRow) {
-            NekoConfig.toggleFilterKeywordsInChannels();
+            NemoConfig.toggleFilterKeywordsInChannels();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.filterKeywordsInChannels);
+                ((TextCheckCell) view).setChecked(NemoConfig.filterKeywordsInChannels);
             }
         } else if (id == addChatKeywordRow) {
             showAddKeywordDialog(false);
@@ -145,16 +145,16 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
             var keyword = editText.getText().toString().trim();
             if (isChannel) {
                 if (!keyword.isEmpty() && !channelKeywords.contains(keyword)) {
-                    var newSet = new HashSet<>(NekoConfig.blockedKeywordsChannels != null ? NekoConfig.blockedKeywordsChannels : new HashSet<>());
+                    var newSet = new HashSet<>(NemoConfig.blockedKeywordsChannels != null ? NemoConfig.blockedKeywordsChannels : new HashSet<>());
                     newSet.add(keyword);
-                    NekoConfig.saveBlockedKeywordsChannels(newSet);
+                    NemoConfig.saveBlockedKeywordsChannels(newSet);
                     reloadKeywords();
                 }
             } else {
                 if (!keyword.isEmpty() && !chatKeywords.contains(keyword)) {
-                    var newSet = new HashSet<>(NekoConfig.blockedKeywordsChats != null ? NekoConfig.blockedKeywordsChats : new HashSet<>());
+                    var newSet = new HashSet<>(NemoConfig.blockedKeywordsChats != null ? NemoConfig.blockedKeywordsChats : new HashSet<>());
                     newSet.add(keyword);
-                    NekoConfig.saveBlockedKeywordsChats(newSet);
+                    NemoConfig.saveBlockedKeywordsChats(newSet);
                     reloadKeywords();
                 }
             }
@@ -172,13 +172,13 @@ public class NemoKeywordFilterActivity extends BaseNekoSettingsActivity {
         builder.setMessage(LocaleController.formatString(R.string.DeleteKeywordConfirm, keyword));
         builder.setPositiveButton(LocaleController.getString(R.string.Delete), (dialog, which) -> {
             if (isChannel) {
-                var newSet = new HashSet<>(NekoConfig.blockedKeywordsChannels != null ? NekoConfig.blockedKeywordsChannels : new HashSet<>());
+                var newSet = new HashSet<>(NemoConfig.blockedKeywordsChannels != null ? NemoConfig.blockedKeywordsChannels : new HashSet<>());
                 newSet.remove(keyword);
-                NekoConfig.saveBlockedKeywordsChannels(newSet);
+                NemoConfig.saveBlockedKeywordsChannels(newSet);
             } else {
-                var newSet = new HashSet<>(NekoConfig.blockedKeywordsChats != null ? NekoConfig.blockedKeywordsChats : new HashSet<>());
+                var newSet = new HashSet<>(NemoConfig.blockedKeywordsChats != null ? NemoConfig.blockedKeywordsChats : new HashSet<>());
                 newSet.remove(keyword);
-                NekoConfig.saveBlockedKeywordsChats(newSet);
+                NemoConfig.saveBlockedKeywordsChats(newSet);
             }
             reloadKeywords();
         });

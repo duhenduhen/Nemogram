@@ -50,7 +50,6 @@ import java.util.Locale;
 import java.util.concurrent.CountDownLatch;
 
 import org.nemogram.messenger.FirebaseFix;
-import org.nemogram.messenger.NekoConfig;
 import org.nemogram.messenger.helpers.ComponentsHelper;
 
 public class ApplicationLoader extends Application {

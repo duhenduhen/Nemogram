@@ -61,7 +61,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Timer;
 
-import org.nemogram.messenger.settings.NekoGeneralSettingsActivity;
+import org.nemogram.messenger.settings.NemoGeneralSettingsActivity;
 
 public class LanguageSelectActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate {
 
@@ -285,7 +285,7 @@ public class LanguageSelectActivity extends BaseFragment implements Notification
 //                            .show();
 //                            return;
 //                    }
-                    presentFragment(new NekoGeneralSettingsActivity());
+                    presentFragment(new NemoGeneralSettingsActivity());
                     return;
                 }
                 if (getParentActivity() == null || parentLayout == null || !(view instanceof TextRadioCell)) {

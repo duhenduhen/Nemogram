@@ -11,9 +11,9 @@ import org.telegram.ui.Components.UniversalAdapter;
 import java.util.ArrayList;
 
 import org.nemogram.messenger.helpers.PopupHelper;
-import org.nemogram.messenger.settings.BaseNekoSettingsActivity;
+import org.nemogram.messenger.settings.BaseNemoSettingsActivity;
 
-public class AccessibilitySettingsActivity extends BaseNekoSettingsActivity {
+public class AccessibilitySettingsActivity extends BaseNemoSettingsActivity {
     private static final ArrayList<String> SEEKBAR_TIME_VALUES = new ArrayList<>();
 
     private final int showNumbersOfItemsRow = rowId++;

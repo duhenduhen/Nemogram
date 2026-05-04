@@ -1,8 +1,6 @@
 package org.telegram.ui.Components;
 
 import static org.telegram.messenger.AndroidUtilities.dp;
-import static org.telegram.messenger.AndroidUtilities.dpf2;
-import static org.telegram.messenger.LocaleController.formatPluralString;
 import static org.telegram.messenger.LocaleController.getString;
 import static org.telegram.ui.Stars.StarGiftSheet.replaceUnderstood;
 
@@ -32,14 +30,11 @@ import android.widget.TextView;
 //import com.google.mlkit.nl.translate.TranslateLanguage;
 
 import org.telegram.messenger.AndroidUtilities;
-import org.telegram.messenger.BuildVars;
 import org.telegram.messenger.ChatObject;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.TranslateController;
-import org.telegram.messenger.UserConfig;
-import org.telegram.messenger.UserObject;
 import org.telegram.messenger.browser.Browser;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.ui.ActionBar.ActionBarMenuSubItem;
@@ -49,15 +44,14 @@ import org.telegram.ui.ActionBar.BottomSheet;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.ChannelMonetizationLayout;
 import org.telegram.ui.ChatActivity;
-import org.telegram.ui.RestrictedLanguagesSelectActivity;
 import org.telegram.ui.Stories.recorder.ButtonWithCounterView;
 import org.telegram.ui.Stories.recorder.HintView2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.settings.NekoLanguagesSelectActivity;
+import org.nemogram.messenger.NemoConfig;
+import org.nemogram.messenger.settings.NemoLanguagesSelectActivity;
 import org.nemogram.messenger.translator.Translator;
 
 public class TranslateButton extends FrameLayout implements Theme.Colorable {
@@ -315,7 +309,7 @@ public class TranslateButton extends FrameLayout implements Theme.Colorable {
             dontTranslateButton.setMultiline(false);
             dontTranslateButton.setTextAndIcon(HintView2.cutInFancyHalfText(text, dontTranslateButton.getTextView().getPaint()), R.drawable.msg_block2);
             dontTranslateButton.setOnClickListener(e -> {
-                NekoLanguagesSelectActivity.toggleLanguage(detectedLanguage, true);
+                NemoLanguagesSelectActivity.toggleLanguage(detectedLanguage, true);
                 translateController.checkRestrictedLanguagesUpdate();
                 translateController.setHideTranslateDialog(dialogId, true);
                 String bulletinTextString;
@@ -330,7 +324,7 @@ public class TranslateButton extends FrameLayout implements Theme.Colorable {
                     R.raw.msg_translate,
                     bulletinText,
                     getString(R.string.Settings),
-                    () -> fragment.presentFragment(new NekoLanguagesSelectActivity(NekoLanguagesSelectActivity.TYPE_RESTRICTED))
+                    () -> fragment.presentFragment(new NemoLanguagesSelectActivity(NemoLanguagesSelectActivity.TYPE_RESTRICTED))
                 ).show();
                 popupWindow.dismiss();
             });
@@ -357,7 +351,7 @@ public class TranslateButton extends FrameLayout implements Theme.Colorable {
         });
         popupLayout.addView(hideButton);
 
-        var isCocoon = Translator.PROVIDER_TELEGRAM.equals(NekoConfig.translationProvider);
+        var isCocoon = Translator.PROVIDER_TELEGRAM.equals(NemoConfig.translationProvider);
         if (isCocoon) popupLayout.addView(new ActionBarPopupWindow.GapView(getContext(), resourcesProvider), LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 8));
 
         final LinkSpanDrawable.LinksTextView cocoonButton = new LinkSpanDrawable.LinksTextView(getContext());

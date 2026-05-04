@@ -20,7 +20,7 @@ import org.telegram.ui.Components.ViewPagerFixed;
 
 import java.util.ArrayList;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public abstract class ViewPagerActivity extends BaseFragment {
     protected final SparseArray<FragmentState> fragmentsArr = new SparseArray<>();
@@ -220,7 +220,7 @@ public abstract class ViewPagerActivity extends BaseFragment {
     @Override
     public void clearViews() {
         if (viewPager != null) {
-            initialFragmentPosition = NekoConfig.hideBottomNavigationBar ? 0 : viewPager.getCurrentPosition();
+            initialFragmentPosition = NemoConfig.hideBottomNavigationBar ? 0 : viewPager.getCurrentPosition();
         }
         for (int a = 0, N = fragmentsArr.size(); a < N; a++) {
             final FragmentState state = fragmentsArr.valueAt(a);

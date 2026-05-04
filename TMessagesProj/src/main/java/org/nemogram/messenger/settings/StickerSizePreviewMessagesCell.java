@@ -19,19 +19,17 @@ import androidx.annotation.NonNull;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessageObject;
-import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.TLRPC;
 import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Cells.ChatMessageCell;
 import org.telegram.ui.Components.BackgroundGradientDrawable;
-import org.telegram.ui.Components.Bulletin;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.MotionBackgroundDrawable;
 import org.telegram.ui.Stories.recorder.HintView2;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.MessageHelper;
 
 @SuppressLint("ViewConstructor")
@@ -141,7 +139,7 @@ public class StickerSizePreviewMessagesCell extends LinearLayout {
     private void showTimeHint(ChatMessageCell cell) {
         if (cell == null || cell.timeLayout == null || cell.getMessageObject() == null ||
                 cell.getMessageObject().messageOwner == null ||
-                (NekoConfig.hideTimeOnSticker && cell.getMessageObject().isAnyKindOfSticker())
+                (NemoConfig.hideTimeOnSticker && cell.getMessageObject().isAnyKindOfSticker())
         ) {
             return;
         }

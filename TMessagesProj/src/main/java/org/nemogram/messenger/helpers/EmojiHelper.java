@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.SystemClock;
@@ -42,7 +41,7 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class EmojiHelper {
@@ -205,13 +204,13 @@ public class EmojiHelper {
     public void setEmojiPack(String pack, boolean manually) {
         emojiPack = pack;
         preferences.edit().putString("emoji_pack", pack).apply();
-        if (manually && NekoConfig.useSystemEmoji) {
-            NekoConfig.toggleUseSystemEmoji();
+        if (manually && NemoConfig.useSystemEmoji) {
+            NemoConfig.toggleUseSystemEmoji();
         }
     }
 
     public Typeface getCurrentTypeface() {
-        if (NekoConfig.useSystemEmoji) {
+        if (NemoConfig.useSystemEmoji) {
             return getSystemEmojiTypeface();
         } else {
             return getSelectedTypeface();
@@ -245,7 +244,7 @@ public class EmojiHelper {
     }
 
     public String getSelectedPackName() {
-        if (NekoConfig.useSystemEmoji) return "System";
+        if (NemoConfig.useSystemEmoji) return "System";
         return emojiPacksInfo
                 .stream()
                 .filter(emojiPackInfo -> Objects.equals(emojiPackInfo.packId, emojiPack))

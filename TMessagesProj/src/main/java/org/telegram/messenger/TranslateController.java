@@ -53,7 +53,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import app.nekogram.translator.Http429Exception;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.MessageHelper;
 import org.nemogram.messenger.translator.Translator;
 
@@ -96,7 +96,7 @@ public class TranslateController extends BaseController {
     }
 
     public boolean isFeatureAvailable() {
-        return NekoConfig.autoTranslate && NekoConfig.transType != NekoConfig.TRANS_TYPE_EXTERNAL;
+        return NemoConfig.autoTranslate && NemoConfig.transType != NemoConfig.TRANS_TYPE_EXTERNAL;
     }
 
     public boolean isFeatureAvailable(long dialogId) {
@@ -265,7 +265,7 @@ public class TranslateController extends BaseController {
     public String getDialogTranslateTo(long dialogId) {
         String lang = translateDialogLanguage.get(dialogId);
         if (lang == null) {
-            lang = NekoConfig.translationTarget;
+            lang = NemoConfig.translationTarget;
             if (lang == null || Translator.getTargetLanguage(lang).equals(getDialogDetectedLanguage(dialogId))) {
                 lang = currentLanguage();
             }
@@ -1003,7 +1003,7 @@ public class TranslateController extends BaseController {
             source.entities = message.messageOwner.entities;
         }
 
-        if (!Translator.PROVIDER_TELEGRAM.equals(NekoConfig.translationProvider)) {
+        if (!Translator.PROVIDER_TELEGRAM.equals(NemoConfig.translationProvider)) {
             Translator.translate(source, null, message.messageOwner.originalLanguage, language, new Translator.TranslateCallBack() {
                 @Override
                 public void onSuccess(TLRPC.TL_textWithEntities translation, String sourceLanguage, String targetLanguage) {
@@ -1313,7 +1313,7 @@ public class TranslateController extends BaseController {
 
         long dialogId = message.getDialogId();
 
-        if (!Translator.PROVIDER_TELEGRAM.equals(NekoConfig.translationProvider)) {
+        if (!Translator.PROVIDER_TELEGRAM.equals(NemoConfig.translationProvider)) {
             final TLRPC.MessageMedia media = MessageObject.getMedia(message);
             if (!(media instanceof TLRPC.TL_messageMediaPoll)) {
                 return;

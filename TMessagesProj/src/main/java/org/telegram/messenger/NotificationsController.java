@@ -26,12 +26,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.ImageDecoder;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -97,7 +94,7 @@ import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.function.Consumer;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.MessageFilterHelper;
 import org.nemogram.messenger.helpers.PasscodeHelper;
 
@@ -4312,7 +4309,7 @@ public class NotificationsController extends BaseController {
                 notifyDisabled = true;
             }
 
-            if (NekoConfig.silenceNonContacts && chat == null && getContactsController().contactsDict.get(userId) == null) {
+            if (NemoConfig.silenceNonContacts && chat == null && getContactsController().contactsDict.get(userId) == null) {
                 notifyDisabled = true;
             }
 
@@ -4553,7 +4550,7 @@ public class NotificationsController extends BaseController {
                     .setGroupSummary(true)
                     .setShowWhen(true)
                     .setWhen(((long) lastMessageObject.messageOwner.date) * 1000)
-                    .setColor(NekoConfig.getNotificationColor());
+                    .setColor(NemoConfig.getNotificationColor());
 
             long[] vibrationPattern = null;
             Uri sound = null;
@@ -5527,7 +5524,7 @@ public class NotificationsController extends BaseController {
                     .setContentText(text.toString())
                     .setAutoCancel(true)
                     .setNumber(dialogKey.story ? storyPushMessages.size() : messageObjects.size())
-                    .setColor(NekoConfig.getNotificationColor())
+                    .setColor(NemoConfig.getNotificationColor())
                     .setGroupSummary(false)
                     .setWhen(date)
                     .setShowWhen(true)

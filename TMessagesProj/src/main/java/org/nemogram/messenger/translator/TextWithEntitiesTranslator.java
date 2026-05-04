@@ -11,7 +11,7 @@ import app.nekogram.translator.DeepLTranslator;
 import app.nekogram.translator.GoogleAppTranslator;
 import app.nekogram.translator.MicrosoftTranslator;
 import app.nekogram.translator.YandexTranslator;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.translator.html.HTMLKeeper;
 
 public class TextWithEntitiesTranslator implements Translator.ITranslator {
@@ -23,7 +23,7 @@ public class TextWithEntitiesTranslator implements Translator.ITranslator {
             var translator = switch (type1) {
                 case Translator.PROVIDER_YANDEX -> YandexTranslator.getInstance();
                 case Translator.PROVIDER_DEEPL -> {
-                    DeepLTranslator.setFormality(NekoConfig.deepLFormality);
+                    DeepLTranslator.setFormality(NemoConfig.deepLFormality);
                     yield DeepLTranslator.getInstance();
                 }
                 case Translator.PROVIDER_MICROSOFT -> MicrosoftTranslator.getInstance();
@@ -41,7 +41,7 @@ public class TextWithEntitiesTranslator implements Translator.ITranslator {
 
     @Override
     public Translator.TranslationResult translate(TLRPC.TL_textWithEntities query, String fl, String tl) throws Exception {
-        if (NekoConfig.keepFormatting) {
+        if (NemoConfig.keepFormatting) {
             var html = HTMLKeeper.entitiesToHtml(query.text, query.entities, false);
             var result = translator.translate(html, null, tl);
             var textAndEntitiesTranslated = HTMLKeeper.htmlToEntities(result.translation, query.entities, false);

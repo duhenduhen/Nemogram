@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.EmojiHelper;
 
 public class Emoji {
@@ -89,7 +89,7 @@ public class Emoji {
     public static boolean isSelectedEmojiPack;
 
     private static void reloadCache() {
-        isSelectedEmojiPack = EmojiHelper.getInstance().isSelectedEmojiPack() || NekoConfig.useSystemEmoji;
+        isSelectedEmojiPack = EmojiHelper.getInstance().isSelectedEmojiPack() || NemoConfig.useSystemEmoji;
     }
 
     public static void reloadEmoji() {

@@ -21,7 +21,7 @@ import org.telegram.ui.LaunchActivity;
 
 import java.util.ArrayList;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class LocationSharingService extends Service implements NotificationCenter.NotificationCenterDelegate {
 
@@ -144,7 +144,7 @@ public class LocationSharingService extends Service implements NotificationCente
                 NotificationsController.checkOtherNotificationsChannel();
                 builder.setChannelId(NotificationsController.OTHER_NOTIFICATIONS_CHANNEL);
                 builder.setContentTitle(LocaleController.getString(R.string.AppName));
-                builder.setColor(NekoConfig.getNotificationColor());
+                builder.setColor(NemoConfig.getNotificationColor());
                 builder.setCategory(NotificationCompat.CATEGORY_LOCATION_SHARING);
                 Intent stopIntent = new Intent(ApplicationLoader.applicationContext, StopLiveLocationReceiver.class);
                 builder.addAction(0, LocaleController.getString(R.string.StopLiveLocation), PendingIntent.getBroadcast(ApplicationLoader.applicationContext, 2, stopIntent, PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT));

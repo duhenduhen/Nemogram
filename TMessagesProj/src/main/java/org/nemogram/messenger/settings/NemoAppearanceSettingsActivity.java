@@ -17,11 +17,11 @@ import org.telegram.ui.LaunchActivity;
 
 import java.util.ArrayList;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.helpers.EmojiHelper;
 import org.nemogram.messenger.helpers.PopupHelper;
 
-public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
+public class NemoAppearanceSettingsActivity extends BaseNemoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
 
     private final int emojiSetsRow = rowId++;
     private final int predictiveBackAnimationRow = rowId++;
@@ -65,39 +65,39 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
     protected void fillItems(ArrayList<UItem> items, UniversalAdapter adapter) {
         items.add(UItem.asHeader(LocaleController.getString(R.string.ChangeChannelNameColor2)));
         items.add(EmojiSetCellFactory.of(emojiSetsRow, LocaleController.getString(R.string.EmojiSets)).slug("emojiSets"));
-        items.add(UItem.asCheck(predictiveBackAnimationRow, LocaleController.getString(R.string.PredictiveBackAnimation)).slug("predictiveBackAnimation").setChecked(NekoConfig.predictiveBackAnimation));
-        items.add(UItem.asCheck(appBarShadowRow, LocaleController.getString(R.string.DisableAppBarShadow)).slug("appBarShadow").setChecked(NekoConfig.disableAppBarShadow));
-        items.add(UItem.asCheck(formatTimeWithSecondsRow, LocaleController.getString(R.string.FormatWithSeconds)).slug("formatTimeWithSeconds").setChecked(NekoConfig.formatTimeWithSeconds));
-        items.add(UItem.asCheck(disableNumberRoundingRow, LocaleController.getString(R.string.DisableNumberRounding), "4.8K -> 4777").slug("disableNumberRounding").setChecked(NekoConfig.disableNumberRounding));
-        items.add(UItem.asCheck(hideBottomNavigationBarRow, LocaleController.getString(R.string.HideBottomNavigationBar)).setChecked(NekoConfig.hideBottomNavigationBar).slug("hideBottomNavigationBar"));
-        items.add(UItem.asCheck(disableGooeyAvatarAnimationRow, LocaleController.getString(R.string.DisableGooeyAvatarAnimation)).setChecked(NekoConfig.disableGooeyAvatarAnimation).slug("disableGooeyAvatarAnimation"));
-        items.add(TextSettingsCellFactory.of(tabletModeRow, LocaleController.getString(R.string.TabletMode), switch (NekoConfig.tabletMode) {
-            case NekoConfig.TABLET_AUTO -> LocaleController.getString(R.string.TabletModeAuto);
-            case NekoConfig.TABLET_ENABLE -> LocaleController.getString(R.string.Enable);
+        items.add(UItem.asCheck(predictiveBackAnimationRow, LocaleController.getString(R.string.PredictiveBackAnimation)).slug("predictiveBackAnimation").setChecked(NemoConfig.predictiveBackAnimation));
+        items.add(UItem.asCheck(appBarShadowRow, LocaleController.getString(R.string.DisableAppBarShadow)).slug("appBarShadow").setChecked(NemoConfig.disableAppBarShadow));
+        items.add(UItem.asCheck(formatTimeWithSecondsRow, LocaleController.getString(R.string.FormatWithSeconds)).slug("formatTimeWithSeconds").setChecked(NemoConfig.formatTimeWithSeconds));
+        items.add(UItem.asCheck(disableNumberRoundingRow, LocaleController.getString(R.string.DisableNumberRounding), "4.8K -> 4777").slug("disableNumberRounding").setChecked(NemoConfig.disableNumberRounding));
+        items.add(UItem.asCheck(hideBottomNavigationBarRow, LocaleController.getString(R.string.HideBottomNavigationBar)).setChecked(NemoConfig.hideBottomNavigationBar).slug("hideBottomNavigationBar"));
+        items.add(UItem.asCheck(disableGooeyAvatarAnimationRow, LocaleController.getString(R.string.DisableGooeyAvatarAnimation)).setChecked(NemoConfig.disableGooeyAvatarAnimation).slug("disableGooeyAvatarAnimation"));
+        items.add(TextSettingsCellFactory.of(tabletModeRow, LocaleController.getString(R.string.TabletMode), switch (NemoConfig.tabletMode) {
+            case NemoConfig.TABLET_AUTO -> LocaleController.getString(R.string.TabletModeAuto);
+            case NemoConfig.TABLET_ENABLE -> LocaleController.getString(R.string.Enable);
             default -> LocaleController.getString(R.string.Disable);
         }).slug("tabletMode"));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.SavedDialogsTab)));
-        items.add(UItem.asCheck(hideStoriesRow, LocaleController.getString(R.string.HideStories)).slug("hideStories").setChecked(NekoConfig.hideStories));
-        items.add(UItem.asCheck(mediaPreviewRow, LocaleController.getString(R.string.MediaPreview)).slug("mediaPreview").setChecked(NekoConfig.mediaPreview));
+        items.add(UItem.asCheck(hideStoriesRow, LocaleController.getString(R.string.HideStories)).slug("hideStories").setChecked(NemoConfig.hideStories));
+        items.add(UItem.asCheck(mediaPreviewRow, LocaleController.getString(R.string.MediaPreview)).slug("mediaPreview").setChecked(NemoConfig.mediaPreview));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.Filters)));
-        items.add(UItem.asCheck(hideAllTabRow, LocaleController.getString(R.string.HideAllTab)).slug("hideAllTab").setChecked(NekoConfig.hideAllTab));
-        items.add(UItem.asCheck(hideFolderUnreadBadgeRow, LocaleController.getString(R.string.HideFolderUnreadBadge)).slug("hideFolderUnreadBadge").setChecked(NekoConfig.hideFolderUnreadBadge));
-        items.add(TextSettingsCellFactory.of(tabsTitleTypeRow, LocaleController.getString(R.string.TabTitleType), switch (NekoConfig.tabsTitleType) {
-            case NekoConfig.TITLE_TYPE_TEXT ->
+        items.add(UItem.asCheck(hideAllTabRow, LocaleController.getString(R.string.HideAllTab)).slug("hideAllTab").setChecked(NemoConfig.hideAllTab));
+        items.add(UItem.asCheck(hideFolderUnreadBadgeRow, LocaleController.getString(R.string.HideFolderUnreadBadge)).slug("hideFolderUnreadBadge").setChecked(NemoConfig.hideFolderUnreadBadge));
+        items.add(TextSettingsCellFactory.of(tabsTitleTypeRow, LocaleController.getString(R.string.TabTitleType), switch (NemoConfig.tabsTitleType) {
+            case NemoConfig.TITLE_TYPE_TEXT ->
                     LocaleController.getString(R.string.TabTitleTypeText);
-            case NekoConfig.TITLE_TYPE_ICON ->
+            case NemoConfig.TITLE_TYPE_ICON ->
                     LocaleController.getString(R.string.TabTitleTypeIcon);
             default -> LocaleController.getString(R.string.TabTitleTypeMix);
         }).slug("tabsTitleType"));
-        items.add(TextSettingsCellFactory.of(tabsPositionRow, LocaleController.getString(R.string.TabsPosition), LocaleController.getString(NekoConfig.bottomFilterTabs ? R.string.TabsPositionBottom : R.string.TabsPositionTop)).slug("tabsPosition"));
+        items.add(TextSettingsCellFactory.of(tabsPositionRow, LocaleController.getString(R.string.TabsPosition), LocaleController.getString(NemoConfig.bottomFilterTabs ? R.string.TabsPositionBottom : R.string.TabsPositionTop)).slug("tabsPosition"));
         items.add(UItem.asShadow(null));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.LiteOptionsBlur2)));
-        items.add(UItem.asCheck(strokeOnViewsRow, LocaleController.getString(R.string.StrokeOnViews)).setChecked(NekoConfig.strokeOnViews).slug("strokeOnViews"));
+        items.add(UItem.asCheck(strokeOnViewsRow, LocaleController.getString(R.string.StrokeOnViews)).setChecked(NemoConfig.strokeOnViews).slug("strokeOnViews"));
         items.add(UItem.asShadow(null));
     }
 
@@ -108,13 +108,13 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
             arrayList.add(LocaleController.getString(R.string.TabletModeAuto));
-            types.add(NekoConfig.TABLET_AUTO);
+            types.add(NemoConfig.TABLET_AUTO);
             arrayList.add(LocaleController.getString(R.string.Enable));
-            types.add(NekoConfig.TABLET_ENABLE);
+            types.add(NemoConfig.TABLET_ENABLE);
             arrayList.add(LocaleController.getString(R.string.Disable));
-            types.add(NekoConfig.TABLET_DISABLE);
-            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabletMode), types.indexOf(NekoConfig.tabletMode), getParentActivity(), view, i -> {
-                NekoConfig.setTabletMode(types.get(i));
+            types.add(NemoConfig.TABLET_DISABLE);
+            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabletMode), types.indexOf(NemoConfig.tabletMode), getParentActivity(), view, i -> {
+                NemoConfig.setTabletMode(types.get(i));
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
                 AndroidUtilities.resetTabletFlag();
@@ -123,95 +123,95 @@ public class NekoAppearanceSettingsActivity extends BaseNekoSettingsActivity imp
                 }
             }, resourcesProvider);
         } else if (id == emojiSetsRow) {
-            presentFragment(new NekoEmojiSettingsActivity());
+            presentFragment(new NemoEmojiSettingsActivity());
         } else if (id == disableNumberRoundingRow) {
-            NekoConfig.toggleDisableNumberRounding();
+            NemoConfig.toggleDisableNumberRounding();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableNumberRounding);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableNumberRounding);
             }
         } else if (id == appBarShadowRow) {
-            NekoConfig.toggleDisableAppBarShadow();
+            NemoConfig.toggleDisableAppBarShadow();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableAppBarShadow);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableAppBarShadow);
             }
-            parentLayout.setHeaderShadow(NekoConfig.disableAppBarShadow ? null : parentLayout.getParentActivity().getDrawable(R.drawable.header_shadow).mutate());
+            parentLayout.setHeaderShadow(NemoConfig.disableAppBarShadow ? null : parentLayout.getParentActivity().getDrawable(R.drawable.header_shadow).mutate());
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (id == mediaPreviewRow) {
-            NekoConfig.toggleMediaPreview();
+            NemoConfig.toggleMediaPreview();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.mediaPreview);
+                ((TextCheckCell) view).setChecked(NemoConfig.mediaPreview);
             }
         } else if (id == hideStoriesRow) {
-            NekoConfig.toggleHideStories();
+            NemoConfig.toggleHideStories();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideStories);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideStories);
             }
             getNotificationCenter().postNotificationName(NotificationCenter.storiesEnabledUpdate);
         } else if (id == formatTimeWithSecondsRow) {
-            NekoConfig.toggleFormatTimeWithSeconds();
+            NemoConfig.toggleFormatTimeWithSeconds();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.formatTimeWithSeconds);
+                ((TextCheckCell) view).setChecked(NemoConfig.formatTimeWithSeconds);
             }
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (id == hideAllTabRow) {
-            NekoConfig.toggleHideAllTab();
+            NemoConfig.toggleHideAllTab();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideAllTab);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideAllTab);
             }
             getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
             getNotificationCenter().postNotificationName(NotificationCenter.mainUserInfoChanged);
         } else if (id == hideFolderUnreadBadgeRow) {
-            NekoConfig.toggleHideFolderUnreadBadge();
+            NemoConfig.toggleHideFolderUnreadBadge();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideFolderUnreadBadge);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideFolderUnreadBadge);
             }
             getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
         } else if (id == tabsTitleTypeRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
             arrayList.add(LocaleController.getString(R.string.TabTitleTypeText));
-            types.add(NekoConfig.TITLE_TYPE_TEXT);
+            types.add(NemoConfig.TITLE_TYPE_TEXT);
             arrayList.add(LocaleController.getString(R.string.TabTitleTypeIcon));
-            types.add(NekoConfig.TITLE_TYPE_ICON);
+            types.add(NemoConfig.TITLE_TYPE_ICON);
             arrayList.add(LocaleController.getString(R.string.TabTitleTypeMix));
-            types.add(NekoConfig.TITLE_TYPE_MIX);
-            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabTitleType), types.indexOf(NekoConfig.tabsTitleType), getParentActivity(), view, i -> {
-                NekoConfig.setTabsTitleType(types.get(i));
+            types.add(NemoConfig.TITLE_TYPE_MIX);
+            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabTitleType), types.indexOf(NemoConfig.tabsTitleType), getParentActivity(), view, i -> {
+                NemoConfig.setTabsTitleType(types.get(i));
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
                 getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
             }, resourcesProvider);
         } else if (id == predictiveBackAnimationRow) {
-            NekoConfig.togglePredictiveBackAnimation();
+            NemoConfig.togglePredictiveBackAnimation();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.predictiveBackAnimation);
+                ((TextCheckCell) view).setChecked(NemoConfig.predictiveBackAnimation);
             }
             showRestartBulletin();
         } else if (id == hideBottomNavigationBarRow) {
-            NekoConfig.toggleHideBottomNavigationBar();
+            NemoConfig.toggleHideBottomNavigationBar();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.hideBottomNavigationBar);
+                ((TextCheckCell) view).setChecked(NemoConfig.hideBottomNavigationBar);
             }
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (id == disableGooeyAvatarAnimationRow) {
-            NekoConfig.toggleDisableGooeyAvatarAnimation();
+            NemoConfig.toggleDisableGooeyAvatarAnimation();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.disableGooeyAvatarAnimation);
+                ((TextCheckCell) view).setChecked(NemoConfig.disableGooeyAvatarAnimation);
             }
         } else if (id == tabsPositionRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(LocaleController.getString(R.string.TabsPositionTop));
             arrayList.add(LocaleController.getString(R.string.TabsPositionBottom));
-            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabsPosition), NekoConfig.bottomFilterTabs ? 1 : 0, getParentActivity(), view, i -> {
-                NekoConfig.setBottomFilterTabs(i == 1);
+            PopupHelper.show(arrayList, LocaleController.getString(R.string.TabsPosition), NemoConfig.bottomFilterTabs ? 1 : 0, getParentActivity(), view, i -> {
+                NemoConfig.setBottomFilterTabs(i == 1);
                 item.textValue = arrayList.get(i);
                 listView.adapter.notifyItemChanged(position, PARTIAL);
                 parentLayout.rebuildAllFragmentViews(false, false);
             }, resourcesProvider);
         } else if (id == strokeOnViewsRow) {
-            NekoConfig.toggleStrokeOnViews();
+            NemoConfig.toggleStrokeOnViews();
             if (view instanceof TextCheckCell) {
-                ((TextCheckCell) view).setChecked(NekoConfig.strokeOnViews);
+                ((TextCheckCell) view).setChecked(NemoConfig.strokeOnViews);
             }
         }
     }

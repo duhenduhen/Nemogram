@@ -41,10 +41,9 @@ import java.util.Locale;
 
 import org.nemogram.messenger.helpers.MessageHelper;
 import org.nemogram.messenger.helpers.UserHelper;
-import org.nemogram.messenger.helpers.WebAppHelper;
-import org.nemogram.messenger.settings.BaseNekoSettingsActivity;
+import org.nemogram.messenger.settings.BaseNemoSettingsActivity;
 
-public class MessageDetailsActivity extends BaseNekoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
+public class MessageDetailsActivity extends BaseNemoSettingsActivity implements NotificationCenter.NotificationCenterDelegate {
 
     private final MessageObject messageObject;
     private final boolean noforwards;

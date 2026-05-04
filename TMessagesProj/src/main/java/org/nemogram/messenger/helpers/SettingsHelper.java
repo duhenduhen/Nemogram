@@ -11,13 +11,13 @@ import org.telegram.ui.LaunchActivity;
 import java.util.Locale;
 import java.util.function.Consumer;
 
-import org.nemogram.messenger.settings.BaseNekoSettingsActivity;
-import org.nemogram.messenger.settings.NekoAppearanceSettingsActivity;
-import org.nemogram.messenger.settings.NekoChatSettingsActivity;
-import org.nemogram.messenger.settings.NekoEmojiSettingsActivity;
-import org.nemogram.messenger.settings.NekoExperimentalSettingsActivity;
-import org.nemogram.messenger.settings.NekoGeneralSettingsActivity;
-import org.nemogram.messenger.settings.NekoPasscodeSettingsActivity;
+import org.nemogram.messenger.settings.BaseNemoSettingsActivity;
+import org.nemogram.messenger.settings.NemoAppearanceSettingsActivity;
+import org.nemogram.messenger.settings.NemoChatSettingsActivity;
+import org.nemogram.messenger.settings.NemoEmojiSettingsActivity;
+import org.nemogram.messenger.settings.NemoExperimentalSettingsActivity;
+import org.nemogram.messenger.settings.NemoGeneralSettingsActivity;
+import org.nemogram.messenger.settings.NemoPasscodeSettingsActivity;
 import org.nemogram.messenger.settings.NemoKeywordFilterActivity;
 
 public class SettingsHelper {
@@ -32,31 +32,31 @@ public class SettingsHelper {
             unknown.run();
             return;
         }
-        BaseNekoSettingsActivity fragment;
+        BaseNemoSettingsActivity fragment;
         var segment = segments.get(1);
         if (PasscodeHelper.getSettingsKey().equals(segment)) {
-            fragment = new NekoPasscodeSettingsActivity();
+            fragment = new NemoPasscodeSettingsActivity();
         } else {
             switch (segment.toLowerCase(Locale.US)) {
                 case "appearance":
                 case "a":
-                    fragment = new NekoAppearanceSettingsActivity();
+                    fragment = new NemoAppearanceSettingsActivity();
                     break;
                 case "chat":
                 case "chats":
                 case "c":
-                    fragment = new NekoChatSettingsActivity();
+                    fragment = new NemoChatSettingsActivity();
                     break;
                 case "experimental":
                 case "e":
-                    fragment = new NekoExperimentalSettingsActivity();
+                    fragment = new NemoExperimentalSettingsActivity();
                     break;
                 case "emoji":
-                    fragment = new NekoEmojiSettingsActivity();
+                    fragment = new NemoEmojiSettingsActivity();
                     break;
                 case "general":
                 case "g":
-                    fragment = new NekoGeneralSettingsActivity();
+                    fragment = new NemoGeneralSettingsActivity();
                     break;
                 case "keywordfilter":
                 case "kf":

@@ -21,7 +21,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseIntArray;
 
 import androidx.collection.LongSparseArray;
@@ -39,8 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.location.NekoLocationSource;
+import org.nemogram.messenger.NemoConfig;
+import org.nemogram.messenger.location.NemoLocationSource;
 
 @SuppressLint("MissingPermission")
 public class LocationController extends BaseController implements NotificationCenter.NotificationCenterDelegate, ILocationServiceProvider.IAPIConnectionCallbacks, ILocationServiceProvider.IAPIOnConnectionFailedListener {
@@ -529,8 +528,8 @@ public class LocationController extends BaseController implements NotificationCe
         if (location != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1 && (SystemClock.elapsedRealtimeNanos() - location.getElapsedRealtimeNanos()) / 1000000000 > 60 * 5) {
             return;
         }
-        if (NekoConfig.mapDriftingFix && location != null) {
-            NekoLocationSource.transform(location);
+        if (NemoConfig.mapDriftingFix && location != null) {
+            NemoLocationSource.transform(location);
         }
         lastKnownLocation = location;
         if (lastKnownLocation != null) {

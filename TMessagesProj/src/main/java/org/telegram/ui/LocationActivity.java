@@ -41,12 +41,9 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
-import android.opengl.GLES20;
-import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.text.Html;
 import android.text.TextUtils;
-import android.util.Log;
 import android.text.method.LinkMovementMethod;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -142,15 +139,13 @@ import org.telegram.ui.Components.UndoView;
 import org.telegram.ui.Stories.recorder.HintView2;
 
 import java.io.File;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.location.NekoLocationSource;
+import org.nemogram.messenger.NemoConfig;
+import org.nemogram.messenger.location.NemoLocationSource;
 
 public class LocationActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate {
 
@@ -2445,8 +2440,8 @@ public class LocationActivity extends BaseFragment implements NotificationCenter
             for (int i = providers.size() - 1; i >= 0; i--) {
                 l = lm.getLastKnownLocation(providers.get(i));
                 if (l != null) {
-                    if (NekoConfig.mapDriftingFix) {
-                        NekoLocationSource.transform(l);
+                    if (NemoConfig.mapDriftingFix) {
+                        NemoLocationSource.transform(l);
                     }
                     break;
                 }

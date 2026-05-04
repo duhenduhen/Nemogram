@@ -23,7 +23,7 @@ import java.util.function.BiConsumer;
 
 import app.nekogram.translator.DeepLTranslator;
 
-public class NekoConfig {
+public class NemoConfig {
     //TODO: refactor
 
     public static final int TITLE_TYPE_TEXT = 0;

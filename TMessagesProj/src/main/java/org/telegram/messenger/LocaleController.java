@@ -58,7 +58,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class LocaleController {
 
@@ -75,7 +75,7 @@ public class LocaleController {
 
     private volatile FastDateFormat formatterDay;
     public FastDateFormat getFormatterDay() {
-        if (NekoConfig.formatTimeWithSeconds) {
+        if (NemoConfig.formatTimeWithSeconds) {
             return getFormatterDayWithSeconds();
         }
         if (formatterDay == null) {
@@ -2946,7 +2946,7 @@ public class LocaleController {
     }
 
     public static String formatShortNumber(int number, int[] rounded) {
-        if (NekoConfig.disableNumberRounding) {
+        if (NemoConfig.disableNumberRounding) {
             if (rounded != null) {
                 rounded[0] = number;
             }

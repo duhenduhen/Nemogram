@@ -144,7 +144,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Stack;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.accessibility.AccConfig;
 import org.nemogram.messenger.helpers.MessageFilterHelper;
 import me.vkryl.android.animator.BoolAnimator;
@@ -1223,8 +1223,8 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava
         if (msgText != null && message != null && !message.isOutOwner()) {
             String msgRaw = message.messageOwner != null ? message.messageOwner.message : null;
             boolean blocked = chat != null && ChatObject.isChannel(chat) && !chat.megagroup
-                    ? (NekoConfig.filterKeywordsInChannels && NekoConfig.isKeywordBlockedInChannels(msgRaw))
-                    : (NekoConfig.filterKeywordsInChats && NekoConfig.isKeywordBlockedInChats(msgRaw));
+                    ? (NemoConfig.filterKeywordsInChannels && NemoConfig.isKeywordBlockedInChannels(msgRaw))
+                    : (NemoConfig.filterKeywordsInChats && NemoConfig.isKeywordBlockedInChats(msgRaw));
             if (blocked) {
                 msgText = LocaleController.getString(R.string.MessageHidden);
             }
@@ -5469,7 +5469,7 @@ public class DialogCell extends BaseCell implements StoriesListPlaceProvider.Ava
     }
 
     public void updateMessageThumbs() {
-        if (message == null || !NekoConfig.mediaPreview) {
+        if (message == null || !NemoConfig.mediaPreview) {
             return;
         }
         String restrictionReason = MessagesController.getInstance(message.currentAccount).getRestrictionReason(message.messageOwner.restriction_reason);

@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Set;
 
-public class NekoLocationSource {
+public class NemoLocationSource {
     public final static Set<Integer> recent = Collections.synchronizedSet(Collections.newSetFromMap(new Cache<>()));
 
     public static void transform(Location location) {

@@ -66,7 +66,7 @@ public class SaveToDownloadReceiver extends BroadcastReceiver {
                 .setProgress(100, 0, true)
                 .setSmallIcon(android.R.drawable.stat_sys_download)
                 .setWhen(System.currentTimeMillis())
-                .setColor(NekoConfig.getNotificationColor())
+                .setColor(NemoConfig.getNotificationColor())
                 .setOngoing(true)
                 .setCategory(NotificationCompat.CATEGORY_PROGRESS)
                 .setOnlyAlertOnce(true)

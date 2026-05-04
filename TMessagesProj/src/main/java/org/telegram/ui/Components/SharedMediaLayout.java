@@ -49,7 +49,6 @@ import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.Gravity;
-import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.VelocityTracker;
@@ -150,7 +149,6 @@ import org.telegram.ui.Gifts.ProfileGiftsContainer;
 import org.telegram.ui.LaunchActivity;
 import org.telegram.ui.LocationActivity;
 import org.telegram.ui.PhotoViewer;
-import org.telegram.ui.PollItemMenu;
 import org.telegram.ui.PremiumPreviewFragment;
 import org.telegram.ui.ProfileActivity;
 import org.telegram.ui.ProfileActivity2;
@@ -175,7 +173,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Objects;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.forward.ForwardContext;
 import org.nemogram.messenger.forward.ForwardDrawable;
 import org.nemogram.messenger.forward.ForwardItem;
@@ -2226,7 +2224,7 @@ public class SharedMediaLayout extends FrameLayout implements NotificationCenter
                 forwardItem.setOnClickListener(v -> onActionBarItemClick(v, forward));
                 forwardItem.setDelegate(id -> onActionBarItemClick(forwardItem, id));
 
-                if (NekoConfig.showNoQuoteForward) {
+                if (NemoConfig.showNoQuoteForward) {
                     forwardNoQuoteItem = new ActionBarMenuItem(context, null, getThemedColor(Theme.key_actionBarActionModeDefaultSelector), getThemedColor(Theme.key_actionBarActionModeDefaultIcon), false);
                     forwardNoQuoteItem.setIcon(R.drawable.msg_forward);
                     forwardNoQuoteItem.setContentDescription(LocaleController.getString(R.string.NoQuoteForward));
@@ -5309,7 +5307,7 @@ public class SharedMediaLayout extends FrameLayout implements NotificationCenter
             }
             ForwardItem.setLastForwardOption(id);
             setForwardParams(id == forward_noquote, id == forward_nocaption);
-            if (NekoConfig.quickForward) {
+            if (NemoConfig.quickForward) {
                 openShareAlert(profileActivity, null, () -> {
                     for (int a = 1; a >= 0; a--) {
                         selectedFiles[a].clear();

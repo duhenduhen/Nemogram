@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.nemogram.messenger.Extra;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class ConfigHelper extends BaseRemoteHelper {
     private static final String NEWS_METHOD = "get_config";
@@ -64,7 +64,7 @@ public class ConfigHelper extends BaseRemoteHelper {
         }
         ArrayList<News> newsItems = new ArrayList<>();
         config.news.forEach(news -> {
-            if (news.mcc != null && news.mcc != NekoConfig.userMcc) {
+            if (news.mcc != null && news.mcc != NemoConfig.userMcc) {
                 return;
             }
             if (news.direct != null && news.direct && !Extra.isDirectApp()) {

@@ -334,13 +334,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.forward.ForwardItem;
 import org.nemogram.messenger.helpers.LensHelper;
 import org.nemogram.messenger.helpers.MessageHelper;
 import org.nemogram.messenger.helpers.QrHelper;
 import org.nemogram.messenger.streaming.MediaStreamingProvider;
-import org.nemogram.messenger.translator.Translator;
+
 import me.vkryl.android.animator.BoolAnimator;
 import me.vkryl.android.animator.FactorAnimator;
 import me.vkryl.core.reference.ReferenceList;
@@ -5343,7 +5343,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                         msgs.add(currentMessageObject);
                     }
 
-                    if ((isChannel || NekoConfig.quickForward) && msgs.size() <= 1) {
+                    if ((isChannel || NemoConfig.quickForward) && msgs.size() <= 1) {
                         showShareAlert(msgs, id == gallery_menu_send_noquote, id == gallery_menu_send_nocaption);
                     } else if (msgs.size() > 1) {
                         boolean photos = true;
@@ -18992,7 +18992,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
         if (photoPaintView != null) {
             photoPaintView.onResume();
         }
-        if (pausedOnPause && NekoConfig.autoPauseVideo && videoPlayer != null && !videoPlayer.isPlaying()) {
+        if (pausedOnPause && NemoConfig.autoPauseVideo && videoPlayer != null && !videoPlayer.isPlaying()) {
             pausedOnPause = false;
             videoPlayer.play();
         }
@@ -19011,7 +19011,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
         if (videoPlayer != null && playerLooping) {
             videoPlayer.setLooping(allowLoopingOnPause());
         }
-        if (NekoConfig.autoPauseVideo && videoPlayer != null && videoPlayer.isPlaying()) {
+        if (NemoConfig.autoPauseVideo && videoPlayer != null && videoPlayer.isPlaying()) {
             pausedOnPause = true;
             videoPlayer.pause();
         }

@@ -9,7 +9,6 @@
 package org.telegram.messenger;
 
 import android.annotation.SuppressLint;
-import android.content.ClipDescription;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
@@ -48,7 +47,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.collection.LongSparseArray;
-import androidx.core.view.inputmethod.InputContentInfoCompat;
 
 import org.json.JSONObject;
 import org.telegram.messenger.audioinfo.AudioInfo;
@@ -119,8 +117,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
-import org.nemogram.messenger.NekoConfig;
 
 public class SendMessagesHelper extends BaseController implements NotificationCenter.NotificationCenterDelegate {
 

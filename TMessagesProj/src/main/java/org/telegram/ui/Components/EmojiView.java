@@ -157,7 +157,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 import me.vkryl.android.animator.BoolAnimator;
 
@@ -6750,7 +6750,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                         }
                     });
                     containerLayout.setOnLongClickListener(v -> {
-                        NekoConfig.toggleMinimizedStickerCreator();
+                        NemoConfig.toggleMinimizedStickerCreator();
                         checkDocuments(false);
                         return true;
                     });
@@ -6848,13 +6848,13 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                             }
                         } else if (object == recentStickers) {
                             cell.setText(getString(R.string.RecentStickers), R.drawable.msg_close, getString(R.string.ClearRecentStickersAlertTitle));
-                            if (NekoConfig.minimizedStickerCreator) {
+                            if (NemoConfig.minimizedStickerCreator) {
                                 cell.setCreate(v -> {
                                     if (fragment instanceof ChatActivity) {
                                         ((ChatActivity) fragment).openAttachMenuForCreatingSticker();
                                     }
                                 }, v -> {
-                                    NekoConfig.toggleMinimizedStickerCreator();
+                                    NemoConfig.toggleMinimizedStickerCreator();
                                     checkDocuments(false);
                                     return true;
                                 });

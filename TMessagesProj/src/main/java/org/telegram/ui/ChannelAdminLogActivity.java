@@ -155,8 +155,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 import org.nemogram.messenger.MessageDetailsActivity;
-import org.nemogram.messenger.NekoConfig;
-import org.nemogram.messenger.helpers.WebAppHelper;
+import org.nemogram.messenger.NemoConfig;
 
 public class ChannelAdminLogActivity extends BaseFragment implements NotificationCenter.NotificationCenterDelegate {
 
@@ -1796,7 +1795,7 @@ public class ChannelAdminLogActivity extends BaseFragment implements Notificatio
             }
         }
 
-        if (NekoConfig.showMessageDetails && selectedObject.currentEvent != null) {
+        if (NemoConfig.showMessageDetails && selectedObject.currentEvent != null) {
             items.add(LocaleController.getString(R.string.MessageDetails));
             options.add(OPTION_DETAILS);
             icons.add(R.drawable.msg_info);

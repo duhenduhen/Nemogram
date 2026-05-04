@@ -56,7 +56,6 @@ import org.telegram.messenger.Emoji;
 import org.telegram.messenger.LanguageDetector;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.MessageObject;
-import org.telegram.messenger.MessagesController;
 import org.telegram.messenger.NotificationCenter;
 import org.telegram.messenger.R;
 import org.telegram.messenger.SharedConfig;
@@ -80,10 +79,9 @@ import java.net.HttpURLConnection;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.translator.Translator;
 
 public class TranslateAlert2 extends BottomSheet implements NotificationCenter.NotificationCenterDelegate {
@@ -1242,7 +1240,7 @@ public class TranslateAlert2 extends BottomSheet implements NotificationCenter.N
             targetLanguages.add(0, "app");
 
             boolean first = true;
-            int checkedItem = targetLanguages.indexOf(NekoConfig.translationTarget);
+            int checkedItem = targetLanguages.indexOf(NemoConfig.translationTarget);
             for (int i = 0; i < targetLanguages.size(); ++i) {
                 String language = targetLanguages.get(i);
                 ActionBarMenuSubItem button = new ActionBarMenuSubItem(getContext(), 2, first, i == targetLanguages.size() - 1, resourcesProvider);
@@ -1641,10 +1639,10 @@ public class TranslateAlert2 extends BottomSheet implements NotificationCenter.N
     }
 
     public static void setToLanguage(String toLang) {
-        NekoConfig.setTranslationTarget(toLang);
+        NemoConfig.setTranslationTarget(toLang);
     }
 
     public static void resetToLanguage() {
-        NekoConfig.setTranslationTarget("app");
+        NemoConfig.setTranslationTarget("app");
     }
 }

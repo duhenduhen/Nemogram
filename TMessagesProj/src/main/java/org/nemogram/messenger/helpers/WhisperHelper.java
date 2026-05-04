@@ -46,7 +46,7 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class WhisperHelper {
     private static OkHttpClient okHttpClient;
@@ -54,7 +54,7 @@ public class WhisperHelper {
     private static final ExecutorService executorService = Executors.newCachedThreadPool();
 
     public static boolean useWorkersAi(int account) {
-        return NekoConfig.transcribeProvider == NekoConfig.TRANSCRIBE_WORKERSAI || (!UserConfig.getInstance(account).isPremium() && NekoConfig.transcribeProvider == NekoConfig.TRANSCRIBE_AUTO);
+        return NemoConfig.transcribeProvider == NemoConfig.TRANSCRIBE_WORKERSAI || (!UserConfig.getInstance(account).isPremium() && NemoConfig.transcribeProvider == NemoConfig.TRANSCRIBE_AUTO);
     }
 
     public static void showErrorDialog(Exception e) {
@@ -93,7 +93,7 @@ public class WhisperHelper {
         };
         editTextAccountId.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         editTextAccountId.setTextColor(Theme.getColor(Theme.key_dialogTextBlack, resourcesProvider));
-        editTextAccountId.setText(NekoConfig.cfAccountID);
+        editTextAccountId.setText(NemoConfig.cfAccountID);
         editTextAccountId.setHintText(LocaleController.getString(R.string.CloudflareAccountID));
         editTextAccountId.setHintColor(Theme.getColor(Theme.key_windowBackgroundWhiteHintText));
         editTextAccountId.setHeaderHintColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlueHeader, resourcesProvider));
@@ -115,7 +115,7 @@ public class WhisperHelper {
         };
         editTextApiToken.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         editTextApiToken.setTextColor(Theme.getColor(Theme.key_dialogTextBlack, resourcesProvider));
-        editTextApiToken.setText(NekoConfig.cfApiToken);
+        editTextApiToken.setText(NemoConfig.cfApiToken);
         editTextApiToken.setHintText(LocaleController.getString(R.string.CloudflareAPIToken));
         editTextApiToken.setHintColor(Theme.getColor(Theme.key_windowBackgroundWhiteHintText));
         editTextApiToken.setHeaderHintColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlueHeader, resourcesProvider));
@@ -149,8 +149,8 @@ public class WhisperHelper {
                     BotWebViewVibrationEffect.APP_ERROR.vibrate();
                     return;
                 }
-                NekoConfig.setCfAccountID(accountId == null ? "" : accountId.toString());
-                NekoConfig.setCfApiToken(apiToken == null ? "" : apiToken.toString());
+                NemoConfig.setCfAccountID(accountId == null ? "" : accountId.toString());
+                NemoConfig.setCfApiToken(apiToken == null ? "" : apiToken.toString());
                 dialog.dismiss();
             });
         }
@@ -217,7 +217,7 @@ public class WhisperHelper {
     }
 
     public static void requestWorkersAi(String path, boolean video, BiConsumer<String, Exception> callback) {
-        if (TextUtils.isEmpty(NekoConfig.cfAccountID) || TextUtils.isEmpty(NekoConfig.cfApiToken)) {
+        if (TextUtils.isEmpty(NemoConfig.cfAccountID) || TextUtils.isEmpty(NemoConfig.cfApiToken)) {
             callback.accept(null, new Exception(LocaleController.getString(R.string.CloudflareCredentialsNotSet)));
             return;
         }
@@ -246,8 +246,8 @@ public class WhisperHelper {
             payload.vadFilter = false;
             var client = getOkHttpClient();
             var request = new Request.Builder()
-                    .url("https://api.cloudflare.com/client/v4/accounts/" + NekoConfig.cfAccountID + "/ai/run/@cf/openai/whisper-large-v3-turbo")
-                    .header("Authorization", "Bearer " + NekoConfig.cfApiToken)
+                    .url("https://api.cloudflare.com/client/v4/accounts/" + NemoConfig.cfAccountID + "/ai/run/@cf/openai/whisper-large-v3-turbo")
+                    .header("Authorization", "Bearer " + NemoConfig.cfApiToken)
                     .post(RequestBody.create(gson.toJson(payload), MediaType.get("application/json")));
             try (var response = client.newCall(request.build()).execute()) {
                 var body = response.body().string();

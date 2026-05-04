@@ -97,7 +97,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 import me.vkryl.android.animator.BoolAnimator;
 import me.vkryl.android.animator.FactorAnimator;
@@ -1525,7 +1525,7 @@ public class GroupCreateActivity extends BaseFragment implements NotificationCen
                 firstName = chat.title;
                 lastName = "";
             }
-            if (NekoConfig.nameOrder == 1) {
+            if (NemoConfig.nameOrder == 1) {
                 if (!TextUtils.isEmpty(firstName)) {
                     return firstName.substring(0, 1).toUpperCase();
                 } else if (!TextUtils.isEmpty(lastName)) {

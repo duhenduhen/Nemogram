@@ -8,7 +8,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.RectF;
@@ -74,10 +73,9 @@ import org.telegram.ui.SearchAdsInfoBottomSheet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 import org.nemogram.messenger.forward.ForwardContext;
 import org.nemogram.messenger.forward.ForwardDrawable;
 import org.nemogram.messenger.forward.ForwardItem;
@@ -893,7 +891,7 @@ public class SearchViewPager extends ViewPagerFixed implements FilteredSearchVie
             gotoItem.setVisibility(View.VISIBLE);
             forwardItem.setVisibility(View.VISIBLE);
             ForwardItem.setupForwardItem(forwardItem, ForwardItem.hasCaption(selectedFiles.values()), null, this::onActionBarItemClick);
-            forwardNoQuoteItem.setVisibility(NekoConfig.showNoQuoteForward ? View.VISIBLE : View.GONE);
+            forwardNoQuoteItem.setVisibility(NemoConfig.showNoQuoteForward ? View.VISIBLE : View.GONE);
             forwardNoQuoteItem.setIcon(new ForwardDrawable(ForwardItem.ID_FORWARD_NOQUOTE, false));
             deleteItem.setVisibility(View.VISIBLE);
         } else {
@@ -988,7 +986,7 @@ public class SearchViewPager extends ViewPagerFixed implements FilteredSearchVie
             ArrayList<MessageObject> fmessages = new ArrayList<>(selectedFiles.values());
             ForwardContext forwardContext = () -> fmessages;
             forwardContext.setForwardParams(id == forwardNoQuoteItemId, id == forwardNoQuoteItemId);
-            if (NekoConfig.quickForward) {
+            if (NemoConfig.quickForward) {
                 forwardContext.openShareAlert(parent, null, () -> {
                     selectedFiles.clear();
                     showActionMode(false);

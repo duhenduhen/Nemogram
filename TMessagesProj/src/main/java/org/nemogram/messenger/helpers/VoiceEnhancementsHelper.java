@@ -4,7 +4,7 @@ import android.media.audiofx.AcousticEchoCanceler;
 import android.media.audiofx.AutomaticGainControl;
 import android.media.audiofx.NoiseSuppressor;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class VoiceEnhancementsHelper {
     private static AutomaticGainControl automaticGainControl;
@@ -12,7 +12,7 @@ public class VoiceEnhancementsHelper {
     private static AcousticEchoCanceler acousticEchoCanceler;
 
     public static void initVoiceEnhancements(int audioSessionId) {
-        if (!NekoConfig.voiceEnhancements) return;
+        if (!NemoConfig.voiceEnhancements) return;
 
         if (AutomaticGainControl.isAvailable()) {
             automaticGainControl = AutomaticGainControl.create(audioSessionId);
@@ -29,7 +29,7 @@ public class VoiceEnhancementsHelper {
     }
 
     public static void releaseVoiceEnhancements() {
-        if (!NekoConfig.voiceEnhancements) return;
+        if (!NemoConfig.voiceEnhancements) return;
 
         if (automaticGainControl != null) {
             automaticGainControl.release();

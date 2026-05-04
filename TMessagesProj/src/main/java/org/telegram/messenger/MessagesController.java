@@ -131,7 +131,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
-import org.nemogram.messenger.NekoConfig;
+import org.nemogram.messenger.NemoConfig;
 
 public class MessagesController extends BaseController implements NotificationCenter.NotificationCenterDelegate {
 
@@ -6617,7 +6617,7 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public boolean isChatNoForwards(TLRPC.Chat chat) {
-        if (NekoConfig.shouldNOTTrustMe) {
+        if (NemoConfig.shouldNOTTrustMe) {
             return false;
         }
         if (chat == null) {
@@ -21429,7 +21429,7 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public String getRestrictionReason(ArrayList<TLRPC.RestrictionReason> reasons) {
-        if (reasons.isEmpty() || NekoConfig.ignoreContentRestriction) {
+        if (reasons.isEmpty() || NemoConfig.ignoreContentRestriction) {
             return null;
         }
         for (int a = 0, N = reasons.size(); a < N; a++) {

@@ -29,7 +29,6 @@ import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Cells.SettingsSearchCell;
 import org.telegram.ui.Components.BackupImageView;
 import org.telegram.ui.Components.CubicBezierInterpolator;
-import org.telegram.ui.Components.FragmentFloatingButton;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.UItem;
 import org.telegram.ui.Components.UniversalAdapter;
@@ -43,7 +42,7 @@ import me.vkryl.android.animator.FactorAnimator;
 import org.nemogram.messenger.accessibility.AccessibilitySettingsActivity;
 import org.nemogram.messenger.helpers.PasscodeHelper;
 
-public class NekoSettingsActivity extends BaseNekoSettingsActivity implements FactorAnimator.Target {
+public class NemoSettingsActivity extends BaseNemoSettingsActivity implements FactorAnimator.Target {
 
     private static final int ANIMATOR_ID_SEARCH_PAGE_VISIBLE = 0;
 
@@ -177,17 +176,17 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
         }
         var id = item.id;
         if (id == chatRow) {
-            presentFragment(new NekoChatSettingsActivity());
+            presentFragment(new NemoChatSettingsActivity());
         } else if (id == keywordFilterRow) {
         presentFragment(new NemoKeywordFilterActivity());
         } else if (id == generalRow) {
-            presentFragment(new NekoGeneralSettingsActivity());
+            presentFragment(new NemoGeneralSettingsActivity());
         } else if (id == appearanceRow) {
-            presentFragment(new NekoAppearanceSettingsActivity());
+            presentFragment(new NemoAppearanceSettingsActivity());
         } else if (id == passcodeRow) {
-            presentFragment(new NekoPasscodeSettingsActivity());
+            presentFragment(new NemoPasscodeSettingsActivity());
         } else if (id == experimentRow) {
-            presentFragment(new NekoExperimentalSettingsActivity());
+            presentFragment(new NemoExperimentalSettingsActivity());
         } else if (id == accessibilityRow) {
             presentFragment(new AccessibilitySettingsActivity());
         } else if (id == channelRow) {
@@ -223,19 +222,19 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
         return !animatorSearchPageVisible.getValue();
     }
 
-    private static BaseNekoSettingsActivity createFragment(int icon) {
+    private static BaseNemoSettingsActivity createFragment(int icon) {
         if (icon == R.drawable.msg_media) {
-            return new NekoGeneralSettingsActivity();
+            return new NemoGeneralSettingsActivity();
         } else if (icon == R.drawable.msg_theme) {
-            return new NekoAppearanceSettingsActivity();
+            return new NemoAppearanceSettingsActivity();
         } else if (icon == R.drawable.msg_discussion) {
-            return new NekoChatSettingsActivity();
+            return new NemoChatSettingsActivity();
         } else if (icon == R.drawable.msg_fave) {
-            return new NekoExperimentalSettingsActivity();
+            return new NemoExperimentalSettingsActivity();
         } else if (icon == R.drawable.msg_block2) {
             return new NemoKeywordFilterActivity();
         }
-        return new NekoSettingsActivity();
+        return new NemoSettingsActivity();
     }
 
     private ArrayList<SearchResult> createSearchArray() {
@@ -273,7 +272,7 @@ public class NekoSettingsActivity extends BaseNekoSettingsActivity implements Fa
             searchResultList.add(new SearchResult(10000 + i, fragmentTitle, icon, () -> presentFragment(fragment)));
         }
         searchResultList.add(new SearchResult(8000, LocaleController.getString(R.string.EmojiUseDefault), null, LocaleController.getString(R.string.Chat), LocaleController.getString(R.string.EmojiSets), R.drawable.msg_theme, () -> {
-            var fragment = new NekoEmojiSettingsActivity();
+            var fragment = new NemoEmojiSettingsActivity();
             presentFragment(fragment);
             AndroidUtilities.runOnUIThread(() -> fragment.scrollToRow("useSystemEmoji", () -> {
             }));
