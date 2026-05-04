@@ -113,7 +113,7 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
         items.add(UItem.asHeader(LocaleController.getString(R.string.Translator)));
         items.add(TextSettingsCellFactory.of(translatorTypeRow, LocaleController.getString(R.string.TranslatorType), getTranslatorType()).slug("translatorType"));
         if (NemoConfig.transType != NemoConfig.TRANS_TYPE_EXTERNAL) {
-            if (NemoConfig.transType == NemoConfig.TRANS_TYPE_NEKO) {
+            if (NemoConfig.transType == NemoConfig.TRANS_TYPE_NEMO) {
                 items.add(UItem.asCheck(showOriginalRow, LocaleController.getString(R.string.TranslatorShowOriginal)).slug("showOriginalRow").setChecked(NemoConfig.showOriginal));
             }
             items.add(TextSettingsCellFactory.of(translationProviderRow, LocaleController.getString(R.string.TranslationProviderShort), getTranslationProvider()).slug("translationProvider"));
@@ -241,7 +241,7 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
                 listView.adapter.notifyItemChanged(position, PARTIAL);
                 if (oldType != newType) {
                     int count = 4;
-                    if (oldType == NemoConfig.TRANS_TYPE_NEKO || newType == NemoConfig.TRANS_TYPE_NEKO) {
+                    if (oldType == NemoConfig.TRANS_TYPE_NEMO || newType == NemoConfig.TRANS_TYPE_NEMO) {
                         count++;
                     }
                     if (oldType == NemoConfig.TRANS_TYPE_EXTERNAL) {
@@ -252,10 +252,10 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
                         notifyItemRangeRemoved(translationProviderRow, count);
                         updateRows();
                         notifyItemInserted(translatorExternalAppRow);
-                    } else if (oldType == NemoConfig.TRANS_TYPE_NEKO) {
+                    } else if (oldType == NemoConfig.TRANS_TYPE_NEMO) {
                         notifyItemRemoved(showOriginalRow);
                         updateRows();
-                    } else if (newType == NemoConfig.TRANS_TYPE_NEKO) {
+                    } else if (newType == NemoConfig.TRANS_TYPE_NEMO) {
                         updateRows();
                         notifyItemInserted(showOriginalRow);
                     }

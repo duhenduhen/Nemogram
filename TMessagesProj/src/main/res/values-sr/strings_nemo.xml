@@ -302,7 +302,7 @@
     <string name="CloudflareCredentialsNotSet">Cloudflare акредитиви нису конфигурисани.</string>
     <string name="CloudflareAccountID">ID налога</string>
     <string name="CloudflareAPIToken">API токен</string>
-    <string name="CloudflareCredentialsDialog">Конфигуришите Cloudflare ID налога и API токен.\n**Како га добити?**</string>
+    <string name="CloudflareCredentialsDialog">Конфигуришите Cloudflare ID налога и API токен.</string>
     <string name="PreferOriginalQuality">Преферирај оригинални квалитет</string>
     <string name="PreferOriginalQualityDesc">Гледајте видее у оригиналном квалитету.</string>
     <string name="AutoInlineBot">Аутоматски усклађени бот</string>

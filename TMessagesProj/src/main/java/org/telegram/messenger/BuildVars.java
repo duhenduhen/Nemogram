@@ -33,8 +33,8 @@ public class BuildVars {
 
     // SafetyNet key for Google Identity SDK, set it to empty to disable
     public static String SAFETYNET_KEY = "";
-    public static String PLAYSTORE_APP_URL = "https://play.google.com/store/apps/details?id=org.telegram.messenger";
-    public static String HUAWEI_STORE_URL = "https://appgallery.huawei.com/app/C101184875";
+    public static String PLAYSTORE_APP_URL = "";
+    public static String HUAWEI_STORE_URL = "";
     public static String GOOGLE_AUTH_CLIENT_ID = "760348033671-81kmi3pi84p11ub8hp9a1funsv0rn2p9.apps.googleusercontent.com";
 
     public static String HUAWEI_APP_ID = "101184875";
@@ -48,7 +48,7 @@ public class BuildVars {
     static {
         APP_ID = Extra.APP_ID;
         APP_HASH = Extra.APP_HASH;
-        PLAYSTORE_APP_URL = "https://nekogram.app/download";
+        PLAYSTORE_APP_URL = "";
         if (ApplicationLoader.applicationContext != null) {
             SharedPreferences sharedPreferences = ApplicationLoader.applicationContext.getSharedPreferences("systemConfig", Context.MODE_PRIVATE);
             LOGS_ENABLED = DEBUG_VERSION || sharedPreferences.getBoolean("logsEnabled", DEBUG_VERSION);

@@ -376,7 +376,7 @@ public class ContactsController extends BaseController {
     }
 
     public String getInviteText(int contacts) {
-        return LocaleController.formatString(R.string.InviteTextNemo, "https://nekogram.app/download");
+        return LocaleController.formatString(R.string.InviteTextNemo, "https://github.com/Nemogram/Nemogram");
     }
 
     public void checkAppAccount() {

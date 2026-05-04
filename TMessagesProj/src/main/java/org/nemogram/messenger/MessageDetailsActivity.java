@@ -80,7 +80,6 @@ public class MessageDetailsActivity extends BaseNemoSettingsActivity implements 
     private final int fileSizeRow = rowId++;
     private final int fileMimeTypeRow = rowId++;
     private final int mediaRow = rowId++;
-    private final int dcRow = rowId++;
 
     private final int stickerSetRow = rowId++;
     private final int emojiSetRow = rowId++;
@@ -288,9 +287,6 @@ public class MessageDetailsActivity extends BaseNemoSettingsActivity implements 
             items.add(TextDetailSettingsCellFactory.of(mediaRow, "Media", String.format(Locale.US, "%dx%d", width, height) +
                     (TextUtils.isEmpty(video_codec) ? "" : (", " + video_codec))));
         }
-        if (dc != 0) {
-            items.add(TextDetailSettingsCellFactory.of(dcRow, "DC", UserHelper.formatDCString(dc)));
-        }
 
         if (stickerSetOwner > 0) {
             var builder = new StringBuilder();
@@ -346,9 +342,7 @@ public class MessageDetailsActivity extends BaseNemoSettingsActivity implements 
     @Override
     protected void onItemClick(UItem item, View view, int position, float x, float y) {
         var id = item.id;
-        if (id == dcRow) {
-            AlertsCreator.createSimplePopup(this, new DatacenterPopupWrapper(this, null, resourcesProvider).windowLayout, view, Math.round(x), Math.round(y));
-        } else if (id == filePathRow) {
+        if (id == filePathRow) {
             if (!noforwards) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 var uri = FileProvider.getUriForFile(getParentActivity(), ApplicationLoader.getApplicationId() + ".provider", new File(filePath));

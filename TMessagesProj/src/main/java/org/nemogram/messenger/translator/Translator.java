@@ -184,7 +184,7 @@ public class Translator {
         ArrayList<String> arrayList = new ArrayList<>();
         ArrayList<Integer> types = new ArrayList<>();
         arrayList.add(LocaleController.getString(R.string.TranslatorTypeNemo));
-        types.add(NemoConfig.TRANS_TYPE_NEKO);
+        types.add(NemoConfig.TRANS_TYPE_NEMO);
         arrayList.add(LocaleController.getString(R.string.TranslatorTypeTG));
         types.add(NemoConfig.TRANS_TYPE_TG);
         arrayList.add(LocaleController.getString(R.string.TranslatorTypeExternal));

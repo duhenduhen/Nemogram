@@ -304,7 +304,7 @@
     <string name="CloudflareCredentialsNotSet">Облікові дані Cloudflare не налаштовано.</string>
     <string name="CloudflareAccountID">ID облікового запису</string>
     <string name="CloudflareAPIToken">Токен API</string>
-    <string name="CloudflareCredentialsDialog">Налаштувати ID облікового запису та токен API\n**Як отримати?**</string>
+    <string name="CloudflareCredentialsDialog">Налаштувати ID облікового запису та токен API</string>
     <string name="PreferOriginalQuality">Віддавати перевагу оригінальній якості</string>
     <string name="PreferOriginalQualityDesc">Переглядати відео в оригінальній якості.</string>
     <string name="AutoInlineBot">Автоматично inline режим бота</string>

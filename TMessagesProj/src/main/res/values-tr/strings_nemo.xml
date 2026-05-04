@@ -300,7 +300,7 @@
     <string name="CloudflareCredentialsNotSet">Cloudflare kimlik bilgileri yapılandırılmamış.</string>
     <string name="CloudflareAccountID">Hesap Kimliği</string>
     <string name="CloudflareAPIToken">API Token</string>
-    <string name="CloudflareCredentialsDialog">Cloudflare Hesap Kimliğini ve API Belirtecini yapılandırın.\n**Nasıl elde edilir?**</string>
+    <string name="CloudflareCredentialsDialog">Cloudflare Hesap Kimliğini ve API Belirtecini yapılandırın.</string>
     <string name="PreferOriginalQuality">Orijinal kaliteyi tercih edin</string>
     <string name="PreferOriginalQualityDesc">Videoları orijinal kalitede göster.</string>
     <string name="AutoInlineBot">Otomatik satır içi botu</string>

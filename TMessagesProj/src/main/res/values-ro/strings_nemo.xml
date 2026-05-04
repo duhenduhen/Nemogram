@@ -305,7 +305,7 @@
     <string name="CloudflareCredentialsNotSet">Datele de autentificare pentru Cloudflare nu sunt configurate</string>
     <string name="CloudflareAccountID">ID-ul contului</string>
     <string name="CloudflareAPIToken">Token API</string>
-    <string name="CloudflareCredentialsDialog">Configurați ID-ul contului Cloudflare și Token-ul API.\n**Cum se pot obține?**</string>
+    <string name="CloudflareCredentialsDialog">Configurați ID-ul contului Cloudflare și Token-ul API.</string>
     <string name="PreferOriginalQuality">Preferați calitatea originală</string>
     <string name="PreferOriginalQualityDesc">Vizualizați videoclipurile în calitatea originală.</string>
     <string name="AutoInlineBot">Bot de inserare automată în linie</string>

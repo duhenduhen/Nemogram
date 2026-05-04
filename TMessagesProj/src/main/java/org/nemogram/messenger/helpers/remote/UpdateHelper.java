@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class UpdateHelper {
 
-    private static final String GITHUB_API = "https://api.github.com/repos/duhenduhen/Nemogram/releases/latest";
+    private static final String GITHUB_API = "https://api.github.com/repos/Nemogram/Nemogram/releases/latest";
 
     private static final class InstanceHolder {
         private static final UpdateHelper instance = new UpdateHelper();

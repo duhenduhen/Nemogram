@@ -28,7 +28,7 @@ import java.util.List;
 import org.nemogram.messenger.NemoConfig;
 
 public abstract class BaseRemoteHelper {
-    protected static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoremoteconfig", Activity.MODE_PRIVATE);
+    protected static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemoremoteconfig", Activity.MODE_PRIVATE);
     public static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
     protected MessagesController getMessagesController() {

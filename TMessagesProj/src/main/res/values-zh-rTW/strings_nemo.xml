@@ -305,7 +305,7 @@
     <string name="CloudflareCredentialsNotSet">未設定 Cloudflate 憑證。</string>
     <string name="CloudflareAccountID">帳戶 ID</string>
     <string name="CloudflareAPIToken">API 權杖</string>
-    <string name="CloudflareCredentialsDialog">設定 Cloudflare 帳戶 ID 和 API 權杖。\n**如何取得？**</string>
+    <string name="CloudflareCredentialsDialog">設定 Cloudflare 帳戶 ID 和 API 權杖。</string>
     <string name="PreferOriginalQuality">偏好原始畫質</string>
     <string name="PreferOriginalQualityDesc">以原始畫質觀看影片。</string>
     <string name="AutoInlineBot">自動 Inline 機器人</string>

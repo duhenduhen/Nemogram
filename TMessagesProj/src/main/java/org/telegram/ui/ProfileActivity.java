@@ -629,8 +629,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
     private int settingsSectionRow;
     private int settingsSectionRow2;
     private int notificationRow;
-    private int nekoRow;
-    private int nekoSectionRow;
+    private int nemoRow;
+    private int nemoSectionRow;
     private int languageRow;
     private int privacyRow;
     private int dataRow;
@@ -4493,7 +4493,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 });
                 builder1.setNegativeButton(LocaleController.getString(R.string.Cancel), null);
                 showDialog(builder1.create());
-            } else if (position == nekoRow) {
+            } else if (position == nemoRow) {
                 presentFragment(new NemoSettingsActivity());
             } else if (position == languageRow) {
                 presentFragment(new LanguageSelectActivity());
@@ -5589,7 +5589,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 long id = idTextView.getTag(R.id.id_copy) != null ? (long) idTextView.getTag(R.id.id_copy) : 0;
                 int dc = idTextView.getTag(R.id.id_dc) != null ? (int) idTextView.getTag(R.id.id_dc) : 0;
                 if (id != 0 || dc != 0) {
-                    PopupHelper.showIdPopup(ProfileActivity.this, idTextView, id, dc, did, userId, x, y);
+                    PopupHelper.showIdPopup(ProfileActivity.this, idTextView, id, did, userId, x, y);
                     performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
                     return true;
                 }
@@ -10444,8 +10444,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         settingsSectionRow = -1;
         settingsSectionRow2 = -1;
         notificationRow = -1;
-        nekoRow = -1;
-        nekoSectionRow = -1;
+        nemoRow = -1;
+        nemoSectionRow = -1;
         languageRow = -1;
         premiumRow = -1;
         starsRow = -1;
@@ -10601,8 +10601,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
 
                 settingsSectionRow = rowCount++;
 
-                nekoRow = rowCount++;
-                nekoSectionRow = rowCount++;
+                nemoRow = rowCount++;
+                nemoSectionRow = rowCount++;
 
                 Set<String> suggestions = getMessagesController().pendingSuggestions;
                 if (suggestions.contains("PREMIUM_GRACE")) {
@@ -13796,7 +13796,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                         textCell.setText(LocaleController.getString(R.string.ReportUserLocation), false);
                         textCell.setColors(-1, Theme.key_text_RedRegular);
                         textCell.setColors(-1, Theme.key_text_RedRegular);
-                    } else if (position == nekoRow) {
+                    } else if (position == nemoRow) {
                         textCell.setTextAndIcon(LocaleController.getString(R.string.NemoSettings), R.drawable.msg_settings, false);
                     } else if (position == languageRow) {
                         textCell.setTextAndValueAndIcon(LocaleController.getString(R.string.Language), LocaleController.getCurrentLanguageName(), false, R.drawable.msg2_language, false);
@@ -14246,7 +14246,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
         public boolean isEnabled(RecyclerView.ViewHolder holder) {
             if (notificationRow != -1) {
                 int position = holder.getAdapterPosition();
-                return position == nekoRow || position == notificationRow || position == numberRow || position == privacyRow ||
+                return position == nemoRow || position == notificationRow || position == numberRow || position == privacyRow ||
                         position == languageRow || position == setUsernameRow || position == bioRow ||
                         position == versionRow || position == dataRow || position == chatRow ||
                         position == questionRow || position == devicesRow || position == filtersRow || position == stickersRow ||
@@ -14290,7 +14290,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 return VIEW_TYPE_TEXT_DETAIL_MULTILINE_2;
             } else if (position == userInfoRow || position == channelInfoRow || position == bioRow) {
                 return VIEW_TYPE_ABOUT_LINK;
-            } else if (position == nekoRow || position == settingsTimerRow || position == settingsKeyRow || position == reportRow || position == reportReactionRow ||
+            } else if (position == nemoRow || position == settingsTimerRow || position == settingsKeyRow || position == reportRow || position == reportReactionRow ||
                     position == subscribersRow || position == subscribersRequestsRow || position == administratorsRow || position == settingsRow || position == blockedUsersRow ||
                     position == addMemberRow || position == joinRow || position == unblockRow ||
                     position == sendMessageRow || position == notificationRow || position == privacyRow ||
@@ -14309,7 +14309,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                 return VIEW_TYPE_NOTIFICATIONS_CHECK;
             } else if (position == notificationsSimpleRow) {
                 return VIEW_TYPE_NOTIFICATIONS_CHECK_SIMPLE;
-            } else if (position == lastSectionRow || position == membersSectionRow || position == nekoSectionRow ||
+            } else if (position == lastSectionRow || position == membersSectionRow || position == nemoSectionRow ||
                     position == secretSettingsSectionRow || position == settingsSectionRow || position == devicesSectionRow ||
                     position == helpSectionCell || position == setAvatarSectionRow || position == passwordSuggestionSectionRow ||
                     position == phoneSuggestionSectionRow || position == premiumSectionsRow || position == reportDividerRow ||
@@ -15651,8 +15651,8 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
             put(++pointer, settingsSectionRow, sparseIntArray);
             put(++pointer, settingsSectionRow2, sparseIntArray);
             put(++pointer, notificationRow, sparseIntArray);
-            put(++pointer, nekoRow, sparseIntArray);
-            put(++pointer, nekoSectionRow, sparseIntArray);
+            put(++pointer, nemoRow, sparseIntArray);
+            put(++pointer, nemoSectionRow, sparseIntArray);
             put(++pointer, languageRow, sparseIntArray);
             put(++pointer, premiumRow, sparseIntArray);
             put(++pointer, starsRow, sparseIntArray);

@@ -302,7 +302,7 @@
     <string name="CloudflareCredentialsNotSet">Τα διαπιστευτήρια Cloudflare δεν έχουν ρυθμιστεί.</string>
     <string name="CloudflareAccountID">Ταυτότητα Λογαριασμού</string>
     <string name="CloudflareAPIToken">API Token</string>
-    <string name="CloudflareCredentialsDialog">Ρύθμιση αναγνωριστικό λογαριασμού Cloudflare και Token API.\n**Πώς αποκτώνται;**</string>
+    <string name="CloudflareCredentialsDialog">Ρύθμιση αναγνωριστικό λογαριασμού Cloudflare και Token API.</string>
     <string name="PreferOriginalQuality">Προτίμηση αρχικής ποιότητας</string>
     <string name="PreferOriginalQualityDesc">Προβολή βίντεο σε αρχική ποιότητα.</string>
     <string name="AutoInlineBot">Αυτόματο inline bot</string>

@@ -305,7 +305,7 @@
     <string name="CloudflareCredentialsNotSet">A Cloudflare hitelesítő adatok nincsenek beállítva.</string>
     <string name="CloudflareAccountID">Számlaazonosító</string>
     <string name="CloudflareAPIToken">API token</string>
-    <string name="CloudflareCredentialsDialog">Konfigurálja a Cloudflare fiók azonosítóját és API tokenjét.\n**Hogyan szerezhető be?**</string>
+    <string name="CloudflareCredentialsDialog">Konfigurálja a Cloudflare fiók azonosítóját és API tokenjét.</string>
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Kisegítő lehetőségek beállításai</string>
 </resources>

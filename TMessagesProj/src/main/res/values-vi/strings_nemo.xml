@@ -304,7 +304,7 @@
     <string name="CloudflareCredentialsNotSet">Chứng nhận của Cloudflare chưa được thiết lập</string>
     <string name="CloudflareAccountID">ID tài khoản</string>
     <string name="CloudflareAPIToken">Mã API</string>
-    <string name="CloudflareCredentialsDialog">ID tài khoản Cloudflare và mã API chưa được thiết lập. \n**Làm cách nào để thiết lập? **</string>
+    <string name="CloudflareCredentialsDialog">ID tài khoản Cloudflare và mã API chưa được thiết lập. </string>
     <string name="PreferOriginalQuality">Ưu tiên chất lượng gốc</string>
     <string name="PreferOriginalQualityDesc">Xem video với chất lượng gốc.</string>
     <string name="AutoInlineBot">Bot tự động nội tuyến</string>

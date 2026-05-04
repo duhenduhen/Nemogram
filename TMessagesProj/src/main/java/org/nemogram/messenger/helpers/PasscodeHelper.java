@@ -16,7 +16,7 @@ import org.telegram.ui.LaunchActivity;
 import java.nio.charset.StandardCharsets;
 
 public class PasscodeHelper {
-    private static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekopasscode", Context.MODE_PRIVATE);
+    private static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemopasscode", Context.MODE_PRIVATE);
 
     public static boolean checkPasscode(Activity activity, String passcode) {
         if (hasPasscodeForAccount(Integer.MAX_VALUE)) {

@@ -22,7 +22,6 @@ import org.telegram.messenger.FileLog;
 import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
-import org.telegram.messenger.browser.Browser;
 import org.telegram.ui.ActionBar.AlertDialog;
 import org.telegram.ui.ActionBar.BaseFragment;
 import org.telegram.ui.ActionBar.Theme;
@@ -74,12 +73,7 @@ public class WhisperHelper {
         var resourcesProvider = fragment.getResourceProvider();
         var context = fragment.getParentActivity();
         var builder = new AlertDialog.Builder(context, resourcesProvider);
-        builder.setTitle(LocaleController.getString(R.string.CloudflareCredentials));
-        builder.setMessage(AndroidUtilities.replaceSingleTag(LocaleController.getString(R.string.CloudflareCredentialsDialog),
-                -1,
-                AndroidUtilities.REPLACING_TAG_TYPE_LINKBOLD,
-                () -> Browser.openUrl(context, "https://nekogram.app/cloudflare-credentials"),
-                resourcesProvider));
+        builder.setMessage(LocaleController.getString(R.string.CloudflareCredentialsDialog));
         builder.setCustomViewOffset(0);
 
         var ll = new LinearLayout(context);

@@ -32912,7 +32912,7 @@ public class ChatActivity extends BaseFragment implements
         var transcription = messageObject.isVoiceTranscriptionOpen();
         var messageText = transcription ? messageObject.messageOwner.voiceTranscription : messageObject.messageOwner.message;
         var entities = transcription ? null : messageObject.messageOwner.entities;
-        if (NemoConfig.transType != NemoConfig.TRANS_TYPE_NEKO || messageObject.isSponsored()) {
+        if (NemoConfig.transType != NemoConfig.TRANS_TYPE_NEMO || messageObject.isSponsored()) {
             if (!messageObject.isPoll()) {
                 Translator.showTranslateDialog(getParentActivity(), messageText, entities, isPeerNoForwards() || messageObject.messageOwner.noforwards, this, link -> {
                     didPressMessageUrl(link, false, selectedObject, null);

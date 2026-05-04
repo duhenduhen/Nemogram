@@ -305,7 +305,7 @@
     <string name="CloudflareCredentialsNotSet">Учётные данные Cloudflare не настроены.</string>
     <string name="CloudflareAccountID">ID аккаунта</string>
     <string name="CloudflareAPIToken">API-токен</string>
-    <string name="CloudflareCredentialsDialog">Конфигурация ID аккаунта Cloudflare и API-токена.\n**Как получить?**</string>
+    <string name="CloudflareCredentialsDialog">Конфигурация ID аккаунта Cloudflare и API-токена.</string>
     <string name="PreferOriginalQuality">Предпочитать исходное качество видео</string>
     <string name="PreferOriginalQualityDesc">Предпочитать максимальное качество видео.</string>
     <string name="AutoInlineBot">Автоматический строчный бот</string>

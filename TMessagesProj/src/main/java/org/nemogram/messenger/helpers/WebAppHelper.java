@@ -67,7 +67,7 @@ public class WebAppHelper {
             eventCallback.accept(warpInEvent("config", data).toString());
         } else if (event.equals("set_config")) {
             var data = eventObject.get("data").getAsJsonObject();
-            SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+            SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemoconfig", Activity.MODE_PRIVATE);
             SharedPreferences.Editor editor = preferences.edit();
             switch (data.get("key").getAsString()) {
                 case "trust":

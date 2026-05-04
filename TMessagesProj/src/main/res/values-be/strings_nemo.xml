@@ -302,7 +302,7 @@
     <string name="CloudflareCredentialsNotSet">Cloudflare credentials не наладжаны.</string>
     <string name="CloudflareAccountID">Account ID</string>
     <string name="CloudflareAPIToken">API Token</string>
-    <string name="CloudflareCredentialsDialog">Наладзіць Cloudfare Acconut ID і API Token.\n**Як атрымаць?**</string>
+    <string name="CloudflareCredentialsDialog">Наладзіць Cloudfare Acconut ID і API Token.</string>
     <string name="PreferOriginalQuality">Аддаваць перавагу арыгінальнай якасці</string>
     <string name="PreferOriginalQualityDesc">Прагляд відэа ў арыгінальнай якасці.</string>
     <string name="AutoInlineBot">Аўтаматычны ўбудаваны бот</string>

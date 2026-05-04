@@ -59,7 +59,7 @@ public class NemoSettingsActivity extends BaseNemoSettingsActivity implements Fa
 
     private final int channelRow = rowId++;
     private final int sourceCodeRow = rowId++;
-    private final int nekoChannelRow = rowId++;
+    private final int nemoChannelRow = rowId++;
 
     private final ArrayList<SearchResult> searchArray = createSearchArray();
     private final ArrayList<CharSequence> resultNames = new ArrayList<>();
@@ -161,7 +161,7 @@ public class NemoSettingsActivity extends BaseNemoSettingsActivity implements Fa
         items.add(UItem.asButton(channelRow, R.drawable.msg_channel, LocaleController.getString(R.string.OfficialChannel), "@NemogramUpdates").slug("channel"));
         items.add(UItem.asButton(sourceCodeRow, R.drawable.msg_link, LocaleController.getString(R.string.ViewSourceCode), "GitHub").slug("sourceCode"));
         items.add(UItem.asShadow(null));
-        items.add(UItem.asButton(nekoChannelRow, R.drawable.msg_channel, "Nekogram", "@nekoupdates").slug("nekoChannel"));
+        items.add(UItem.asButton(nemoChannelRow, R.drawable.msg_channel, "Nekogram", "@nekoupdates").slug("nekoChannel"));
         items.add(UItem.asShadow(null));
 
     }
@@ -191,10 +191,10 @@ public class NemoSettingsActivity extends BaseNemoSettingsActivity implements Fa
             presentFragment(new AccessibilitySettingsActivity());
         } else if (id == channelRow) {
             getMessagesController().openByUserName("NemogramUpdates", this, 1);
-        } else if (id == nekoChannelRow) {
+        } else if (id == nemoChannelRow) {
             getMessagesController().openByUserName("nekoupdates", this, 1);
         } else if (id == sourceCodeRow) {
-            Browser.openUrl(getParentActivity(), "https://github.com/duhenduhen/Nemogram");
+            Browser.openUrl(getParentActivity(), "https://github.com/Nemogram/Nemogram");
         }
     }
 
@@ -279,7 +279,7 @@ public class NemoSettingsActivity extends BaseNemoSettingsActivity implements Fa
         }));
 
         searchResultList.add(new SearchResult(20000, LocaleController.getString(R.string.OfficialChannel), "@NemogramUpdates", R.drawable.msg2_help, () -> getMessagesController().openByUserName("NemogramUpdates", this, 1)));
-        searchResultList.add(new SearchResult(20002, LocaleController.getString(R.string.ViewSourceCode), "GitHub", R.drawable.msg2_help, () -> Browser.openUrl(getParentActivity(), "https://github.com/duhenduhen/Nemogram")));
+        searchResultList.add(new SearchResult(20002, LocaleController.getString(R.string.ViewSourceCode), "GitHub", R.drawable.msg2_help, () -> Browser.openUrl(getParentActivity(), "https://github.com/Nemogram/Nemogram")));
         searchResultList.add(new SearchResult(20004, "Nekogram", "@nekoupdates", R.drawable.msg2_help, () -> getMessagesController().openByUserName("nekoupdates", this, 1)));
 
         return searchResultList;

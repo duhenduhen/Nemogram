@@ -305,7 +305,7 @@
     <string name="CloudflareCredentialsNotSet">As credenciais do Cloudflare não estão configuradas.</string>
     <string name="CloudflareAccountID">ID da conta</string>
     <string name="CloudflareAPIToken">Token API</string>
-    <string name="CloudflareCredentialsDialog">Configurar o ID da conta Cloudflare e o Token de API.\n**Como obter?**</string>
+    <string name="CloudflareCredentialsDialog">Configurar o ID da conta Cloudflare e o Token de API.</string>
     <string name="PreferOriginalQuality">Prefere qualidade original</string>
     <string name="PreferOriginalQualityDesc">Ver vídeos com a qualidade original.</string>
     <string name="AutoInlineBot">Bot inline automático</string>

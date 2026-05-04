@@ -304,7 +304,7 @@
     <string name="CloudflareCredentialsNotSet">Le credenziali di Cloudflare non sono configurate.</string>
     <string name="CloudflareAccountID">ID Account</string>
     <string name="CloudflareAPIToken">Token API</string>
-    <string name="CloudflareCredentialsDialog">Configura un account Cloudflare e un Token API. \n**Come ottenerlo?**</string>
+    <string name="CloudflareCredentialsDialog">Configura un account Cloudflare e un Token API. </string>
     <string name="PreferOriginalQuality">Mantieni la qualità originale</string>
     <string name="PreferOriginalQualityDesc">Visualizza i video nella qualità originale.</string>
     <!-- Accessibility -->

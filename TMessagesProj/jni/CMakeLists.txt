@@ -325,7 +325,7 @@ target_compile_definitions(sqlite PUBLIC
 #voip
 include(${CMAKE_HOME_DIRECTORY}/voip/CMakeLists.txt)
 
-set(NATIVE_LIB "neko.49")
+set(NATIVE_LIB "nemo.49")
 
 #tmessages
 add_library(${NATIVE_LIB} SHARED

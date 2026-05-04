@@ -5957,7 +5957,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             } catch (Exception e) {}
             dialogsHintCell.clear();
         }
-        var nekoSuggestion = ConfigHelper.getNewsSuggestion();
+        var nemoSuggestion = ConfigHelper.getNewsSuggestion();
         if (isInPreviewMode()) {
             dialogsHintCellVisible = false;
         } else if (getMessagesController().isFrozen()) {
@@ -5971,8 +5971,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                 false,
                 true
             );
-        } else if (folderId == 0 && nekoSuggestion != null) {
-            final TLRPC.TL_pendingSuggestion suggestion = nekoSuggestion;
+        } else if (folderId == 0 && nemoSuggestion != null) {
+            final TLRPC.TL_pendingSuggestion suggestion = nemoSuggestion;
             dialogsHintCellVisible = true;
 
             CharSequence title = new SpannableStringBuilder(suggestion.title.text);

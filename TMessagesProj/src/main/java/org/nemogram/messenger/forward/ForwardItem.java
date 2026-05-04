@@ -22,7 +22,7 @@ public class ForwardItem {
     public static final int ID_FORWARD_NOQUOTE = -101;
     public static final int ID_FORWARD_NOCAPTION = -102;
 
-    private static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoforward", Context.MODE_PRIVATE);
+    private static final SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemoforward", Context.MODE_PRIVATE);
     public static int lastForwardOption = preferences.getInt("lastForwardOption", ForwardItem.ID_FORWARD);
 
     static final int[] ITEM_IDS = new int[]{

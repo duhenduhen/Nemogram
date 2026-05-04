@@ -53,8 +53,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
-import org.nemogram.messenger.DatacenterPopupWrapper;
-
 public class PopupHelper {
 
     public static void show(List<? extends CharSequence> entries, String title, int checkedIndex, Context context, View itemView, Utilities.Callback<Integer> listener, Theme.ResourcesProvider resourcesProvider) {
@@ -100,7 +98,7 @@ public class PopupHelper {
         }
     }
 
-    public static void showIdPopup(BaseFragment fragment, View anchorView, long id, int dc, long did, long userId, float x, float y) {
+    public static void showIdPopup(BaseFragment fragment, View anchorView, long id, long did, long userId, float x, float y) {
         Context context = fragment.getParentActivity();
         ActionBarPopupWindow.ActionBarPopupWindowLayout popupLayout = new ActionBarPopupWindow.ActionBarPopupWindowLayout(context, R.drawable.popup_fixed_alert4, fragment.getResourceProvider(), ActionBarPopupWindow.ActionBarPopupWindowLayout.FLAG_USE_SWIPEBACK);
         popupLayout.setFitItems(true);
@@ -111,13 +109,6 @@ public class PopupHelper {
                 AndroidUtilities.addToClipboard(String.valueOf(id));
                 BulletinFactory.of(fragment).createCopyBulletin(LocaleController.formatString(R.string.TextCopied)).show();
             });
-        }
-        if (dc != 0) {
-            var dcPopupWrapper = new DatacenterPopupWrapper(fragment, popupLayout.getSwipeBack(), fragment.getResourceProvider());
-            int swipeBackIndex = popupLayout.addViewToSwipeBack(dcPopupWrapper.windowLayout);
-            ActionBarMenuSubItem subItem = ActionBarMenuItem.addItem(popupLayout, R.drawable.msg_satellite, LocaleController.getString(R.string.DatacenterStatusShort), false, fragment.getResourceProvider());
-            subItem.setSubtext(UserHelper.formatDCString(dc));
-            subItem.setOnClickListener(v -> popupLayout.getSwipeBack().openForeground(swipeBackIndex));
         }
         popupLayout.setParentWindow(popupWindow);
     }

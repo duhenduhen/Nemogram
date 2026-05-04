@@ -302,7 +302,7 @@
     <string name="CloudflareCredentialsNotSet">Cloudflare-Zugangsdaten sind nicht eingerichtet.</string>
     <string name="CloudflareAccountID">Konto-ID</string>
     <string name="CloudflareAPIToken">API-Token</string>
-    <string name="CloudflareCredentialsDialog">Einrichtung von Cloudflare-Konto-ID und API-Token.\n**Wie erhältst du diese?**</string>
+    <string name="CloudflareCredentialsDialog">Einrichtung von Cloudflare-Konto-ID und API-Token.</string>
     <string name="PreferOriginalQuality">Bevorzuge Originalqualität</string>
     <string name="PreferOriginalQualityDesc">Videos in Originalqualität ansehen.</string>
     <string name="AutoInlineBot">Automatischer Inlinebot</string>
