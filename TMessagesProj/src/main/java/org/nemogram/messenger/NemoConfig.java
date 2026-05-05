@@ -107,6 +107,7 @@ public class NemoConfig {
 
     public static int tabletMode = TABLET_AUTO;
     public static boolean openArchiveOnPull = false;
+    public static boolean hideGifts = false;
     public static int nameOrder = 1;
     public static boolean disableAppBarShadow = false;
     public static boolean mediaPreview = true;
@@ -170,6 +171,7 @@ public class NemoConfig {
             preferIPv6 = preferences.getBoolean("preferIPv6", false);
             ignoreBlocked = preferences.getBoolean("ignoreBlocked2", false);
             tabletMode = preferences.getInt("tabletMode", TABLET_AUTO);
+            hideGifts = preferences.getBoolean("hideGifts", false);
             nameOrder = preferences.getInt("nameOrder", 1);
             showAddToSavedMessages = preferences.getBoolean("showAddToSavedMessages", true);
             showSetReminder = preferences.getBoolean("showSetReminder", false);
@@ -649,6 +651,12 @@ public class NemoConfig {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("tabletMode", tabletMode);
         editor.apply();
+    }
+
+    public static void toggleHideGifts() {
+        hideGifts = !hideGifts;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean("hideGifts", hideGifts).apply();
     }
 
     public static void setNameOrder(int order) {

@@ -338,6 +338,7 @@
     <string name="FilterKeywordsInChannelsAbout">Hide messages with blocked keywords in channels.</string>
     <string name="MessageHidden">Message hidden</string>
     <string name="AutoCheckUpdates">Auto-check for updates</string>
+    <string name="HideGifts">Hide gifts tab</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>

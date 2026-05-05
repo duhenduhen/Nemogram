@@ -9,6 +9,7 @@ import org.telegram.messenger.LocaleController;
 import org.telegram.messenger.R;
 import org.telegram.messenger.UserConfig;
 import org.telegram.tgnet.ConnectionsManager;
+import org.telegram.ui.ActionBar.INavigationLayout;
 import org.telegram.ui.Cells.TextCheckCell;
 import org.telegram.ui.Components.UItem;
 import org.telegram.ui.Components.UniversalAdapter;
@@ -36,6 +37,7 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
     private final int accentAsNotificationColorRow = rowId++;
     private final int silenceNonContactsRow = rowId++;
 
+    private final int hideGiftsRow = rowId++;
     private final int nameOrderRow = rowId++;
     private final int idTypeRow = rowId++;
 
@@ -131,6 +133,7 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
         items.add(UItem.asShadow(LocaleController.getString(R.string.SilenceNonContactsAbout)));
 
         items.add(UItem.asHeader(LocaleController.getString(R.string.UserColorTabProfile)));
+        items.add(UItem.asCheck(hideGiftsRow, LocaleController.getString(R.string.HideGifts)).slug("hideGifts").setChecked(NemoConfig.hideGifts));
         items.add(TextSettingsCellFactory.of(nameOrderRow, LocaleController.getString(R.string.NameOrder), switch (NemoConfig.nameOrder) {
             case 2 -> LocaleController.getString(R.string.LastFirst);
             default -> LocaleController.getString(R.string.FirstLast);
@@ -167,6 +170,12 @@ public class NemoGeneralSettingsActivity extends BaseNemoSettingsActivity {
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NemoConfig.disableInstantCamera);
             }
+        } else if (id == hideGiftsRow) {
+        NemoConfig.toggleHideGifts();
+        if (view instanceof TextCheckCell) {
+            ((TextCheckCell) view).setChecked(NemoConfig.hideGifts);
+        }
+        parentLayout.rebuildFragments(INavigationLayout.REBUILD_FLAG_REBUILD_ONLY_LAST);
         } else if (id == nameOrderRow) {
             ArrayList<String> arrayList = new ArrayList<>();
             ArrayList<Integer> types = new ArrayList<>();
