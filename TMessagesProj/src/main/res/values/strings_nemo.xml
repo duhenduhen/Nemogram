@@ -339,6 +339,7 @@
     <string name="MessageHidden">Message hidden</string>
     <string name="AutoCheckUpdates">Auto-check for updates</string>
     <string name="HideGifts">Hide gifts tab</string>
+    <string name="HideAiButton">Hide AI editor button</string>
 
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Accessibility settings</string>

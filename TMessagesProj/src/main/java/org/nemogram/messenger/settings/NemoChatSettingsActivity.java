@@ -60,6 +60,7 @@ public class NemoChatSettingsActivity extends BaseNemoSettingsActivity implement
     private final int disableJumpToNextRow = rowId++;
     private final int disableGreetingStickerRow = rowId++;
     private final int hideChannelBottomButtonsRow = rowId++;
+    private final int hideAiButtonRow = rowId++;
     private final int doubleTapActionRow = rowId++;
     private final int maxRecentStickersRow = rowId++;
 
@@ -169,6 +170,7 @@ public class NemoChatSettingsActivity extends BaseNemoSettingsActivity implement
         items.add(UItem.asCheck(disableJumpToNextRow, LocaleController.getString(R.string.DisableJumpToNextChannel)).slug("disableJumpToNext").setChecked(NemoConfig.disableJumpToNextChannel));
         items.add(UItem.asCheck(disableGreetingStickerRow, LocaleController.getString(R.string.DisableGreetingSticker)).slug("disableGreetingSticker").setChecked(NemoConfig.disableGreetingSticker));
         items.add(UItem.asCheck(hideChannelBottomButtonsRow, LocaleController.getString(R.string.HideChannelBottomButtons)).slug("hideChannelBottomButtons").setChecked(NemoConfig.hideChannelBottomButtons));
+        items.add(UItem.asCheck(hideAiButtonRow, LocaleController.getString(R.string.HideAiButton)).slug("hideAiButton").setChecked(NemoConfig.hideAiButton));
         items.add(TextSettingsCellFactory.of(doubleTapActionRow, LocaleController.getString(R.string.DoubleTapAction), NemoConfig.doubleTapInAction == NemoConfig.doubleTapOutAction ?
                 getDoubleTapActionText(NemoConfig.doubleTapInAction) :
                 getDoubleTapActionText(NemoConfig.doubleTapInAction) + ", " + getDoubleTapActionText(NemoConfig.doubleTapOutAction)).slug("doubleTapAction"));
@@ -493,6 +495,11 @@ public class NemoChatSettingsActivity extends BaseNemoSettingsActivity implement
             NemoConfig.toggleHideChannelBottomButtons();
             if (view instanceof TextCheckCell) {
                 ((TextCheckCell) view).setChecked(NemoConfig.hideChannelBottomButtons);
+            }
+        } else if (id == hideAiButtonRow) {
+            NemoConfig.toggleHideAiButton();
+            if (view instanceof TextCheckCell) {
+                ((TextCheckCell) view).setChecked(NemoConfig.hideAiButton);
             }
         }
     }

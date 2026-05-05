@@ -138,6 +138,7 @@ public class NemoConfig {
     public static boolean forceFontWeightFallback = false;
     public static boolean minimizedStickerCreator = false;
     public static boolean hideChannelBottomButtons = false;
+    public static boolean hideAiButton = false;
     public static boolean keepFormatting = true;
     public static boolean predictiveBackAnimation = false;
     public static boolean hideBottomNavigationBar = false;
@@ -248,6 +249,7 @@ public class NemoConfig {
             forceFontWeightFallback = preferences.getBoolean("forceFontWeightFallback", false);
             minimizedStickerCreator = preferences.getBoolean("minimizedStickerCreator", false);
             hideChannelBottomButtons = preferences.getBoolean("hideChannelBottomButtons", false);
+            hideAiButton = preferences.getBoolean("hideAiButton", false);
             keepFormatting = preferences.getBoolean("keepFormatting", true);
             predictiveBackAnimation = preferences.getBoolean("predictiveBackAnimation", false);
             hideBottomNavigationBar = preferences.getBoolean("hideBottomNavigationBar", false);
@@ -443,6 +445,12 @@ public class NemoConfig {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("hideChannelBottomButtons", hideChannelBottomButtons);
         editor.apply();
+    }
+
+    public static void toggleHideAiButton() {
+        hideAiButton = !hideAiButton;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nemoconfig", Activity.MODE_PRIVATE);
+        preferences.edit().putBoolean("hideAiButton", hideAiButton).apply();
     }
 
     public static void toggleMinimizedStickerCreator() {

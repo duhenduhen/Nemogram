@@ -335,6 +335,7 @@
     <string name="MessageHidden">Сообщение скрыто</string>
     <string name="AutoCheckUpdates">Автоматически проверять обновления</string>
     <string name="HideGifts">Скрыть вкладку подарков</string>
+    <string name="HideAiButton">Скрыть кнопку AI редактора</string>
     <!-- Accessibility -->
     <string name="AccessibilitySettings">Настройки доступности</string>
 </resources>
