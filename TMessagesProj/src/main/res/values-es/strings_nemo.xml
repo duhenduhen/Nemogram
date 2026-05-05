@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Última verificación exitosa hecha recién.</string>
     <string name="LastUpdateNever">Nunca verificado desde la instalación.</string>
     <string name="CheckingUpdate">Buscando actualizaciones…</string>
-    <string name="ProviderMicrosoftTranslator">Traductor de Microsoft</string>
     <string name="TranslationProviderShort">Proveedor</string>
     <string name="ViewSourceCode">Ver código fuente</string>
     <string name="AvatarAsBackground">Foto de perfil como fondo</string>
@@ -182,9 +181,6 @@
     <string name="TabletModeAuto">Auto</string>
     <string name="DeleteAllFromSelfDone">Todos tus mensajes han sido borrados</string>
     <string name="UnknownNemoSettingsOption">No existe esa opción en los Ajustes de Nemo.</string>
-    <string name="ProviderYouDaoTranslate">Traductor YouDao</string>
-    <string name="ProviderBaiduTranslate">Traductor Baidu</string>
-    <string name="ProviderSogouTranslate">Traductor Sogou</string>
     <string name="Translated">traducido</string>
     <string name="PasscodeNeeded">Primero tienes que activar el código de bloqueo</string>
     <string name="PasscodeNemo">Código de acceso</string>

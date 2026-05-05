@@ -101,7 +101,6 @@
     <string name="LastUpdateRecently">آخرین بررسی با موفقیت همین الان</string>
     <string name="LastUpdateNever">هرگز از زمان نصب بررسی نشده است.</string>
     <string name="CheckingUpdate">در حال بررسی برای بروز رسانی…</string>
-    <string name="ProviderMicrosoftTranslator">ترجمه مایکروسافت</string>
     <string name="TranslationProviderShort">ارائه‌دهنده</string>
     <string name="ViewSourceCode">مشاهده کد منبع</string>
     <string name="AvatarAsBackground">عکس پروفایل به عنوان پس زمینه</string>
@@ -186,9 +185,6 @@
     <string name="TabletModeAuto">خودکار</string>
     <string name="DeleteAllFromSelfDone">حذف تمامی پیام های شما</string>
     <string name="UnknownNemoSettingsOption">گزینه تنظیمات نکو وجود ندارد.</string>
-    <string name="ProviderYouDaoTranslate">مترجم YouDao</string>
-    <string name="ProviderBaiduTranslate">مترجم Baidu</string>
-    <string name="ProviderSogouTranslate">مترجم Sogou</string>
     <string name="Translated">ترجمه شده</string>
     <string name="PasscodeNeeded">ابتدا رمز عبور را فعال کنید</string>
     <string name="PasscodeNemo">رمز عبور</string>

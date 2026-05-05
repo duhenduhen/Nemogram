@@ -92,7 +92,6 @@
     <string name="LastUpdateRecently">Senast kontrollerad just nu.</string>
     <string name="LastUpdateNever">Aldrig kontrollerad sedan installationen.</string>
     <string name="CheckingUpdate">Söker efter uppdatering…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Översättare</string>
     <string name="TranslationProviderShort">Leverantör</string>
     <string name="ViewSourceCode">Visa källkod</string>
     <string name="AvatarAsBackground">Profilbild som bakgrund</string>
@@ -170,9 +169,6 @@
     <string name="TabletModeAuto">Automatiskt</string>
     <string name="DeleteAllFromSelfDone">Alla dina meddelanden är raderade</string>
     <string name="UnknownNemoSettingsOption">Det finns inget sådant alternativ för Nemo-inställningar.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Översättare</string>
-    <string name="ProviderBaiduTranslate">Baidu Översätt</string>
-    <string name="ProviderSogouTranslate">Sogou Översätt</string>
     <string name="Translated">översatt</string>
     <string name="PasscodeNeeded">Du måste först aktivera lösenordslåset</string>
     <string name="PasscodeNemo">Lösenord</string>

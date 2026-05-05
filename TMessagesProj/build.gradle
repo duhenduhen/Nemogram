@@ -68,7 +68,6 @@ dependencies {
 
     implementation 'androidx.browser:browser:1.10.0'
     implementation 'app.nekogram.gifski:gifski:1.0.0'
-    implementation 'app.nekogram.translator:translator:1.5.5'
     implementation 'com.jaredrummler:truetypeparser-light:1.0.0'
     implementation 'com.squareup.okhttp3:okhttp:5.3.2'
     implementation 'org.lsposed.hiddenapibypass:hiddenapibypass:6.1'

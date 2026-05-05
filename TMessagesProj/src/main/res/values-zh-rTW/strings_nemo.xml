@@ -99,7 +99,6 @@
     <string name="LastUpdateRecently">剛剛成功檢查。</string>
     <string name="LastUpdateNever">安裝後從未檢查過。</string>
     <string name="CheckingUpdate">正在檢查更新…</string>
-    <string name="ProviderMicrosoftTranslator">微軟翻譯</string>
     <string name="TranslationProviderShort">供應商</string>
     <string name="ViewSourceCode">檢視原始碼</string>
     <string name="AvatarAsBackground">把個人頭貼設為背景</string>
@@ -184,9 +183,6 @@
     <string name="TabletModeAuto">自動</string>
     <string name="DeleteAllFromSelfDone">您的所有訊息都已刪除</string>
     <string name="UnknownNemoSettingsOption">沒有這樣的喵設定選項。</string>
-    <string name="ProviderYouDaoTranslate">有道翻譯</string>
-    <string name="ProviderBaiduTranslate">百度翻譯</string>
-    <string name="ProviderSogouTranslate">搜狗翻譯</string>
     <string name="Translated">已翻譯</string>
     <string name="PasscodeNeeded">您必須先啟用密碼鎖定</string>
     <string name="PasscodeNemo">密碼</string>

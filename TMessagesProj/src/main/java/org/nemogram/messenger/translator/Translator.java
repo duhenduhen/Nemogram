@@ -48,7 +48,6 @@ public class Translator {
 
     public static final String PROVIDER_GOOGLE = "google";
     public static final String PROVIDER_YANDEX = "yandex";
-    public static final String PROVIDER_MICROSOFT = "microsoft";
     public static final String PROVIDER_DEEPL = "deepl";
     public static final String PROVIDER_TELEGRAM = "telegram";
 
@@ -147,8 +146,6 @@ public class Translator {
         types.add(PROVIDER_GOOGLE);
         names.add(LocaleController.getString(R.string.ProviderYandex));
         types.add(PROVIDER_YANDEX);
-        names.add(LocaleController.getString(R.string.ProviderMicrosoftTranslator));
-        types.add(PROVIDER_MICROSOFT);
         names.add(LocaleController.getString(R.string.ProviderDeepLTranslate));
         types.add(PROVIDER_DEEPL);
         names.add("Telegram");

@@ -101,7 +101,6 @@
     <string name="LastUpdateRecently">Most volt legutoljára sikeres ellenőrzés.</string>
     <string name="LastUpdateNever">A telepítés óta nem történt ellenőrzés.</string>
     <string name="CheckingUpdate">Frissítés ellenőrzése…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Fordító</string>
     <string name="TranslationProviderShort">Szolgáltató</string>
     <string name="ViewSourceCode">Forráskód megtekintése</string>
     <string name="AvatarAsBackground">Profilkép háttérként</string>
@@ -187,9 +186,6 @@
     <string name="TabletModeAuto">Automata</string>
     <string name="DeleteAllFromSelfDone">Az összes üzenete törlődik</string>
     <string name="UnknownNemoSettingsOption">Nincs ilyen Nemo Beállítások opció.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Fordító</string>
-    <string name="ProviderBaiduTranslate">Baidu Fordító</string>
-    <string name="ProviderSogouTranslate">Sogou Fordító</string>
     <string name="Translated">lefordítva</string>
     <string name="PasscodeNeeded">Először engedélyeznie kell a jelszó zárolást</string>
     <string name="PasscodeNemo">Jelszó</string>

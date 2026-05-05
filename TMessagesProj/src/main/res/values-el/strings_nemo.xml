@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Τελευταίος έλεγχος μόλις τώρα.</string>
     <string name="LastUpdateNever">Δεν ελέγχθηκε ποτέ από την εγκατάσταση.</string>
     <string name="CheckingUpdate">Έλεγχος για ενημέρωση…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft</string>
     <string name="TranslationProviderShort">Πάροχος Μετάφρασης</string>
     <string name="ViewSourceCode">Προβολή πηγαίου κώδικα</string>
     <string name="AvatarAsBackground">Εικόνα προφίλ ως Φόντο</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Αυτόματα</string>
     <string name="DeleteAllFromSelfDone">Όλα τα μηνύματά σας έχουν διαγραφεί</string>
     <string name="UnknownNemoSettingsOption">Δεν υπάρχει τέτοια επιλογή Ρυθμίσεων Nemo.</string>
-    <string name="ProviderYouDaoTranslate">YouDao</string>
-    <string name="ProviderBaiduTranslate">Baidu</string>
-    <string name="ProviderSogouTranslate">Sogou</string>
     <string name="Translated">μεταφράστηκε</string>
     <string name="PasscodeNeeded">Πρώτα ενεργοποιήστε το κλείδωμα με κωδικό</string>
     <string name="PasscodeNemo">Κωδικός</string>

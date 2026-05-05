@@ -96,7 +96,6 @@
     <string name="LastUpdateRecently">Oxirgi tekshirish hozirgina bajarildi.</string>
     <string name="LastUpdateNever">O\'rnatilgandan buyon tekshirilmagan.</string>
     <string name="CheckingUpdate">Yangilanishni tekshirish…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Tarjimon</string>
     <string name="TranslationProviderShort">Provayder</string>
     <string name="ViewSourceCode">Manba ko\'dini ko\'rish</string>
     <string name="AvatarAsBackground">Profil rasmidan orqa fon sifatida foydalanish</string>
@@ -181,9 +180,6 @@
     <string name="TabletModeAuto">Avto</string>
     <string name="DeleteAllFromSelfDone">Barcha xabarlaringiz o\'chirib tashlandi</string>
     <string name="UnknownNemoSettingsOption">Boshqa Nemo sozlamalari mavjud emas.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Tarjimon</string>
-    <string name="ProviderBaiduTranslate">Baidu Tarjimon</string>
-    <string name="ProviderSogouTranslate">Sogou Tarjimon</string>
     <string name="Translated">tarjima qilindi</string>
     <string name="PasscodeNeeded">Avval parolli qulflashni yoqishingiz kerak</string>
     <string name="PasscodeNemo">Parol</string>

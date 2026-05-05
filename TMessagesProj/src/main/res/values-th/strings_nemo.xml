@@ -101,7 +101,6 @@
     <string name="LastUpdateRecently">ตรวจสอบล่าสุดสำเร็จเมื่อสักครู่</string>
     <string name="LastUpdateNever">ไม่เคยตรวจสอบเลยตั้งแต่ติดตั้ง</string>
     <string name="CheckingUpdate">กำลังตรวจสอบการอัปเดต…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Translator</string>
     <string name="TranslationProviderShort">ผู้ให้บริการ</string>
     <string name="ViewSourceCode">ดูโค้ดต้นฉบับ</string>
     <string name="AvatarAsBackground">รูปโปรไฟล์เป็นพื้นหลัง</string>
@@ -186,9 +185,6 @@
     <string name="TabletModeAuto">อัตโนมัติ</string>
     <string name="DeleteAllFromSelfDone">ข้อความทั้งหมดของคุณถูกลบออกแล้ว</string>
     <string name="UnknownNemoSettingsOption">ไม่มีตัวเลือกการตั้งค่า Nemo ดังกล่าว</string>
-    <string name="ProviderYouDaoTranslate">YouDao Translator</string>
-    <string name="ProviderBaiduTranslate">Baidu Translate</string>
-    <string name="ProviderSogouTranslate">Sogou Translate</string>
     <string name="Translated">แปลแล้ว</string>
     <string name="PasscodeNeeded">คุณจะต้องเปิดใช้งานการล็อครหัสผ่านก่อน</string>
     <string name="PasscodeNemo">รหัสผ่าน</string>

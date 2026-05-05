@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Vừa kiểm tra thành công lần cuối.</string>
     <string name="LastUpdateNever">Chưa bao giờ kiểm tra kể từ lúc cài.</string>
     <string name="CheckingUpdate">Đang kiểm tra cập nhật…</string>
-    <string name="ProviderMicrosoftTranslator">Trình dịch Microsoft</string>
     <string name="TranslationProviderShort">Nhà cung cấp dịch vụ</string>
     <string name="ViewSourceCode">Xem mã nguồn</string>
     <string name="AvatarAsBackground">Ảnh đại diện làm hình nền</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Tự động</string>
     <string name="DeleteAllFromSelfDone">Đã xoá toàn bộ tin nhắn</string>
     <string name="UnknownNemoSettingsOption">Không có tùy chọn Cài đặt Nemo như vậy.</string>
-    <string name="ProviderYouDaoTranslate">Trình dịch YouDao</string>
-    <string name="ProviderBaiduTranslate">Baidu Dịch</string>
-    <string name="ProviderSogouTranslate">Sogou Dịch</string>
     <string name="Translated">đã dịch</string>
     <string name="PasscodeNeeded">Bạn phải bật khóa mật mã trước tiên</string>
     <string name="PasscodeNemo">Mật mã</string>

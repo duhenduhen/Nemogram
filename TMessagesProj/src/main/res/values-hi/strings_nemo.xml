@@ -94,7 +94,6 @@
     <string name="LastUpdateRecently">अभी अभी अंतिम बार चेक किया गया है।</string>
     <string name="LastUpdateNever">इंस्टॉल के बाद से अभी तक चेक नहीं किया गया।</string>
     <string name="CheckingUpdate">नए अपडेट्स के लिए चेक कर रहे है...</string>
-    <string name="ProviderMicrosoftTranslator">माइक्रोसॉफ्ट अनुवादक</string>
     <string name="TranslationProviderShort">उपलब्ध करवाने वाला</string>
     <string name="ViewSourceCode">मूल कोड देखें</string>
     <string name="AvatarAsBackground">प्रोफाइल फ़ोटो को बैकग्राउंड में देखे(कवर फोटो की तरह)</string>
@@ -179,9 +178,6 @@
     <string name="TabletModeAuto">स्वत:</string>
     <string name="DeleteAllFromSelfDone">आपके सभी संदेश हटा दिए गए हैं</string>
     <string name="UnknownNemoSettingsOption">ऐसा कोई नेको सेटिंग्स विकल्प नहीं है।</string>
-    <string name="ProviderYouDaoTranslate">YouDao अनुवादक</string>
-    <string name="ProviderBaiduTranslate">Baidu अनुवादक</string>
-    <string name="ProviderSogouTranslate">Sogou अनुवादक</string>
     <string name="Translated">अनुवाद किया जा चुका है</string>
     <string name="PasscodeNeeded">आपको पहले पासकोड लॉक सक्षम करना होगा</string>
     <string name="PasscodeNemo">पासकोड </string>

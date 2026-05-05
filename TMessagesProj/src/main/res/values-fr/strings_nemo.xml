@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Dernière vérification réussie à l\'instant.</string>
     <string name="LastUpdateNever">Jamais vérifié depuis l\'installation.</string>
     <string name="CheckingUpdate">Vérification des mise à jour…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft</string>
     <string name="TranslationProviderShort">Fournisseur</string>
     <string name="ViewSourceCode">Voir le code source</string>
     <string name="AvatarAsBackground">Image de profil en tant qu\'arrière-plan</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Auto</string>
     <string name="DeleteAllFromSelfDone">Tous vos messages sont supprimés</string>
     <string name="UnknownNemoSettingsOption">Il n\'y a pas d\'option Paramètres Nemo de ce type.</string>
-    <string name="ProviderYouDaoTranslate">YouDao</string>
-    <string name="ProviderBaiduTranslate">Baidu</string>
-    <string name="ProviderSogouTranslate">Sogou</string>
     <string name="Translated">traduit</string>
     <string name="PasscodeNeeded">Vous devez d\'abord activer le verrouillage par code d\'accès</string>
     <string name="PasscodeNemo">Code d\'accès</string>

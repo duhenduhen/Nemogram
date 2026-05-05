@@ -100,7 +100,6 @@
     <string name="LastUpdateRecently">Zojuist voor het laatst succesvol gecontroleerd.</string>
     <string name="LastUpdateNever">Nooit gecontroleerd sinds installatie.</string>
     <string name="CheckingUpdate">Controleren op updates…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Vertaler</string>
     <string name="TranslationProviderShort">Aanbieder</string>
     <string name="ViewSourceCode">Bekijk broncode</string>
     <string name="AvatarAsBackground">Profielfoto als achtergrond</string>
@@ -138,9 +137,6 @@
     <string name="MaxRecentStickers">Max. aantal recente stickers</string>
     <string name="DisableJumpToNextChannel">Schakel \"Ga naar het volgende kanaal\" uit</string>
     <string name="UnknownNemoSettingsOption">Er is geen soortgelijke Nemo-instelling.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Vertaler</string>
-    <string name="ProviderBaiduTranslate">Baidu Vertaler</string>
-    <string name="ProviderSogouTranslate">Sogou Vertaler</string>
     <string name="Translated">vertaald</string>
     <string name="PasscodeNeeded">Je moet eerst de toegangscode vergrendeling inschakelen</string>
     <string name="PasscodeNemo">Toegangscode</string>

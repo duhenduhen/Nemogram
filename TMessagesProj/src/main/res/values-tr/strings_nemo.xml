@@ -97,7 +97,6 @@
     <string name="LastUpdateRecently">Az önce başarıyla denetlendi.</string>
     <string name="LastUpdateNever">Kurulumdan bu yana hiç denetlenmedi.</string>
     <string name="CheckingUpdate">Güncellemeler bakılıyor…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Çeviri</string>
     <string name="TranslationProviderShort">Sağlayıcınız</string>
     <string name="ViewSourceCode">Kaynak kodunu görüntüleyin</string>
     <string name="AvatarAsBackground">Arka plan olarak profil resmi</string>
@@ -181,9 +180,6 @@
     <string name="TabletModeAuto">Otomatik</string>
     <string name="DeleteAllFromSelfDone">Tüm mesajlarınız silindi</string>
     <string name="UnknownNemoSettingsOption">Böyle bir Nemo Ayarlar seçeneği yok.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Çeviri</string>
-    <string name="ProviderBaiduTranslate">Baidu Çeviri</string>
-    <string name="ProviderSogouTranslate">Sogou Çeviri</string>
     <string name="Translated">çevrildi</string>
     <string name="PasscodeNeeded">Önce uygulama kilidini etkinleştirmelisiniz</string>
     <string name="PasscodeNemo">Parola</string>

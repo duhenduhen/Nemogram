@@ -100,7 +100,6 @@
     <string name="LastUpdateRecently">Baru saja diperiksa.</string>
     <string name="LastUpdateNever">Tidak pernah diperiksa sejak diinstal.</string>
     <string name="CheckingUpdate">Memeriksa pembaruan…</string>
-    <string name="ProviderMicrosoftTranslator">Penerjemah Microsoft</string>
     <string name="TranslationProviderShort">Penyedia</string>
     <string name="ViewSourceCode">Lihat kode sumber</string>
     <string name="AvatarAsBackground">Foto profil sebagai latar belakang</string>
@@ -185,9 +184,6 @@
     <string name="TabletModeAuto">Otomatis</string>
     <string name="DeleteAllFromSelfDone">Semua pesan Anda telah dihapus</string>
     <string name="UnknownNemoSettingsOption">There is no such Nemo Settings option.</string>
-    <string name="ProviderYouDaoTranslate">Penerjemah YouDao</string>
-    <string name="ProviderBaiduTranslate">Penerjemah Baidu</string>
-    <string name="ProviderSogouTranslate">Penerjemah Sogou</string>
     <string name="Translated">diterjemahkan</string>
     <string name="PasscodeNeeded">Anda harus mengaktifkan sandi terlebih dahulu</string>
     <string name="PasscodeNemo">Sandi</string>

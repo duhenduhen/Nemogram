@@ -96,7 +96,6 @@
     <string name="LastUpdateRecently">Остання успішно перевірена тільки що.</string>
     <string name="LastUpdateNever">Ніколи не перевірявся з моменту встановлення.</string>
     <string name="CheckingUpdate">Перевіряю оновлення…</string>
-    <string name="ProviderMicrosoftTranslator">Майкрософт перекладач</string>
     <string name="TranslationProviderShort">Провайдер</string>
     <string name="ViewSourceCode">Подивитись вихідний код</string>
     <string name="AvatarAsBackground">Зображення профілю у якості фону</string>

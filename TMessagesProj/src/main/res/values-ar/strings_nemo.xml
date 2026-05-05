@@ -99,7 +99,6 @@
     <string name="LastUpdateRecently">تم آخر فحص بنجاح الآن.</string>
     <string name="LastUpdateNever">لم يتم التحقق منذ التثبيت.</string>
     <string name="CheckingUpdate">جارٍ التحقق من التحديث…</string>
-    <string name="ProviderMicrosoftTranslator">مترجم مايكـروسـوفت</string>
     <string name="TranslationProviderShort">مزود الخدمة</string>
     <string name="ViewSourceCode">عرض الرمز المصدري</string>
     <string name="AvatarAsBackground">الصورة الشخصية كخلفية</string>
@@ -185,9 +184,6 @@
     <string name="TabletModeAuto">وضع الكمبيوتر اللوحي تلقائي</string>
     <string name="DeleteAllFromSelfDone">كل رسائلك حُذفت</string>
     <string name="UnknownNemoSettingsOption">لا يوجد خِيار لإعدادات نكو من هذا القبيل.</string>
-    <string name="ProviderYouDaoTranslate">مترجم يودوا 🇨🇳</string>
-    <string name="ProviderBaiduTranslate">تَرْجَمَة بادو</string>
-    <string name="ProviderSogouTranslate">مترجم سجوي 🇨🇳</string>
     <string name="Translated">تمت التَّرْجَمَة</string>
     <string name="PasscodeNeeded">يجب عليك تفعيل قُفْل رمز المرور أولاً</string>
     <string name="PasscodeNemo">رمز الدخول</string>

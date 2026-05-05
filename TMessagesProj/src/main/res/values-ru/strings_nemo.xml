@@ -99,7 +99,6 @@
     <string name="LastUpdateRecently">Последняя успешная проверка была сейчас.</string>
     <string name="LastUpdateNever">Обновления ни разу не проверялись.</string>
     <string name="CheckingUpdate">Проверка обновлений…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Translator</string>
     <string name="TranslationProviderShort">Поставщик</string>
     <string name="ViewSourceCode">Посмотреть исходный код</string>
     <string name="AvatarAsBackground">Фото профиля в качестве фона</string>
@@ -184,9 +183,6 @@
     <string name="TabletModeAuto">Автоматически</string>
     <string name="DeleteAllFromSelfDone">Все ваши сообщения удалены</string>
     <string name="UnknownNemoSettingsOption">Такого параметра Nemo нет.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Translator</string>
-    <string name="ProviderBaiduTranslate">Baidu Translate</string>
-    <string name="ProviderSogouTranslate">Sogou Translate</string>
     <string name="Translated">переведено</string>
     <string name="PasscodeNeeded">Сначала необходимо включить код-пароль</string>
     <string name="PasscodeNemo">Код-пароль</string>

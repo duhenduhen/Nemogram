@@ -101,7 +101,6 @@
     <string name="LastUpdateRecently">Ultima verificare a fost efectuată acum.</string>
     <string name="LastUpdateNever">Niciodată verificat din momentul instalării.</string>
     <string name="CheckingUpdate">Se caută actualizare…</string>
-    <string name="ProviderMicrosoftTranslator">Traducător Microsoft</string>
     <string name="TranslationProviderShort">Furnizor</string>
     <string name="ViewSourceCode">Vizualizați codul sursă</string>
     <string name="AvatarAsBackground">Imagine de profil ca fundal</string>
@@ -186,9 +185,6 @@
     <string name="TabletModeAuto">Implicit</string>
     <string name="DeleteAllFromSelfDone">Toate mesajele dumneavoastră sunt șterse</string>
     <string name="UnknownNemoSettingsOption">Nu există o astfel de opţiune de Setări Nemo.</string>
-    <string name="ProviderYouDaoTranslate">Traducător YouDao</string>
-    <string name="ProviderBaiduTranslate">Traducător Baidu</string>
-    <string name="ProviderSogouTranslate">Traducător Sogou</string>
     <string name="Translated">tradus</string>
     <string name="PasscodeNeeded">Mai întâi trebuie să activați blocarea codului de acces</string>
     <string name="PasscodeNemo">Cod de acces</string>

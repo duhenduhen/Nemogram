@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Апошняя паспяховая праверка была зараз.</string>
     <string name="LastUpdateNever">Абнаўленні ні разу не правяраліся.</string>
     <string name="CheckingUpdate">Праверка наяўнасці абнаўленняў…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Translator</string>
     <string name="TranslationProviderShort">Пастаўшчык</string>
     <string name="ViewSourceCode">Паглядзець зыходны код</string>
     <string name="AvatarAsBackground">Фота профілю ў якасці фону</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Аўтаматычна</string>
     <string name="DeleteAllFromSelfDone">Усе вашы паведамленні выдалены</string>
     <string name="UnknownNemoSettingsOption">Такой опцыі ў наладах Nemo няма.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Translator</string>
-    <string name="ProviderBaiduTranslate">Baidu Translate</string>
-    <string name="ProviderSogouTranslate">Sogou Translate</string>
     <string name="Translated">перакладзена</string>
     <string name="PasscodeNeeded">Спачатку неабходна ўключыць блакіроўку паролям</string>
     <string name="PasscodeNemo">Пароль</string>

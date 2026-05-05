@@ -103,7 +103,6 @@
     <string name="LastUpdateRecently">Last successfully checked just now.</string>
     <string name="LastUpdateNever">Never checked since install.</string>
     <string name="CheckingUpdate">Checking for update…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Translator</string>
     <string name="TranslationProviderShort">Provider</string>
     <string name="ViewSourceCode">View source code</string>
     <string name="AvatarAsBackground">Profile picture as background</string>
@@ -188,9 +187,6 @@
     <string name="TabletModeAuto">Auto</string>
     <string name="DeleteAllFromSelfDone">All your messages are deleted</string>
     <string name="UnknownNemoSettingsOption">There is no such Nemo Settings option.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Translator</string>
-    <string name="ProviderBaiduTranslate">Baidu Translate</string>
-    <string name="ProviderSogouTranslate">Sogou Translate</string>
     <string name="Translated">translated</string>
     <string name="PasscodeNeeded">You have to enable passcode lock first</string>
     <string name="PasscodeNemo">Passcode</string>

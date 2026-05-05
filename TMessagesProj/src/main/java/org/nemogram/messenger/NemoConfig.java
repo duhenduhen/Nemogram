@@ -213,6 +213,7 @@ public class NemoConfig {
             disableVoiceMessageAutoPlay = preferences.getBoolean("disableVoiceMessageAutoPlay", false);
             unmuteVideosWithVolumeButtons = preferences.getBoolean("unmuteVideosWithVolumeButtons", true);
             transType = preferences.getInt("transType", TRANS_TYPE_NEMO);
+            deepLFormality = preferences.getInt("deepLFormality", DeepLTranslator.FORMALITY_DEFAULT);
             showCopyPhoto = preferences.getBoolean("showCopyPhoto", false);
             doubleTapInAction = preferences.getInt("doubleTapAction", DOUBLE_TAP_ACTION_REACTION);
             doubleTapOutAction = preferences.getInt("doubleTapOutAction", doubleTapInAction);

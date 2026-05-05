@@ -92,7 +92,6 @@
     <string name="LastUpdateRecently">Sidst kontrolleret lige nu.</string>
     <string name="LastUpdateNever">Aldrig kontrolleret siden installation.</string>
     <string name="CheckingUpdate">Søger efter opdatering…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Oversætter</string>
     <string name="TranslationProviderShort">Udbyder</string>
     <string name="ViewSourceCode">Vis kildekode</string>
     <string name="AvatarAsBackground">Profilbillede som baggrund</string>
@@ -174,9 +173,6 @@
     <string name="TabletModeAuto">Auto</string>
     <string name="DeleteAllFromSelfDone">Alle dine beskeder er slettet</string>
     <string name="UnknownNemoSettingsOption">Der er ikke en sådan indstillingsmulighed for Nemo.</string>
-    <string name="ProviderYouDaoTranslate">YouDao oversætter</string>
-    <string name="ProviderBaiduTranslate">Baidu Oversætter</string>
-    <string name="ProviderSogouTranslate">Sogou Oversætter</string>
     <string name="Translated">oversat</string>
     <string name="PasscodeNeeded">Du er nødt til at aktivere adgangskode lås først</string>
     <string name="PasscodeNemo">Adgangskode</string>

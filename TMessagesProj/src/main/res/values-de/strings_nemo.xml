@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Zuletzt erfolgreich gerade überprüft.</string>
     <string name="LastUpdateNever">Seit der Installation nie überprüft.</string>
     <string name="CheckingUpdate">Nach Updates suchen…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft Übersetzer</string>
     <string name="TranslationProviderShort">Anbieter</string>
     <string name="ViewSourceCode">Quellcode anzeigen</string>
     <string name="AvatarAsBackground">Profilbild als Hintergrund</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Automatisch</string>
     <string name="DeleteAllFromSelfDone">Alle deine Nachrichten sind gelöscht</string>
     <string name="UnknownNemoSettingsOption">Es gibt keine solche Nemo-Einstellungsoption.</string>
-    <string name="ProviderYouDaoTranslate">YouDao Übersetzer</string>
-    <string name="ProviderBaiduTranslate">Baidu Übersetzer</string>
-    <string name="ProviderSogouTranslate">Sogou Übersetzer</string>
     <string name="Translated">übersetzt</string>
     <string name="PasscodeNeeded">Du mußt zuerst die Pincodesperre aktivieren</string>
     <string name="PasscodeNemo">Pincode</string>

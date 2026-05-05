@@ -94,7 +94,6 @@
     <string name="LastUpdateRecently">Pēdējo reizi veiksmīgi pārbaudīts tikai tagad.</string>
     <string name="LastUpdateNever">Nekad nav pārbaudīts kopš instalēšanas.</string>
     <string name="CheckingUpdate">Atjaunināšanas pārbaude…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft tulkotājs</string>
     <string name="TranslationProviderShort">Nodrošinātājs</string>
     <string name="ViewSourceCode">Skatīt pirmkodu</string>
     <string name="AvatarAsBackground">Profila attēls kā fons</string>
@@ -179,9 +178,6 @@
     <string name="TabletModeAuto">Auto</string>
     <string name="DeleteAllFromSelfDone">Visi jūsu ziņojumi tiek dzēsti</string>
     <string name="UnknownNemoSettingsOption">Šādas opcijas Nemo iestatījumi nav.</string>
-    <string name="ProviderYouDaoTranslate">YouDao tulkotājs</string>
-    <string name="ProviderBaiduTranslate">Baidu tulkotājs</string>
-    <string name="ProviderSogouTranslate">Sogou tulkot</string>
     <string name="Translated">tulkojums</string>
     <string name="PasscodeNeeded">Vispirms jāaktivizē piekļuves koda bloķēšana</string>
     <string name="PasscodeNemo">Pieejas kods</string>

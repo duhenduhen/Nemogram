@@ -97,7 +97,6 @@
     <string name="LastUpdateRecently">방금 전 확인 하였습니다</string>
     <string name="LastUpdateNever">설치 후 한번도 확인 하지 않음</string>
     <string name="CheckingUpdate">업데이트 확인 중...</string>
-    <string name="ProviderMicrosoftTranslator">마이크로소프트 번역기</string>
     <string name="TranslationProviderShort">제공자</string>
     <string name="ViewSourceCode">소스코드 보기</string>
     <string name="AvatarAsBackground">배경으로 프로필 사진 쓰기</string>
@@ -182,9 +181,6 @@
     <string name="TabletModeAuto">자동</string>
     <string name="DeleteAllFromSelfDone">모든 메세지가 삭제 되었습니다</string>
     <string name="UnknownNemoSettingsOption">그러한 Nemo 설정 옵션이 없습니다.</string>
-    <string name="ProviderYouDaoTranslate">유다오 번역</string>
-    <string name="ProviderBaiduTranslate">바이두 번역</string>
-    <string name="ProviderSogouTranslate">소고우 번역</string>
     <string name="Translated">번역</string>
     <string name="PasscodeNeeded">먼저 암호 잠금을 활성화해야 합니다.</string>
     <string name="PasscodeNemo">암호</string>

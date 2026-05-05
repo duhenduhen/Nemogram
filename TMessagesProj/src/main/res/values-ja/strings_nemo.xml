@@ -100,7 +100,6 @@
     <string name="LastUpdateRecently">たった今アップデートを確認しました。</string>
     <string name="LastUpdateNever">インストール後、一度も確認していません。</string>
     <string name="CheckingUpdate">アップデートを確認中...</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft翻訳</string>
     <string name="TranslationProviderShort">プロバイダー</string>
     <string name="ViewSourceCode">ソースコードを表示</string>
     <string name="AvatarAsBackground">プロフィール画像を背景として表示</string>
@@ -185,9 +184,6 @@
     <string name="TabletModeAuto">自動</string>
     <string name="DeleteAllFromSelfDone">あなたが送信したすべてのメッセージが削除されました</string>
     <string name="UnknownNemoSettingsOption">このようなNemogramの設定オプションはありません。</string>
-    <string name="ProviderYouDaoTranslate">YouDao翻訳</string>
-    <string name="ProviderBaiduTranslate">Baidu翻訳</string>
-    <string name="ProviderSogouTranslate">Sogou翻訳</string>
     <string name="Translated">翻訳済み</string>
     <string name="PasscodeNeeded">最初にパスコードロックを有効にする必要があります</string>
     <string name="PasscodeNemo">パスコード</string>

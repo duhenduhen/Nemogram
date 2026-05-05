@@ -98,7 +98,6 @@
     <string name="LastUpdateRecently">Последња успешна провера управо сада.</string>
     <string name="LastUpdateNever">Никада проверавано од инсталирања.</string>
     <string name="CheckingUpdate">Провера ажурирања…</string>
-    <string name="ProviderMicrosoftTranslator">Microsoft преводилац</string>
     <string name="TranslationProviderShort">Пружалац</string>
     <string name="ViewSourceCode">Погледај изворни кôд</string>
     <string name="AvatarAsBackground">Слика профила као позадина</string>
@@ -183,9 +182,6 @@
     <string name="TabletModeAuto">Аутоматски</string>
     <string name="DeleteAllFromSelfDone">Све ваше поруке су избрисане</string>
     <string name="UnknownNemoSettingsOption">Не постоји таква опција у Nemo подешавањима.</string>
-    <string name="ProviderYouDaoTranslate">YouDao преводилац</string>
-    <string name="ProviderBaiduTranslate">Baidu преводилац</string>
-    <string name="ProviderSogouTranslate">Sogou преводилац</string>
     <string name="Translated">преведено</string>
     <string name="PasscodeNeeded">Прво морате да омогућите закључавање кодом</string>
     <string name="PasscodeNemo">Кôд</string>
